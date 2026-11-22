@@ -1,0 +1,38 @@
+databases:
+  - name: spatialos-postgres
+    databaseName: spatialos
+    user: spatialos
+    plan: free
+
+services:
+  - type: web
+    name: spatialos-portfolio
+    runtime: python
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: alembic -c backend/alembic.ini upgrade head && uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: spatialos-postgres
+          property: internalConnectionString
+      - key: APP_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CORS_ORIGINS
+        value: https://spatialos-portfolio.onrender.com
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: MOYASAR_SECRET_KEY
+        sync: false
+      - key: MOYASAR_WEBHOOK_SECRET
+        sync: false
+      - key: MOYASAR_LIVE
+        value: "false"
+      - key: MOYASAR_CALLBACK_URL
+        value: https://spatialos-portfolio.onrender.com/payment/callback

@@ -838,10 +838,14 @@
         
         <!-- Smart Composer Card -->
         <div class="lg:col-span-7 glass-cobalt rounded-3xl p-6 sm:p-8 space-y-5">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="اسمك الكريم" data-en="YOUR NAME">اسمك الكريم</label>
               <input id="senderName" type="text" placeholder="الاسم / Name" class="w-full px-4 py-3 rounded-xl bg-[#06080D]/90 border border-white/10 focus:border-[#6382FF] focus:outline-none text-sm text-[#F4F6FB]" />
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="بريدك الإلكتروني" data-en="YOUR EMAIL">بريدك الإلكتروني</label>
+              <input id="senderEmail" type="email" placeholder="you@example.com" dir="ltr" class="w-full px-4 py-3 rounded-xl bg-[#06080D]/90 border border-white/10 focus:border-[#6382FF] focus:outline-none text-sm text-[#F4F6FB]" />
             </div>
             <div>
               <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="عنوان الموضوع" data-en="SUBJECT">عنوان الموضوع</label>
@@ -1747,8 +1751,21 @@
       showToast(lang === 'ar' ? 'تم نسخ رسالتك المنسقة بنجاح!' : 'Formatted message copied to clipboard!');
     }
 
-    function executeDispatch() {
+    async function persistContactMessage() {
+      const name = (document.getElementById('senderName').value || '').trim();
+      const email = (document.getElementById('senderEmail').value || '').trim();
+      const subject = (document.getElementById('senderSubject').value || '').trim();
+      const message = (document.getElementById('senderMessage').value || '').trim();
+      if (!name || !email || !message) return false;
+      try {
+        const response = await fetch('/api/messages', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, subject, message }) });
+        return response.ok;
+      } catch (error) { return false; }
+    }
+
+    async function executeDispatch() {
       const payload = buildFormattedPayload();
+      const saved = await persistContactMessage();
       copyTextFallback(payload);
       const encoded = encodeURIComponent(payload);
       const subjectEncoded = encodeURIComponent((document.getElementById('senderSubject').value || 'Portfolio Inquiry').trim());
@@ -1766,7 +1783,7 @@
         targetUrl = `mailto:aymnb7178@gmail.com?subject=${subjectEncoded}&body=${encoded}`;
       }
 
-      showToast(lang === 'ar' ? 'تم نسخ رسالتك وتجهيزها — جاري نقلك لحسابي...' : 'Message copied & prepared — opening platform...');
+      showToast(saved ? (lang === 'ar' ? 'تم حفظ رسالتك وتجهيزها — جاري نقلك لحسابي...' : 'Message saved & prepared — opening platform...') : (lang === 'ar' ? 'تم تجهيز الرسالة — أضف بريدك لحفظها في النظام.' : 'Message prepared — add your email to save it in the system.'));
       setTimeout(() => {
         window.open(targetUrl, '_blank', 'noopener');
       }, 450);
