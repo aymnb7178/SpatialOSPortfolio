@@ -10,8 +10,6 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:8000,http://127.0.0.1:8000"
     admin_email: str = ""
     admin_password_override: str = ""
-    gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
     moyasar_secret_key: str = ""
     moyasar_webhook_secret: str = ""
     moyasar_live: bool = False

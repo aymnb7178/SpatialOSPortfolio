@@ -18,12 +18,12 @@ uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
 
 اربط مستودع GitHub في Render واستخدم `render.yaml`. يستخدم الملف Build Command `pip install -r backend/requirements.txt`، ويطبق Alembic migrations قبل Start Command `uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT`. يجب أن تكون قاعدة PostgreSQL والخدمة في نفس المنطقة، وتستخدم الخدمة `internalConnectionString`.
 
-بعد إنشاء الخدمة، أضف `ADMIN_EMAIL` و`GEMINI_API_KEY` و`MOYASAR_SECRET_KEY` و`MOYASAR_WEBHOOK_SECRET` من لوحة Render. لا تضع مفتاح Gemini أو مفاتيح Moyasar في GitHub أو داخل `.env.example`. اترك `MOYASAR_LIVE=false`؛ تكامل الدفع مجهز برمجيًا فقط وليس تفعيلًا للدفع الحقيقي.
+بعد إنشاء الخدمة، أضف `ADMIN_EMAIL` و`MOYASAR_SECRET_KEY` و`MOYASAR_WEBHOOK_SECRET` من لوحة Render عند الحاجة. لا تضع مفاتيح Moyasar في GitHub أو داخل `.env.example`. اترك `MOYASAR_LIVE=false`؛ تكامل الدفع مجهز برمجيًا فقط وليس تفعيلًا للدفع الحقيقي.
 
 ## API مختصر
 
-`POST /api/auth/register` و`POST /api/auth/login` للحسابات، `POST /api/messages` لحفظ رسائل العملاء، و`POST /api/orders` و`GET /api/orders` لطلبات المستخدم. المساعد المتقدم يعمل عبر `POST /api/assistant/chat` ويستدعي Gemini من Backend فقط، بينما تبقى الواجهة على مساعد محلي احتياطي عند الفشل أو انتهاء الحصة. يتطلب إنشاء الدفع تسجيل الدخول عبر `POST /api/payments/create`. لوحة التحكم متاحة للمستخدم ذي الدور `admin` على `/api/admin/*`.
+`POST /api/auth/register` و`POST /api/auth/login` للحسابات، `POST /api/messages` لحفظ رسائل العملاء، و`POST /api/orders` و`GET /api/orders` لطلبات المستخدم. المساعد المحلي يعمل داخل `index.html` من قاعدة معرفة منظمة، مع تصنيف نوايا وفهم للمتابعة، ولا يحتاج API. يتطلب إنشاء الدفع تسجيل الدخول عبر `POST /api/payments/create`. لوحة التحكم متاحة للمستخدم ذي الدور `admin` على `/api/admin/*`.
 
-## Gemini والمجانية
+## المساعد المحلي
 
-اضبط `GEMINI_API_KEY` كمتغير سري في Render فقط، ويمكن تغيير النموذج عبر `GEMINI_MODEL` (القيمة الحالية `gemini-2.5-flash`). لا يظهر المفتاح في `index.html` أو GitHub، ولا تحفظ المحادثات في قاعدة بيانات الموقع. يوجد حد مؤقت يقارب 20 طلبًا لكل عنوان IP خلال ساعة، وتعود الواجهة إلى المساعد المحلي إذا لم يتوفر المفتاح أو فشل الاتصال أو انتهت الحصة. استخدام Gemini يخضع لحصته المجانية لدى Google؛ عدم وجود بطاقة لا يعني مجانية غير محدودة، لذلك لا يفعّل المشروع Billing أو بطاقة أو ترقية Render.
+المساعد يعمل داخل المتصفح بدون Gemini أو OpenAI أو أي API خارجي، لذلك لا يحتاج بطاقة أو Billing ولا يرسل محادثات الزوار إلى مزود خارجي. يعتمد على قاعدة معرفة عن أيمن والموقع، وتطبيع للعربية، ودرجات نوايا، وفهم لأسئلة المتابعة، ويفتح أقسام الأعمال والخدمات والتواصل عند الطلب. لا يدّعي معرفة ما ليس موجودًا في قاعدة المعرفة؛ وعند السؤال خارج نطاقه يطلب من الزائر إعادة صياغة السؤال أو التواصل مع أيمن.

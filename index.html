@@ -1139,7 +1139,7 @@
     <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between gap-3">
       <div class="flex items-center gap-2.5">
         <span class="w-9 h-9 rounded-xl bg-[#C6F36C]/15 border border-[#C6F36C]/30 text-[#C6F36C] flex items-center justify-center">✦</span>
-        <div><h2 class="font-bold text-sm text-[#F4F6FB]" data-ar="مساعد أيمن" data-en="Aymen's Assistant">مساعد أيمن</h2><p class="text-[10px] text-[#8F9BB3]" data-ar="Gemini مع رد احتياطي محلي" data-en="Gemini with local fallback">Gemini مع رد احتياطي محلي</p></div>
+        <div><h2 class="font-bold text-sm text-[#F4F6FB]" data-ar="مساعد أيمن المحلي" data-en="Aymen's Local Assistant">مساعد أيمن المحلي</h2><p class="text-[10px] text-[#8F9BB3]" data-ar="فهم محلي بدون API" data-en="Local intelligence — no API">فهم محلي بدون API</p></div>
       </div>
       <button onclick="toggleAssistant(false)" class="w-8 h-8 rounded-lg hover:bg-white/10 text-[#8F9BB3]" aria-label="إغلاق">×</button>
     </header>
@@ -1154,7 +1154,7 @@
         <input id="assistantInput" class="account-input !min-h-[44px] !rounded-xl text-xs" placeholder="اكتب سؤالك..." autocomplete="off" />
         <button class="shrink-0 w-11 h-11 rounded-xl bg-[#6382FF] hover:bg-[#5271F5] text-white flex items-center justify-center" aria-label="إرسال"><svg class="w-4 h-4 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14-7-3 14-4-5-7-2Z"/><path d="m12 14 4-4"/></svg></button>
       </form>
-      <p class="mt-2 text-[9px] text-[#8F9BB3]" data-ar="يستخدم Gemini عند توفره، مع رد محلي احتياطي. لا نحفظ المحادثة في قاعدة بيانات الموقع." data-en="Uses Gemini when available, with a local fallback. Chats are not stored in this site's database.">يستخدم Gemini عند توفره، مع رد محلي احتياطي. لا نحفظ المحادثة في قاعدة بيانات الموقع.</p>
+      <p class="mt-2 text-[9px] text-[#8F9BB3]" data-ar="يعمل محليًا من قاعدة معرفة الموقع ولا يرسل محادثتك إلى خدمة خارجية." data-en="Runs locally from the site's knowledge base and sends no chat to an external service.">يعمل محليًا من قاعدة معرفة الموقع ولا يرسل محادثتك إلى خدمة خارجية.</p>
     </div>
   </section>
 
@@ -2070,21 +2070,35 @@
       }, 3400);
     }
 
-    // ==================== GEMINI SITE ASSISTANT + LOCAL FALLBACK ====================
+    // ==================== LOCAL SITE ASSISTANT ====================
     let assistantStarted = false;
     let assistantLastTopic = '';
     const assistantHistory = [];
     const assistantConversation = [];
     const assistantKnowledge = {
-      identity: 'أيمن عبدربه العروي طالب تقنية معلومات وبانٍ مستقل من مكة المكرمة. يحوّل الأفكار إلى أنظمة رقمية عملية ويجمع بين البرمجة والبيانات والتجارب التفاعلية.',
-      skills: 'يعمل بأيمن في Python وواجهات API وتحليل البيانات والأتمتة والرؤية الحاسوبية والذكاء الاصطناعي العربي وتصميم تجارب الويب. كما يطوّر حلولًا باستخدام FastAPI وPostgreSQL.',
-      projects: 'أبرز المشاريع: SpatialOS، وJ.A.R.V.I.S للتفاعل بالإيماءات والصوت، وSignBridge AI لترجمة الإشارات، وNira كمساعد شخصي ذكي. يمكنك فتح قسم الأعمال لرؤية التفاصيل التفاعلية.',
-      services: 'الخدمات تشمل بناء حلول Python وواجهات API، أتمتة الأعمال، تحليل البيانات، نماذج الذكاء الاصطناعي الأولية، لوحات التحكم، وتجارب الويب التفاعلية.',
-      contact: 'أفضل طريقة هي قسم «موزع التواصل» داخل الموقع. للتواصل المباشر استخدم Telegram: @Il7IAI، أو اختر WhatsApp أو البريد من صفحة التواصل.',
-      community: 'أيمن يشارك في قيادة مجتمع Techno Repos التقني، ويهتم بمشاركة المعرفة وبناء مشاريع مفيدة للمجتمع.',
-      pricing: 'لا توجد قائمة أسعار ثابتة؛ لأن السعر يعتمد على نطاق المشروع ووقت التنفيذ. أرسل التفاصيل من صفحة التواصل ليتم تحديد النطاق والتكلفة المناسبة.',
-      assistant: 'هذا إصدار مجاني يعمل داخل المتصفح من قاعدة معرفة الموقع، لذلك لا يحتاج API ولا يحفظ المحادثة. يفهم أسئلة متعددة عن أيمن، ويقترح الأقسام المناسبة. النموذج اللغوي الحقيقي يحتاج خدمة خارجية وموافقة منفصلة.',
+      identity: 'أيمن عبدربه العروي طالب تقنية معلومات وبانٍ مستقل من مكة المكرمة. يحوّل الأفكار إلى أنظمة رقمية عملية، ويجمع بين البرمجة والبيانات والأتمتة والتجارب التفاعلية.',
+      skills: 'مهارات أيمن تشمل Python، بناء REST APIs، FastAPI، PostgreSQL، تحليل البيانات، Excel وPower BI، الأتمتة، الرؤية الحاسوبية، الذكاء الاصطناعي العربي، وتصميم تجارب الويب التفاعلية.',
+      projects: 'من أبرز أعماله SpatialOS، وJ.A.R.V.I.S للتفاعل بالإيماءات والصوت، وSignBridge AI لترجمة الإشارات، وNira كمساعد شخصي ذكي. افتح قسم الأعمال لرؤية التجارب والتفاصيل.',
+      services: 'يقدم حلول Python وواجهات API، أتمتة الأعمال، تحليل البيانات والتقارير، نماذج ذكاء اصطناعي أولية، لوحات تحكم، مواقع وتطبيقات ويب تفاعلية، وربط الخدمات وسير العمل.',
+      contact: 'للتواصل المباشر استخدم Telegram عبر الحساب @Il7IAI، أو اختر WhatsApp أو البريد أو Instagram أو X من قسم «موزع التواصل» داخل الموقع. ويمكنك أيضًا إرسال رسالة من نموذج التواصل.',
+      community: 'أيمن يشارك في قيادة مجتمع Techno Repos التقني، ويهتم بمشاركة المعرفة وبناء مشاريع عملية مفيدة للمجتمع.',
+      pricing: 'لا توجد قائمة أسعار ثابتة؛ السعر يعتمد على نطاق المشروع، عدد المزايا، ووقت التنفيذ. أرسل وصفًا واضحًا من صفحة التواصل ليتم تحديد النطاق والتكلفة المناسبة.',
+      assistant: 'أنا مساعد محلي يعمل داخل الموقع من قاعدة معرفة منظمة، ولا أرسل رسائلك إلى خدمة خارجية ولا أحتاج مفتاح API. أفهم الأسئلة بالعربية والإنجليزية، وأتذكر موضوع الحوار داخل الجلسة، وأستطيع توجيهك إلى أقسام الموقع.',
+      technology: 'الستاك المستخدم في الموقع يجمع HTML وCSS وVanilla JavaScript في الواجهة، وFastAPI وPython في الخادم، مع PostgreSQL في الإنتاج وSQLite للتطوير المحلي. لا يحتاج المساعد نفسه إلى Node.js أو React.',
+      availability: 'يمكن مناقشة مشروع جديد عبر قسم التواصل. أرسل الهدف، المزايا المطلوبة، الموعد التقريبي، وأي مراجع أو ميزانية متوقعة؛ وسيتم تحويل التفاصيل إلى رسالة منظمة.',
     };
+    const assistantIntents = [
+      { topic: 'identity', words: ['من هو', 'عرفني', 'عن ايمن', 'نبذه', 'سيرته', 'who is', 'about aymen', 'bio'], weight: 5 },
+      { topic: 'skills', words: ['مهار', 'خبر', 'قدرات', 'تقني', 'لغات البرمجه', 'ماذا يعرف', 'skill', 'technology', 'stack', 'experience'], weight: 4 },
+      { topic: 'projects', words: ['مشروع', 'اعمال', 'معرض', 'انجاز', 'portfolio', 'project', 'jarvis', 'spatialos', 'signbridge', 'nira'], weight: 4 },
+      { topic: 'services', words: ['خدم', 'ماذا يقدم', 'وش يقدم', 'ماذا تعمل', 'اطلب', 'service', 'offer', 'build'], weight: 4 },
+      { topic: 'contact', words: ['تواصل', 'اتصل', 'تلجرام', 'telegram', 'email', 'بريد', 'whatsapp', 'رساله', 'حسابك', 'رابط'], weight: 4 },
+      { topic: 'community', words: ['مجتمع', 'techno', 'community', 'فريق', 'مشاركة المعرفة'], weight: 4 },
+      { topic: 'pricing', words: ['سعر', 'تكلف', 'ميزاني', 'كم', 'price', 'cost', 'how much', 'ميزانيه'], weight: 3 },
+      { topic: 'assistant', words: ['مساعد', 'ذكاء اصطناعي', 'كيف تعمل', 'كيف تفهم', 'ai', 'assistant', 'تدريب'], weight: 5 },
+      { topic: 'technology', words: ['بايثون', 'python', 'fastapi', 'postgres', 'قاعدة بيانات', 'react', 'node', 'تقنيه الموقع', 'stack'], weight: 4 },
+      { topic: 'availability', words: ['ابدأ', 'طلب مشروع', 'مشروع جديد', 'متاح', 'availability', 'start', 'brief'], weight: 3 },
+    ];
 
     function toggleAssistant(force) {
       const panel = document.getElementById('assistantPanel');
@@ -2124,32 +2138,32 @@
     function assistantReply(question) {
       const q = normalizeAssistantText(question);
       const has = (...words) => words.some(word => q.includes(normalizeAssistantText(word)));
-      const followUp = has('طيب', 'وماذا بعد', 'كيف', 'المزيد', 'more', 'then') && assistantLastTopic;
-      let topic = '';
-      if (has('من هو', 'عرفني', 'عن ايمن', 'who is', 'about', 'نبذه')) topic = 'identity';
-      else if (has('مهار', 'خبر', 'تقني', 'stack', 'skill', 'technology', 'لغات البرمجه')) topic = 'skills';
-      else if (has('مشروع', 'اعمال', 'معرض', 'portfolio', 'project', 'jarvis', 'spatialos', 'signbridge', 'nira')) topic = 'projects';
-      else if (has('خدم', 'ماذا يقدم', 'وش يقدم', 'اطلب', 'service', 'offer')) topic = 'services';
-      else if (has('تواصل', 'اتصل', 'تلجرام', 'telegram', 'email', 'بريد', 'whatsapp', 'رساله')) topic = 'contact';
-      else if (has('مجتمع', 'techno', 'community')) topic = 'community';
-      else if (has('سعر', 'تكلف', 'ميزاني', 'price', 'cost')) topic = 'pricing';
-      else if (has('مساعد', 'ذكاء اصطناعي', 'كيف تعمل', 'ai', 'assistant')) topic = 'assistant';
-      else if (followUp) topic = assistantLastTopic;
+      const followUp = has('طيب', 'وماذا بعد', 'كيف', 'المزيد', 'اشرح', 'more', 'then', 'tell me more') && assistantLastTopic;
+      const scores = assistantIntents.map(intent => ({ ...intent, score: intent.words.reduce((sum, word) => sum + (q.includes(normalizeAssistantText(word)) ? intent.weight : 0), 0) }));
+      scores.sort((a, b) => b.score - a.score);
+      let topic = scores[0]?.score ? scores[0].topic : (followUp || '');
+      const secondary = scores.find(item => item.topic !== topic && item.score >= 4);
+      const asksTwoThings = q.includes(' و ') || q.includes(' and ') || q.includes(' also ');
 
       if (has('افتح', 'اذهب', 'ورني', 'show', 'open')) {
-        if (has('مشروع', 'اعمال', 'portfolio')) { navigateTo('work'); return lang === 'ar' ? 'فتحت لك قسم الأعمال والمختبرات.' : 'I opened the Work & Labs section.'; }
-        if (has('خدم')) { navigateTo('services'); return lang === 'ar' ? 'فتحت لك قسم الخدمات.' : 'I opened the Services section.'; }
-        if (has('تواصل', 'contact')) { navigateTo('contact'); return lang === 'ar' ? 'فتحت لك قسم التواصل.' : 'I opened the Contact section.'; }
+        if (topic === 'projects') { navigateTo('work'); return lang === 'ar' ? 'فتحت لك قسم الأعمال والمختبرات.' : 'I opened the Work & Labs section.'; }
+        if (topic === 'services') { navigateTo('services'); return lang === 'ar' ? 'فتحت لك قسم الخدمات.' : 'I opened the Services section.'; }
+        if (topic === 'contact') { navigateTo('contact'); return lang === 'ar' ? 'فتحت لك قسم التواصل.' : 'I opened the Contact section.'; }
       }
 
       if (!topic) {
         return lang === 'ar'
-          ? 'أفهم أسئلة عن أيمن، مهاراته، مشاريعه، خدماته، الأسعار، المجتمع، التواصل، أو طريقة عمل المساعد. مثال: «ما التقنيات التي يستخدمها؟»'
-          : 'I can answer about Aymen, his skills, projects, services, pricing, community, contact options, or how this assistant works.';
+          ? 'أقدر أساعدك في التعرف على أيمن، مهاراته، مشاريعه، خدماته، تقنيات الموقع، الأسعار، المجتمع، التواصل، أو طريقة عمل المساعد. جرّب: «ما التقنية المناسبة لمشروعي؟» أو «كيف أتواصل مع أيمن؟»'
+          : 'I can help with Aymen, his skills, projects, services, stack, pricing, community, contact options, or how this assistant works. Try: “What can Aymen build for me?”';
       }
       assistantLastTopic = topic;
       assistantHistory.push({ question, topic });
-      return assistantKnowledge[topic];
+      const prefix = lang === 'ar' ? 'باختصار: ' : 'In short: ';
+      if (secondary && asksTwoThings) {
+        assistantHistory.push({ question, topic: secondary.topic });
+        return `${prefix}${assistantKnowledge[topic]} ${lang === 'ar' ? 'وبالنسبة للجزء الآخر: ' : 'Also: '}${assistantKnowledge[secondary.topic]}`;
+      }
+      return prefix + assistantKnowledge[topic];
     }
 
     function askAssistantQuick(text) {
@@ -2168,19 +2182,9 @@
       assistantConversation.push({ role: 'user', text: question });
       input.value = '';
       const loading = addAssistantMessage('bot', lang === 'ar' ? 'أفكر في إجابة مناسبة...' : 'Thinking...');
-      try {
-        const result = await apiRequest('/api/assistant/chat', {
-          method: 'POST',
-          body: JSON.stringify({ message: question, language: lang, history: assistantConversation.slice(0, -1).slice(-10) }),
-        });
-        const answer = result?.answer || assistantReply(question);
-        if (loading) loading.textContent = answer;
-        assistantConversation.push({ role: 'model', text: answer });
-      } catch (error) {
-        const answer = assistantReply(question);
-        if (loading) loading.textContent = answer;
-        assistantConversation.push({ role: 'model', text: answer });
-      }
+      const answer = assistantReply(question);
+      if (loading) loading.textContent = answer;
+      assistantConversation.push({ role: 'model', text: answer });
     }
 
     // ==================== COMMAND PALETTE (CMD/CTRL + K) ====================
