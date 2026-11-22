@@ -13,7 +13,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
 def register(data: UserCreate, response: Response, db: Session = Depends(get_db)):
-    email = data.email.lower()
+    email = data.email.strip().lower()
     if db.scalar(select(User).where(User.email == email)):
         raise HTTPException(status_code=409, detail="البريد مستخدم مسبقاً")
     user = User(name=data.name.strip(), email=email, password_hash=hash_password(data.password), role="user")
@@ -31,9 +31,13 @@ def register(data: UserCreate, response: Response, db: Session = Depends(get_db)
 
 @router.post("/login", response_model=UserOut)
 def login(data: LoginRequest, response: Response, db: Session = Depends(get_db)):
-    user = db.scalar(select(User).where(User.email == data.email.lower()))
+    email = data.email.strip().lower()
+    user = db.scalar(select(User).where(User.email == email))
     if not user or not verify_password(data.password, user.password_hash):
         raise HTTPException(status_code=401, detail="البريد أو كلمة المرور غير صحيحة")
+    configured_admin = get_settings().admin_email.strip().lower()
+    if configured_admin and email == configured_admin and user.role != "admin":
+        user.role = "admin"
     user.last_login_at = datetime.now(timezone.utc)
     db.add(LoginEvent(user_id=user.id))
     db.commit()

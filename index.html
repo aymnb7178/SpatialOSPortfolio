@@ -1890,7 +1890,7 @@
     async function submitAuth(event, mode) {
       event.preventDefault();
       const data = mode === 'login'
-        ? { email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value }
+        ? { email: document.getElementById('loginEmail').value.trim(), password: document.getElementById('loginPassword').value }
         : { name: document.getElementById('registerName').value, email: document.getElementById('registerEmail').value, password: document.getElementById('registerPassword').value };
       try { setAccountState(await apiRequest(`/api/auth/${mode}`, { method: 'POST', body: JSON.stringify(data) })); showToast(lang === 'ar' ? 'تم تسجيل الدخول بنجاح' : 'Signed in successfully'); }
       catch (error) { showToast(error.message); }
