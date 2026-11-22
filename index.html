@@ -1865,7 +1865,7 @@
       if (!response.ok) {
         const fallback = response.status === 401
           ? (lang === 'ar' ? 'البريد أو كلمة المرور غير صحيحة، أو انتهت جلسة الدخول.' : 'The email or password is incorrect, or the session expired.')
-          : `${lang === 'ar' ? 'تعذر تنفيذ العملية' : 'Request failed'} (${response.status})`;
+          : `${lang === 'ar' ? 'تعذر تنفيذ العملية' : 'Request failed'}: ${path} (${response.status})`;
         throw new Error(body?.detail || fallback);
       }
       return body;
