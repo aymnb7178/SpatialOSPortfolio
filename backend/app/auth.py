@@ -41,6 +41,7 @@ def get_current_user(access_token: Annotated[str | None, Cookie()] = None, db: S
 
 
 def require_admin(user: User = Depends(get_current_user)) -> User:
-    if user.role != "admin":
+    configured_admin = get_settings().admin_email.strip().lower()
+    if user.role != "admin" or not configured_admin or user.email.lower() != configured_admin:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="صلاحية Admin مطلوبة")
     return user

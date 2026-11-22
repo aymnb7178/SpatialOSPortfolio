@@ -1055,6 +1055,12 @@
           <div><span class="text-xs text-[#8F9BB3]" data-ar="مرحباً،" data-en="Welcome,">مرحباً،</span> <strong id="accountName" class="text-[#F4F6FB]"></strong><span id="accountRole" class="text-[10px] font-mono text-[#C6F36C] ms-2"></span></div>
           <button onclick="logoutAccount()" class="px-3 py-2 rounded-xl border border-white/10 text-xs text-[#8F9BB3] hover:text-white" data-ar="تسجيل الخروج" data-en="Sign out">تسجيل الخروج</button>
         </div>
+        <div id="adminGate" class="hidden rounded-2xl border border-[#C6F36C]/25 bg-[#C6F36C]/[.06] p-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div><div class="font-mono text-[10px] uppercase tracking-widest text-[#C6F36C]">ADMIN // PRIVATE CONTROL</div><p class="text-xs text-[#C8D0E0] mt-1" data-ar="هذه القائمة تظهر لك فقط بصلاحية المشرف." data-en="This control area is visible only to your admin account.">هذه القائمة تظهر لك فقط بصلاحية المشرف.</p></div>
+            <span class="px-2.5 py-1 rounded-full bg-[#C6F36C]/10 border border-[#C6F36C]/25 text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span>
+          </div>
+        </div>
         <div id="adminSummary" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <form onsubmit="submitOrder(event)" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
@@ -1809,9 +1815,13 @@
       currentUser = user;
       document.getElementById('authPanel').classList.toggle('hidden', Boolean(user));
       document.getElementById('dashboardPanel').classList.toggle('hidden', !user);
+      const isAdmin = user?.role === 'admin';
+      document.getElementById('adminGate').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminSummary').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminData').classList.toggle('hidden', !isAdmin);
       if (!user) return;
       document.getElementById('accountName').textContent = user.name;
-      document.getElementById('accountRole').textContent = user.role === 'admin' ? 'ADMIN' : 'USER';
+      document.getElementById('accountRole').textContent = isAdmin ? 'ADMIN' : 'USER';
       loadDashboard();
     }
     async function refreshSession() {
