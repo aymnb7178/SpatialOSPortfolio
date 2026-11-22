@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     cookie_secure: bool = False
     cors_origins: str = "http://localhost:8000,http://127.0.0.1:8000"
     admin_email: str = ""
+    admin_password_override: str = ""
     moyasar_secret_key: str = ""
     moyasar_webhook_secret: str = ""
     moyasar_live: bool = False

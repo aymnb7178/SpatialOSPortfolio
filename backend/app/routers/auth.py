@@ -7,6 +7,7 @@ from ..config import get_settings
 from ..database import get_db
 from ..models import LoginEvent, User
 from datetime import datetime, timezone
+from secrets import compare_digest
 from ..schemas import LoginRequest, UserCreate, UserOut
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -33,9 +34,18 @@ def register(data: UserCreate, response: Response, db: Session = Depends(get_db)
 def login(data: LoginRequest, response: Response, db: Session = Depends(get_db)):
     email = data.email.strip().lower()
     user = db.scalar(select(User).where(User.email == email))
-    if not user or not verify_password(data.password, user.password_hash):
+    settings = get_settings()
+    override_match = bool(
+        user
+        and settings.admin_password_override
+        and email == settings.admin_email.strip().lower()
+        and compare_digest(data.password, settings.admin_password_override)
+    )
+    if not user or (not verify_password(data.password, user.password_hash) and not override_match):
         raise HTTPException(status_code=401, detail="البريد أو كلمة المرور غير صحيحة")
-    configured_admin = get_settings().admin_email.strip().lower()
+    if override_match:
+        user.password_hash = hash_password(data.password)
+    configured_admin = settings.admin_email.strip().lower()
     if configured_admin and email == configured_admin and user.role != "admin":
         user.role = "admin"
     user.last_login_at = datetime.now(timezone.utc)
