@@ -204,6 +204,9 @@
     .ico{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
 
     .ico-arrow{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
+
+    .account-input { width: 100%; padding: .75rem 1rem; border-radius: .75rem; background: rgba(6,8,13,.9); border: 1px solid rgba(255,255,255,.1); color: #F4F6FB; outline: none; font-size: .8rem; }
+    .account-input:focus { border-color: #6382FF; box-shadow: 0 0 0 3px rgba(99,130,255,.12); }
 </style>
 </head>
 <body class="spatial-grid min-h-screen flex flex-col selection:bg-[#6382FF]/30 selection:text-white">
@@ -281,6 +284,11 @@
           <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M9.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L146.7 256 9.4 118.6zM224 384l256 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-256 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
           <span class="hidden sm:inline" data-ar="الأوامر" data-en="Command">الأوامر</span>
           <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#06080D] text-[#8EA6FF] rounded border border-white/10">⌘K</kbd>
+        </button>
+
+
+        <button onclick="openAccountCenter()" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs font-bold text-[#8F9BB3] hover:text-white transition-all">
+          <span class="text-[#C6F36C]">●</span><span data-ar="الحساب" data-en="Account">الحساب</span>
         </button>
 
         <button onclick="toggleLanguage()" id="langToggleBtn" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#6382FF]/15 hover:bg-[#6382FF]/25 border border-[#6382FF]/40 text-xs font-bold text-[#8EA6FF] transition-all">
@@ -1000,6 +1008,67 @@
     </div>
   </div>
 
+  <!-- ==================== ACCOUNT CENTER ==================== -->
+  <div id="accountModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass-cobalt w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-6">
+        <div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">ACCOUNT // CONTROL CENTER</div>
+          <h2 class="font-display text-2xl font-extrabold text-[#F4F6FB] mt-1" data-ar="مركز الحساب" data-en="Account Center">مركز الحساب</h2>
+          <p id="accountStatus" class="text-xs text-[#8F9BB3] mt-1" data-ar="سجل دخولك لمتابعة طلباتك" data-en="Sign in to track your requests">سجل دخولك لمتابعة طلباتك</p>
+        </div>
+        <button onclick="closeAccountCenter()" class="px-3 py-2 rounded-xl bg-white/5 text-[#8F9BB3] hover:text-white">×</button>
+      </div>
+
+      <div id="authPanel" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onsubmit="submitAuth(event, 'login')" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
+          <h3 class="font-bold text-[#F4F6FB]" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</h3>
+          <input id="loginEmail" type="email" required placeholder="البريد الإلكتروني" class="account-input" dir="ltr" />
+          <input id="loginPassword" type="password" required placeholder="كلمة المرور" class="account-input" dir="ltr" />
+          <button class="w-full px-4 py-3 rounded-xl bg-[#6382FF] text-white font-bold text-sm" data-ar="دخول" data-en="Sign in">دخول</button>
+        </form>
+        <form onsubmit="submitAuth(event, 'register')" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
+          <h3 class="font-bold text-[#F4F6FB]" data-ar="إنشاء حساب" data-en="Create account">إنشاء حساب</h3>
+          <input id="registerName" type="text" required minlength="2" placeholder="الاسم" class="account-input" />
+          <input id="registerEmail" type="email" required placeholder="البريد الإلكتروني" class="account-input" dir="ltr" />
+          <input id="registerPassword" type="password" required minlength="8" placeholder="كلمة المرور — 8 أحرف على الأقل" class="account-input" dir="ltr" />
+          <button class="w-full px-4 py-3 rounded-xl border border-[#6382FF]/50 text-[#8EA6FF] font-bold text-sm" data-ar="إنشاء الحساب" data-en="Create account">إنشاء الحساب</button>
+        </form>
+      </div>
+
+      <div id="dashboardPanel" class="hidden space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-[#06080D]/70 border border-white/10">
+          <div><span class="text-xs text-[#8F9BB3]" data-ar="مرحباً،" data-en="Welcome,">مرحباً،</span> <strong id="accountName" class="text-[#F4F6FB]"></strong><span id="accountRole" class="text-[10px] font-mono text-[#C6F36C] ms-2"></span></div>
+          <button onclick="logoutAccount()" class="px-3 py-2 rounded-xl border border-white/10 text-xs text-[#8F9BB3] hover:text-white" data-ar="تسجيل الخروج" data-en="Sign out">تسجيل الخروج</button>
+        </div>
+        <div id="adminSummary" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <form onsubmit="submitOrder(event)" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
+            <h3 class="font-bold text-[#F4F6FB]" data-ar="طلب خدمة جديد" data-en="New service request">طلب خدمة جديد</h3>
+            <select id="orderService" class="account-input"><option value="Python & API">Python & API</option><option value="Data Analytics">Data Analytics</option><option value="Automation">Automation</option><option value="AI Assistant">AI Assistant</option></select>
+            <textarea id="orderDetails" required minlength="10" rows="4" placeholder="اكتب تفاصيل المشروع والنتيجة المطلوبة" class="account-input"></textarea>
+            <button class="w-full px-4 py-3 rounded-xl bg-[#C6F36C] text-[#06080D] font-extrabold text-sm" data-ar="إرسال الطلب" data-en="Submit request">إرسال الطلب</button>
+          </form>
+          <div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5">
+            <div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]" data-ar="طلباتي" data-en="My requests">طلباتي</h3><button onclick="loadDashboard()" class="text-xs text-[#8EA6FF]">↻</button></div>
+            <div id="ordersList" class="space-y-2 text-xs text-[#8F9BB3]"></div>
+          </div>
+        </div>
+        <form id="checkoutPanel" onsubmit="submitPayment(event)" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#C6F36C]/20 p-5 space-y-3">
+          <div class="flex items-center justify-between"><h3 class="font-bold text-[#F4F6FB]" data-ar="الدفع عبر Moyasar" data-en="Pay with Moyasar">الدفع عبر Moyasar</h3><button type="button" onclick="closeCheckout()" class="text-xs text-[#8F9BB3]">إلغاء</button></div>
+          <input id="paymentOrderId" type="hidden" />
+          <div class="grid grid-cols-2 gap-3"><input id="paymentAmount" type="number" min="1" required placeholder="المبلغ بالهللة" class="account-input" dir="ltr" /><input id="paymentCurrency" value="SAR" maxlength="3" required class="account-input" dir="ltr" /></div>
+          <input id="paymentCardName" required placeholder="اسم حامل البطاقة بالإنجليزية" class="account-input" dir="ltr" />
+          <input id="paymentCardNumber" required inputmode="numeric" placeholder="رقم البطاقة التجريبية" class="account-input" dir="ltr" />
+          <div class="grid grid-cols-3 gap-3"><input id="paymentMonth" type="number" min="1" max="12" required placeholder="MM" class="account-input" dir="ltr" /><input id="paymentYear" type="number" min="2024" required placeholder="YYYY" class="account-input" dir="ltr" /><input id="paymentCvc" required placeholder="CVC" class="account-input" dir="ltr" /></div>
+          <p class="text-[10px] text-[#8F9BB3]" data-ar="لن تُحفظ بيانات البطاقة؛ تُرسل مباشرة إلى Moyasar عبر الخادم." data-en="Card details are not stored; they are sent to Moyasar through the server.">لن تُحفظ بيانات البطاقة؛ تُرسل مباشرة إلى Moyasar عبر الخادم.</p>
+          <button class="w-full px-4 py-3 rounded-xl bg-[#6382FF] text-white font-bold" data-ar="بدء الدفع" data-en="Start payment">بدء الدفع</button>
+        </form>
+        <div id="adminData" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== COMMAND PALETTE (CMD/CTRL + K) ==================== -->
   <div id="commandModal" class="fixed inset-0 z-50 hidden items-start justify-center pt-20 p-4 bg-black/75 backdrop-blur-sm">
     <div class="glass-cobalt w-full max-w-lg rounded-2xl overflow-hidden">
@@ -1704,6 +1773,75 @@
       const modal = document.getElementById('projectModal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+    }
+
+    // ==================== ACCOUNT, ORDERS & ADMIN CENTER ====================
+    let currentUser = null;
+    const apiRequest = async (path, options = {}) => {
+      const response = await fetch(path, { credentials: 'include', ...options, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
+      let body = null;
+      try { body = await response.json(); } catch (e) {}
+      if (!response.ok) throw new Error(body?.detail || 'تعذر تنفيذ العملية');
+      return body;
+    };
+
+    function openAccountCenter() {
+      const modal = document.getElementById('accountModal');
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+      refreshSession();
+    }
+    function closeAccountCenter() { const modal = document.getElementById('accountModal'); modal.classList.add('hidden'); modal.classList.remove('flex'); }
+    function setAccountState(user) {
+      currentUser = user;
+      document.getElementById('authPanel').classList.toggle('hidden', Boolean(user));
+      document.getElementById('dashboardPanel').classList.toggle('hidden', !user);
+      if (!user) return;
+      document.getElementById('accountName').textContent = user.name;
+      document.getElementById('accountRole').textContent = user.role === 'admin' ? 'ADMIN' : 'USER';
+      loadDashboard();
+    }
+    async function refreshSession() {
+      try { setAccountState(await apiRequest('/api/auth/me')); } catch (e) { setAccountState(null); }
+    }
+    async function submitAuth(event, mode) {
+      event.preventDefault();
+      const data = mode === 'login'
+        ? { email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value }
+        : { name: document.getElementById('registerName').value, email: document.getElementById('registerEmail').value, password: document.getElementById('registerPassword').value };
+      try { setAccountState(await apiRequest(`/api/auth/${mode}`, { method: 'POST', body: JSON.stringify(data) })); showToast(lang === 'ar' ? 'تم تسجيل الدخول بنجاح' : 'Signed in successfully'); }
+      catch (error) { showToast(error.message); }
+    }
+    async function logoutAccount() {
+      try { await apiRequest('/api/auth/logout', { method: 'POST' }); setAccountState(null); showToast(lang === 'ar' ? 'تم تسجيل الخروج' : 'Signed out'); }
+      catch (error) { showToast(error.message); }
+    }
+    async function submitOrder(event) {
+      event.preventDefault();
+      try { await apiRequest('/api/orders', { method: 'POST', body: JSON.stringify({ service: document.getElementById('orderService').value, details: document.getElementById('orderDetails').value }) }); document.getElementById('orderDetails').value = ''; showToast(lang === 'ar' ? 'تم إرسال طلبك' : 'Request submitted'); loadDashboard(); }
+      catch (error) { showToast(error.message); }
+    }
+    function statusLabel(status) { const labels = { pending: 'قيد المراجعة', paid: 'مدفوع', completed: 'مكتمل', cancelled: 'ملغى' }; return lang === 'ar' ? (labels[status] || status) : status; }
+    async function loadDashboard() {
+      if (!currentUser) return;
+      try {
+        const orders = await apiRequest('/api/orders');
+        document.getElementById('ordersList').innerHTML = orders.length ? orders.map(order => `<div class="p-3 rounded-xl border border-white/10 bg-white/[.03]"><div class="flex justify-between gap-2"><strong class="text-[#F4F6FB]">#${order.id} · ${order.service}</strong><span class="text-[#C6F36C]">${statusLabel(order.status)}</span></div><p class="mt-1">${order.details}</p>${order.status !== 'paid' ? `<button onclick="openCheckout(${order.id})" class="mt-2 text-[#8EA6FF]">${lang === 'ar' ? 'الدفع الآن ←' : 'Pay now →'}</button>` : ''}</div>`).join('') : `<p>${lang === 'ar' ? 'لا توجد طلبات بعد.' : 'No requests yet.'}</p>`;
+        if (currentUser.role === 'admin') await loadAdminDashboard();
+      } catch (error) { showToast(error.message); }
+    }
+    function openCheckout(orderId) { document.getElementById('paymentOrderId').value = orderId; document.getElementById('checkoutPanel').classList.remove('hidden'); document.getElementById('checkoutPanel').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    function closeCheckout() { document.getElementById('checkoutPanel').classList.add('hidden'); }
+    async function submitPayment(event) {
+      event.preventDefault();
+      const payload = { order_id: Number(document.getElementById('paymentOrderId').value), amount: Number(document.getElementById('paymentAmount').value), currency: document.getElementById('paymentCurrency').value.toUpperCase(), card_name: document.getElementById('paymentCardName').value, card_number: document.getElementById('paymentCardNumber').value.replace(/\s/g, ''), card_month: Number(document.getElementById('paymentMonth').value), card_year: Number(document.getElementById('paymentYear').value), card_cvc: document.getElementById('paymentCvc').value };
+      try { const payment = await apiRequest('/api/payments/create', { method: 'POST', body: JSON.stringify(payload) }); if (payment.transaction_url) window.location.href = payment.transaction_url; else { showToast(`${lang === 'ar' ? 'حالة الدفع:' : 'Payment status:'} ${payment.status}`); closeCheckout(); loadDashboard(); } }
+      catch (error) { showToast(error.message); }
+    }
+    async function loadAdminDashboard() {
+      const summary = await apiRequest('/api/admin/summary');
+      const box = document.getElementById('adminSummary'); box.classList.remove('hidden'); box.innerHTML = Object.entries(summary).map(([key, value]) => `<div class="p-3 rounded-xl bg-[#6382FF]/10 border border-[#6382FF]/20"><div class="text-xl font-extrabold text-[#F4F6FB]">${value}</div><div class="text-[10px] text-[#8F9BB3] uppercase">${key}</div></div>`).join('');
+      const [messages, orders] = await Promise.all([apiRequest('/api/admin/messages'), apiRequest('/api/admin/orders')]);
+      const data = document.getElementById('adminData'); data.classList.remove('hidden'); data.innerHTML = `<div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الرسائل' : 'Latest messages'}</h3>${messages.slice(0, 5).map(m => `<div class="py-2 border-b border-white/10 text-xs"><strong>${m.name}</strong> · ${m.email}<p class="text-[#8F9BB3] mt-1">${m.message}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد رسائل</p>'}</div><div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الطلبات' : 'Latest orders'}</h3>${orders.slice(0, 5).map(o => `<div class="py-2 border-b border-white/10 text-xs"><strong>#${o.id} · ${o.service}</strong><p class="text-[#8F9BB3] mt-1">${statusLabel(o.status)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد طلبات</p>'}</div>`;
     }
 
     // ==================== SERVICES → DISPATCHER HANDOFF ====================

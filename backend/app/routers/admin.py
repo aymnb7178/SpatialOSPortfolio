@@ -30,3 +30,7 @@ def update_message_status(message_id: int, status: str, _: User = Depends(requir
 @router.get("/orders", response_model=list[OrderOut])
 def orders(_: User = Depends(require_admin), db: Session = Depends(get_db)):
     return list(db.scalars(select(Order).order_by(Order.created_at.desc())))
+
+@router.get("/payments")
+def payments(_: User = Depends(require_admin), db: Session = Depends(get_db)):
+    return [{"id": item.id, "order_id": item.order_id, "moyasar_id": item.moyasar_id, "amount": item.amount, "currency": item.currency, "status": item.status, "created_at": item.created_at} for item in db.scalars(select(Payment).order_by(Payment.created_at.desc()))]

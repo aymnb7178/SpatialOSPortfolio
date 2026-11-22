@@ -52,6 +52,7 @@ class PaymentCreate(BaseModel):
     card_cvc: str = Field(min_length=3, max_length=4)
 
 class PaymentOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     status: str
     moyasar_id: str | None = None
