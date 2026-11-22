@@ -205,8 +205,16 @@
 
     .ico-arrow{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
 
-    .account-input { width: 100%; padding: .75rem 1rem; border-radius: .75rem; background: rgba(6,8,13,.9); border: 1px solid rgba(255,255,255,.1); color: #F4F6FB; outline: none; font-size: .8rem; }
-    .account-input:focus { border-color: #6382FF; box-shadow: 0 0 0 3px rgba(99,130,255,.12); }
+    .account-auth-card { position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(19,25,39,.94), rgba(6,8,13,.92)); border: 1px solid rgba(255,255,255,.11); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 18px 45px -28px rgba(0,0,0,.9); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+    .account-auth-card::before { content: ''; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, transparent, rgba(99,130,255,.9), transparent); opacity: .8; }
+    .account-auth-card:hover { border-color: rgba(99,130,255,.42); transform: translateY(-2px); box-shadow: 0 22px 50px -26px rgba(99,130,255,.42); }
+    .account-input { width: 100%; min-height: 48px; padding: .78rem .95rem; border-radius: 14px; background: rgba(6,8,13,.78); border: 1px solid rgba(255,255,255,.11); color: var(--text-snow); outline: none; font-size: .8rem; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    .account-input::placeholder { color: rgba(143,155,179,.72); }
+    .account-input:focus { border-color: rgba(99,130,255,.82); background: rgba(13,17,26,.96); box-shadow: 0 0 0 4px rgba(99,130,255,.12), 0 10px 25px -18px rgba(99,130,255,.9); }
+    textarea.account-input { min-height: 112px; resize: vertical; }
+    .account-submit { min-height: 48px; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+    .account-submit:hover { transform: translateY(-1px); filter: brightness(1.08); box-shadow: 0 12px 26px -14px rgba(99,130,255,.9); }
+    .account-submit:active { transform: translateY(0); }
 </style>
 </head>
 <body class="spatial-grid min-h-screen flex flex-col selection:bg-[#6382FF]/30 selection:text-white">
@@ -1020,19 +1028,25 @@
         <button onclick="closeAccountCenter()" class="px-3 py-2 rounded-xl bg-white/5 text-[#8F9BB3] hover:text-white">×</button>
       </div>
 
-      <div id="authPanel" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <form onsubmit="submitAuth(event, 'login')" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
-          <h3 class="font-bold text-[#F4F6FB]" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</h3>
-          <input id="loginEmail" type="email" required placeholder="البريد الإلكتروني" class="account-input" dir="ltr" />
-          <input id="loginPassword" type="password" required placeholder="كلمة المرور" class="account-input" dir="ltr" />
-          <button class="w-full px-4 py-3 rounded-xl bg-[#6382FF] text-white font-bold text-sm" data-ar="دخول" data-en="Sign in">دخول</button>
+      <div id="authPanel" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <form onsubmit="submitAuth(event, 'login')" class="account-auth-card rounded-3xl p-5 sm:p-6 space-y-4">
+          <div class="flex items-start gap-3"><div class="w-11 h-11 rounded-2xl bg-[#6382FF]/15 border border-[#6382FF]/30 flex items-center justify-center text-[#8EA6FF] text-lg">↗</div><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]" data-ar="مرحباً بعودتك" data-en="Welcome back">مرحباً بعودتك</div><h3 class="font-display text-xl font-extrabold text-[#F4F6FB] mt-1" data-ar="تسجيل الدخول" data-en="Sign in">تسجيل الدخول</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="تابع طلباتك من مكان واحد." data-en="Keep your requests in one place.">تابع طلباتك من مكان واحد.</p></div></div>
+          <label class="block text-xs font-bold text-[#C8D0E0]" for="loginEmail" data-ar="البريد الإلكتروني" data-en="Email address">البريد الإلكتروني</label>
+          <input id="loginEmail" type="email" required autocomplete="email" placeholder="you@example.com" class="account-input" dir="ltr" />
+          <label class="block text-xs font-bold text-[#C8D0E0]" for="loginPassword" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+          <input id="loginPassword" type="password" required autocomplete="current-password" placeholder="••••••••" class="account-input" dir="ltr" />
+          <button class="account-submit w-full px-4 py-3 rounded-2xl bg-[#6382FF] text-white font-extrabold text-sm" data-ar="دخول آمن" data-en="Sign in securely">دخول آمن</button>
         </form>
-        <form onsubmit="submitAuth(event, 'register')" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
-          <h3 class="font-bold text-[#F4F6FB]" data-ar="إنشاء حساب" data-en="Create account">إنشاء حساب</h3>
-          <input id="registerName" type="text" required minlength="2" placeholder="الاسم" class="account-input" />
-          <input id="registerEmail" type="email" required placeholder="البريد الإلكتروني" class="account-input" dir="ltr" />
-          <input id="registerPassword" type="password" required minlength="8" placeholder="كلمة المرور — 8 أحرف على الأقل" class="account-input" dir="ltr" />
-          <button class="w-full px-4 py-3 rounded-xl border border-[#6382FF]/50 text-[#8EA6FF] font-bold text-sm" data-ar="إنشاء الحساب" data-en="Create account">إنشاء الحساب</button>
+        <form onsubmit="submitAuth(event, 'register')" class="account-auth-card rounded-3xl p-5 sm:p-6 space-y-4">
+          <div class="flex items-start gap-3"><div class="w-11 h-11 rounded-2xl bg-[#C6F36C]/10 border border-[#C6F36C]/30 flex items-center justify-center text-[#C6F36C] text-lg">+</div><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#C6F36C]" data-ar="ابدأ رحلتك" data-en="Start your journey">ابدأ رحلتك</div><h3 class="font-display text-xl font-extrabold text-[#F4F6FB] mt-1" data-ar="إنشاء حساب" data-en="Create account">إنشاء حساب</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="احفظ طلباتك وتابع تقدمها." data-en="Save requests and track progress.">احفظ طلباتك وتابع تقدمها.</p></div></div>
+          <label class="block text-xs font-bold text-[#C8D0E0]" for="registerName" data-ar="الاسم" data-en="Name">الاسم</label>
+          <input id="registerName" type="text" required minlength="2" autocomplete="name" placeholder="اسمك الكامل" class="account-input" />
+          <label class="block text-xs font-bold text-[#C8D0E0]" for="registerEmail" data-ar="البريد الإلكتروني" data-en="Email address">البريد الإلكتروني</label>
+          <input id="registerEmail" type="email" required autocomplete="email" placeholder="you@example.com" class="account-input" dir="ltr" />
+          <label class="block text-xs font-bold text-[#C8D0E0]" for="registerPassword" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+          <input id="registerPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="8 أحرف على الأقل" class="account-input" dir="ltr" />
+          <p class="text-[11px] text-[#8F9BB3]" data-ar="نستخدم تشفيراً آمناً، ولا نحفظ كلمة المرور كنص صريح." data-en="Your password is securely hashed and never stored as plain text.">نستخدم تشفيراً آمناً، ولا نحفظ كلمة المرور كنص صريح.</p>
+          <button class="account-submit w-full px-4 py-3 rounded-2xl bg-[#C6F36C] text-[#06080D] font-extrabold text-sm" data-ar="إنشاء حسابي" data-en="Create my account">إنشاء حسابي</button>
         </form>
       </div>
 
@@ -1912,7 +1926,7 @@
       if (selectedDispatchChannel === 'whatsapp') {
         targetUrl = `https://wa.me/966566065221?text=${encoded}`;
       } else if (selectedDispatchChannel === 'telegram') {
-        targetUrl = `https://t.me/IT_Tech_Pioneers_ENG`;
+        targetUrl = `https://t.me/Il7IAI`;
       } else if (selectedDispatchChannel === 'x') {
         targetUrl = `https://x.com/uqg_9`;
       } else if (selectedDispatchChannel === 'instagram') {
