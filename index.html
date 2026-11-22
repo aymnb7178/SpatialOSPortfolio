@@ -340,8 +340,18 @@
           </div>
 
           <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.06] tracking-tight text-[#F4F6FB]">
-            <span class="block" data-ar="أيمن عبدربه" data-en="Aymen Abdurabu">أيمن عبدربه</span>
-            <span class="block text-[#6382FF]" data-ar="العروي." data-en="Al Erwi.">العروي.</span>
+            <img
+              class="hero-name-img block w-auto max-w-full h-[2.4em] sm:h-[2.3em] lg:h-[2.2em]"
+              data-ar-src="hero-name-ar.png"
+              data-en-src="hero-name-en.png"
+              src="hero-name-ar.png"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            />
+            <span
+              style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;"
+              data-ar="أيمن عبدربه العروي." data-en="Aymen Abdurabu Al Erwi.">أيمن عبدربه العروي.</span>
           </h1>
 
           <p class="text-[#8F9BB3] text-base sm:text-lg leading-relaxed max-w-xl" data-ar="أحوّل الأفكار إلى تجارب رقمية مفيدة — من الأنظمة الذكية والأتمتة إلى الحلول المبنية على البيانات والواجهات التفاعلية." data-en="I turn ideas into useful digital experiences — from intelligent systems and automation to data-led solutions and interactive spatial interfaces.">
@@ -1267,6 +1277,10 @@
       if (langLabel) langLabel.textContent = lang === 'ar' ? 'English' : 'العربية';
       document.querySelectorAll('[data-ar][data-en]').forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      document.querySelectorAll('[data-ar-src][data-en-src]').forEach(el => {
+        const next = el.getAttribute(`data-${lang}-src`);
+        if (next && el.getAttribute('src') !== next) el.setAttribute('src', next);
       });
       try { localStorage.setItem('aymen-portfolio-lang', lang); } catch (e) {}
       renderCmdItems();
