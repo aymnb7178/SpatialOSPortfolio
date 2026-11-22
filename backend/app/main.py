@@ -21,4 +21,5 @@ def health():
     return {"status": "ok", "environment": settings.app_env}
 
 root = Path(__file__).resolve().parents[2]
-app.mount("/", StaticFiles(directory=root, html=True), name="frontend")
+public_dir = root / "public"
+app.mount("/", StaticFiles(directory=public_dir, html=True), name="frontend")

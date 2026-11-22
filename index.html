@@ -57,6 +57,18 @@
       --accent-cobalt: #6382FF;
       --accent-cobalt-glow: #8EA6FF;
       --accent-lime: #C6F36C;
+      --grid-line: rgba(99, 130, 255, 0.045);
+    }
+
+    html[data-theme="light"] {
+      --bg-obsidian: #F7F9FC;
+      --bg-surface: #FFFFFF;
+      --text-snow: #101827;
+      --text-muted: #5D6B82;
+      --accent-cobalt: #315BEA;
+      --accent-cobalt-glow: #315BEA;
+      --accent-lime: #4E7D16;
+      --grid-line: rgba(49, 91, 234, 0.07);
     }
 
     * { box-sizing: border-box; }
@@ -72,6 +84,25 @@
 
     html[dir="rtl"] body { font-family: 'Tajawal', 'DM Sans', sans-serif; }
     html[dir="rtl"] .font-display { font-family: 'Tajawal', sans-serif; letter-spacing: 0 !important; }
+
+    html[data-theme="light"] body { color-scheme: light; }
+    html[data-theme="light"] .spatial-grid {
+      background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    }
+    html[data-theme="light"] .glass-panel { background: rgba(255,255,255,.88); border-color: rgba(16,24,39,.1); }
+    html[data-theme="light"] .glass-cobalt { background: rgba(255,255,255,.94); border-color: rgba(49,91,234,.25); box-shadow: 0 24px 70px -32px rgba(49,91,234,.28), inset 0 1px 0 rgba(255,255,255,.9); }
+    html[data-theme="light"] .portrait-card { background: radial-gradient(circle at 50% 25%, rgba(49,91,234,.12), rgba(255,255,255,.98) 85%); border-color: rgba(49,91,234,.3); }
+    html[data-theme="light"] .account-auth-card { background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(241,245,252,.98)); border-color: rgba(16,24,39,.12); }
+    html[data-theme="light"] .account-input { background: rgba(255,255,255,.9); color: #101827; border-color: rgba(16,24,39,.14); }
+    html[data-theme="light"] .account-input:focus { background: #fff; }
+    html[data-theme="light"] .liquid-nav-track { background: rgba(255,255,255,.85); border-color: rgba(16,24,39,.12); }
+    html[data-theme="light"] .assistant-message.bot { background: rgba(16,24,39,.05); border-color: rgba(16,24,39,.12); color: #101827; }
+    html[data-theme="light"] ::-webkit-scrollbar-track { background: #F7F9FC; }
+    html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
 
     /* Free local assistant: compact, readable and consistent with the site language */
     .assistant-panel { width: min(390px, calc(100vw - 2rem)); max-height: min(620px, calc(100vh - 7rem)); }
@@ -311,6 +342,11 @@
 
         <button onclick="openAccountCenter()" class="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs font-bold text-[#8F9BB3] hover:text-white transition-all">
           <span class="text-[#C6F36C]">●</span><span class="hidden sm:inline" data-ar="الحساب" data-en="Account">الحساب</span>
+        </button>
+
+        <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="تبديل المظهر" class="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
+          <span id="themeToggleIcon" aria-hidden="true">☼</span>
+          <span id="themeToggleLabel" class="hidden sm:inline" data-ar="فاتح" data-en="Light">فاتح</span>
         </button>
 
         <button onclick="toggleLanguage()" id="langToggleBtn" class="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#6382FF]/15 hover:bg-[#6382FF]/25 border border-[#6382FF]/40 text-xs font-bold text-[#8EA6FF] transition-all">
@@ -1174,6 +1210,14 @@
       if (saved === 'en' || saved === 'ar') lang = saved;
     } catch (e) {}
 
+    let theme = 'dark';
+    try {
+      const savedTheme = localStorage.getItem('aymen-portfolio-theme');
+      theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : (window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    } catch (e) {}
+
     let activePage = 'overview';
     let stageView = 'dual';
     let portraitCaptionVisible = true;
@@ -1183,6 +1227,7 @@
     // 0ms Instant Boot Sequence
     function bootPortfolioApp() {
       restoreSavedPortrait();
+      applyTheme(theme);
       applyLanguage(lang);
       initLiquidGlassNavigation();
       initSpatialSentinelEngine();
@@ -1265,6 +1310,25 @@
     }
 
     // ==================== BILINGUAL ENGINE (AR RTL / EN LTR) ====================
+    function toggleTheme() {
+      applyTheme(theme === 'dark' ? 'light' : 'dark');
+    }
+
+    function applyTheme(nextTheme) {
+      theme = nextTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      const icon = document.getElementById('themeToggleIcon');
+      const label = document.getElementById('themeToggleLabel');
+      if (icon) icon.textContent = theme === 'dark' ? '☼' : '☾';
+      if (label) {
+        label.setAttribute('data-ar', theme === 'dark' ? 'فاتح' : 'داكن');
+        label.setAttribute('data-en', theme === 'dark' ? 'Light' : 'Dark');
+        label.textContent = lang === 'ar' ? label.getAttribute('data-ar') : label.getAttribute('data-en');
+      }
+      try { localStorage.setItem('aymen-portfolio-theme', theme); } catch (e) {}
+    }
+
     function toggleLanguage() {
       applyLanguage(lang === 'ar' ? 'en' : 'ar');
     }
@@ -2196,6 +2260,7 @@
       { key: '5', ar: '05 · الانتقال إلى المسيرة ومجتمع Techno Repos', en: '05 · Go to Journey & Community', fn: () => navigateTo('journey') },
       { key: '6', ar: '06 · الانتقال إلى موزع التواصل الذكي', en: '06 · Go to Contact Dispatcher', fn: () => navigateTo('contact') },
       { key: 'L', ar: 'تبديل اللغة (العربية / English)', en: 'Switch Language (AR / EN)', fn: () => toggleLanguage() },
+      { key: 'T', ar: 'تبديل المظهر (فاتح / داكن)', en: 'Switch Theme (Light / Dark)', fn: () => toggleTheme() },
     ];
 
     function toggleCommandPalette() {
