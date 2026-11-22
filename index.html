@@ -1859,9 +1859,15 @@
     let currentUser = null;
     const apiRequest = async (path, options = {}) => {
       const response = await fetch(path, { credentials: 'include', ...options, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
+      const raw = await response.text();
       let body = null;
-      try { body = await response.json(); } catch (e) {}
-      if (!response.ok) throw new Error(body?.detail || 'تعذر تنفيذ العملية');
+      try { body = raw ? JSON.parse(raw) : null; } catch (e) {}
+      if (!response.ok) {
+        const fallback = response.status === 401
+          ? (lang === 'ar' ? 'البريد أو كلمة المرور غير صحيحة، أو انتهت جلسة الدخول.' : 'The email or password is incorrect, or the session expired.')
+          : `${lang === 'ar' ? 'تعذر تنفيذ العملية' : 'Request failed'} (${response.status})`;
+        throw new Error(body?.detail || fallback);
+      }
       return body;
     };
 
