@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <title>أيمن عبدربه العروي | Aymen Abdurabu Al Erwi — SpatialOS Portfolio</title>
 
-  <!-- Google Fonts: Manrope, DM Sans, DM Mono & Tajawal -->
+  <!-- Google Fonts: Manrope, DM Sans, DM Mono & Tajawal (temporary until official Thmanyah files are supplied) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -72,6 +72,14 @@
 
     html[dir="rtl"] body { font-family: 'Tajawal', 'DM Sans', sans-serif; }
     html[dir="rtl"] .font-display { font-family: 'Tajawal', sans-serif; letter-spacing: 0 !important; }
+
+    /* Free local assistant: compact, readable and consistent with the site language */
+    .assistant-panel { width: min(390px, calc(100vw - 2rem)); max-height: min(620px, calc(100vh - 7rem)); }
+    .assistant-messages { scrollbar-width: thin; }
+    .assistant-message { max-width: 88%; white-space: pre-line; line-height: 1.7; }
+    .assistant-message.user { margin-inline-start: auto; background: rgba(99,130,255,.22); border: 1px solid rgba(99,130,255,.35); }
+    .assistant-message.bot { margin-inline-end: auto; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); }
+    .assistant-fab { box-shadow: 0 16px 35px -12px rgba(99,130,255,.8); }
 
     /* Spatial Background Grid */
     .spatial-grid {
@@ -1107,6 +1115,33 @@
     </div>
   </div>
 
+  <!-- ==================== FREE SITE ASSISTANT ==================== -->
+  <button id="assistantFab" onclick="toggleAssistant()" aria-label="فتح مساعد الموقع" class="assistant-fab fixed bottom-24 start-4 z-40 w-14 h-14 rounded-2xl bg-[#6382FF] hover:bg-[#5271F5] text-white border border-[#8EA6FF]/60 flex items-center justify-center transition-all hover:-translate-y-1">
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-8.5 8.5 8.5 8.5 0 0 0 3.1 6.6L5.5 21l3.1-.9A8.6 8.6 0 0 0 12 20.5a8.5 8.5 0 1 0 0-17Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-linecap="round" stroke-width="2.5"/></svg>
+  </button>
+  <section id="assistantPanel" class="assistant-panel fixed bottom-40 start-4 z-40 hidden glass-cobalt rounded-3xl overflow-hidden" aria-label="مساعد الموقع">
+    <header class="px-4 py-3 border-b border-white/10 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl bg-[#C6F36C]/15 border border-[#C6F36C]/30 text-[#C6F36C] flex items-center justify-center">✦</span>
+        <div><h2 class="font-bold text-sm text-[#F4F6FB]" data-ar="مساعد أيمن" data-en="Aymen's Assistant">مساعد أيمن</h2><p class="text-[10px] text-[#8F9BB3]" data-ar="مساعد مجاني من داخل الموقع" data-en="Free on-site assistant">مساعد مجاني من داخل الموقع</p></div>
+      </div>
+      <button onclick="toggleAssistant(false)" class="w-8 h-8 rounded-lg hover:bg-white/10 text-[#8F9BB3]" aria-label="إغلاق">×</button>
+    </header>
+    <div id="assistantMessages" class="assistant-messages p-3 space-y-2.5 overflow-y-auto min-h-48 max-h-[390px]"></div>
+    <div class="px-3 pb-3">
+      <div class="flex flex-wrap gap-1.5 mb-2">
+        <button onclick="askAssistantQuick('من هو أيمن؟')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#6382FF]/20 border border-white/10 text-[10px] text-[#C8D0E0]">من هو أيمن؟</button>
+        <button onclick="askAssistantQuick('ما مهاراته؟')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#6382FF]/20 border border-white/10 text-[10px] text-[#C8D0E0]">المهارات</button>
+        <button onclick="askAssistantQuick('كيف أتواصل معه؟')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#6382FF]/20 border border-white/10 text-[10px] text-[#C8D0E0]">التواصل</button>
+      </div>
+      <form onsubmit="sendAssistantMessage(event)" class="flex items-center gap-2">
+        <input id="assistantInput" class="account-input !min-h-[44px] !rounded-xl text-xs" placeholder="اكتب سؤالك..." autocomplete="off" />
+        <button class="shrink-0 w-11 h-11 rounded-xl bg-[#6382FF] hover:bg-[#5271F5] text-white flex items-center justify-center" aria-label="إرسال"><svg class="w-4 h-4 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14-7-3 14-4-5-7-2Z"/><path d="m12 14 4-4"/></svg></button>
+      </form>
+      <p class="mt-2 text-[9px] text-[#8F9BB3]" data-ar="إجابات مجانية مبنية على معلومات الموقع، بدون حفظ للمحادثة." data-en="Free answers from the site knowledge base; chats are not stored.">إجابات مجانية مبنية على معلومات الموقع، بدون حفظ للمحادثة.</p>
+    </div>
+  </section>
+
   <!-- ==================== TOAST NOTIFICATION ==================== -->
   <div id="toastBanner" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] pointer-events-none opacity-0 transition-all duration-300">
     <div class="px-5 py-3 rounded-2xl bg-[#0D111A] border border-[#6382FF] text-[#F4F6FB] text-xs font-bold shadow-[0_10px_30px_rgba(99,130,255,0.4)] flex items-center gap-2.5">
@@ -2007,6 +2042,73 @@
         banner.classList.remove('opacity-100');
         banner.classList.add('opacity-0');
       }, 3400);
+    }
+
+    // ==================== FREE LOCAL SITE ASSISTANT ====================
+    let assistantStarted = false;
+    const assistantKnowledge = {
+      identity: 'أيمن عبدربه العروي طالب تقنية معلومات وبانٍ مستقل من مكة المكرمة، يهتم بتحويل الأفكار إلى أنظمة رقمية عملية.',
+      skills: 'مهاراته تشمل Python، بناء واجهات API، تحليل البيانات، الأتمتة، الرؤية الحاسوبية، الذكاء الاصطناعي العربي، وتصميم التجارب الرقمية.',
+      projects: 'من أبرز أعماله SpatialOS وJ.A.R.V.I.S للتفاعل بالإيماءات والصوت، SignBridge AI لترجمة الإشارات، وNira كمساعد شخصي ذكي.',
+      services: 'يقدم بناء حلول Python وواجهات API، أتمتة الأعمال، تحليل البيانات، النماذج الأولية للذكاء الاصطناعي، وتصميم تجارب ويب تفاعلية.',
+      contact: 'يمكنك استخدام قسم «موزع التواصل» داخل الموقع، أو مراسلته مباشرة على Telegram عبر @Il7IAI. ويمكنك أيضًا اختيار البريد أو WhatsApp من صفحة التواصل.',
+      community: 'أيمن يشارك في قيادة مجتمع Techno Repos التقني، ويهتم بمشاركة المعرفة وبناء مشاريع مفيدة.',
+    };
+
+    function toggleAssistant(force) {
+      const panel = document.getElementById('assistantPanel');
+      if (!panel) return;
+      const shouldOpen = typeof force === 'boolean' ? force : panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !shouldOpen);
+      if (shouldOpen) {
+        if (!assistantStarted) {
+          addAssistantMessage(lang === 'ar' ? 'bot' : 'bot', lang === 'ar' ? 'مرحبًا، أنا مساعد أيمن. اسألني عن خبراته، مهاراته، مشاريعه أو طرق التواصل معه.' : 'Hi, I am Aymen\'s assistant. Ask me about his experience, skills, projects, or contact options.');
+          assistantStarted = true;
+        }
+        setTimeout(() => document.getElementById('assistantInput')?.focus(), 80);
+      }
+    }
+
+    function addAssistantMessage(role, text) {
+      const list = document.getElementById('assistantMessages');
+      if (!list) return;
+      const bubble = document.createElement('div');
+      bubble.className = `assistant-message ${role} rounded-2xl px-3 py-2 text-xs text-[#F4F6FB]`;
+      bubble.textContent = text;
+      list.appendChild(bubble);
+      list.scrollTop = list.scrollHeight;
+    }
+
+    function assistantReply(question) {
+      const q = question.toLowerCase().replace(/[؟?!،.]/g, ' ');
+      const has = (...words) => words.some(word => q.includes(word));
+      if (has('من هو', 'من أيمن', 'who is', 'about')) return assistantKnowledge.identity;
+      if (has('مهار', 'تقني', 'skill', 'technology')) return assistantKnowledge.skills;
+      if (has('مشروع', 'أعمال', 'portfolio', 'project')) return assistantKnowledge.projects;
+      if (has('خدم', 'أقدر أطلب', 'service')) return assistantKnowledge.services;
+      if (has('تواصل', 'اتصل', 'تلجرام', 'telegram', 'email', 'بريد', 'whatsapp')) return assistantKnowledge.contact;
+      if (has('مجتمع', 'techno', 'community')) return assistantKnowledge.community;
+      if (has('سعر', 'تكلفة', 'price')) return 'يمكنك إرسال تفاصيل طلبك من صفحة التواصل، وسيتم الرد عليك لتحديد النطاق والتكلفة المناسبة.';
+      return lang === 'ar'
+        ? 'أستطيع تعريفك بأيمن، مهاراته، مشاريعه، خدماته أو طرق التواصل معه. جرّب سؤالًا مباشرًا مثل: ما مهارات أيمن؟'
+        : 'I can explain Aymen\'s background, skills, projects, services, or contact options. Try: What are Aymen\'s skills?';
+    }
+
+    function askAssistantQuick(text) {
+      const input = document.getElementById('assistantInput');
+      if (input) input.value = text;
+      sendAssistantMessage({ preventDefault() {} });
+    }
+
+    function sendAssistantMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById('assistantInput');
+      const question = (input?.value || '').trim();
+      if (!question) return;
+      toggleAssistant(true);
+      addAssistantMessage('user', question);
+      input.value = '';
+      window.setTimeout(() => addAssistantMessage('bot', assistantReply(question)), 220);
     }
 
     // ==================== COMMAND PALETTE (CMD/CTRL + K) ====================
