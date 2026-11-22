@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#06080D" />
-  <meta name="description" content="Aymen Abdurabu Al Erwi — AI, Spatial Systems, Automation, Data & Digital Experiences." />
+  <meta name="description" content="Aymen Al Erwi — IT student building practical Python, data analytics, automation, Arabic AI, and digital experiences." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Aymen Al Erwi — SpatialOS Portfolio" />
+  <meta property="og:description" content="Python, data analytics, automation, Arabic AI, and practical digital systems." />
+  <meta property="og:image" content="aiman-portrait.jpg" />
+  <meta property="og:type" content="website" />
   <title>أيمن عبدربه العروي | Aymen Abdurabu Al Erwi — SpatialOS Portfolio</title>
 
   <!-- Google Fonts: Manrope, DM Sans, DM Mono & Tajawal -->
@@ -41,6 +46,7 @@
   </script>
 
   <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <style>
     :root {
@@ -458,19 +464,19 @@
           <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">02 // SELECTED PROJECTS & LABS</div>
           <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="أفكار أصبحت واقعاً." data-en="Ideas, made tangible.">أفكار أصبحت واقعاً.</h2>
         </div>
-        <p class="text-sm text-[#8F9BB3] max-w-md" data-ar="اختر أي مشروع لتشغيل المحاكاة التفاعلية الحية واستكشاف التفاصيل الهندسية والمستودع البرمجي." data-en="Select any project to launch its live interactive simulation drawer and explore architectural details.">
-          اختر أي مشروع لتشغيل المحاكاة التفاعلية الحية واستكشاف التفاصيل الهندسية والمستودع البرمجي.
+        <p class="text-sm text-[#8F9BB3] max-w-md" data-ar="اختر مشروعاً لفتح معاينة تفاعلية خفيفة وقراءة النطاق واستعراض المستودع البرمجي." data-en="Select a project to open a lightweight interactive preview, read the scope, and visit the source repository.">
+          اختر مشروعاً لفتح معاينة تفاعلية خفيفة وقراءة النطاق واستعراض المستودع البرمجي.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- Project 01: J.A.R.V.I.S / SpatialOS -->
-        <article onclick="openProjectModal('jarvis')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+        <article onclick="openProjectModal('jarvis')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProjectModal('jarvis'); }" role="button" tabindex="0" aria-label="Open jarvis project preview" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
           <div>
             <div class="flex items-center justify-between mb-5">
               <span class="font-mono text-xs text-[#8EA6FF]">01 // SPATIAL INTERACTION</span>
-              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">LIVE SIM</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">INTERACTIVE</span>
             </div>
             <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3">J.A.R.V.I.S / SpatialOS</h3>
             <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="تجربة سطح مكتب يتم التحكم بها عبر إيماءات اليد والصوت. تستكشف التفاعل مع مجسمات ثلاثية الأبعاد باستخدام الكاميرا، وتنفيذ الإيماءات، وتشغيل تطبيقات النظام بالأوامر الصوتية." data-en="A desktop experience controlled through hand gestures and voice. It explores camera-based interaction with 3D objects, gesture actions, and voice commands that can launch system applications.">
@@ -485,18 +491,18 @@
               <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Voice UI</span>
             </div>
             <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
-              <span data-ar="تشغيل المحاكاة التفاعلية" data-en="Launch Interactive Demo">تشغيل المحاكاة التفاعلية</span>
+              <span data-ar="فتح المعاينة والتفاصيل" data-en="Open Preview & Details">تشغيل المحاكاة التفاعلية</span>
               <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
             </div>
           </div>
         </article>
 
         <!-- Project 02: SignBridge AI -->
-        <article onclick="openProjectModal('signbridge')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+        <article onclick="openProjectModal('signbridge')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProjectModal('signbridge'); }" role="button" tabindex="0" aria-label="Open signbridge project preview" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
           <div>
             <div class="flex items-center justify-between mb-5">
               <span class="font-mono text-xs text-[#8EA6FF]">02 // ACCESSIBILITY & AI</span>
-              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">VISION LAB</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">VISION PROTOTYPE</span>
             </div>
             <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3">SignBridge AI</h3>
             <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="نموذج غير تجاري للتعرّف على إشارات اليد في سياقات عربية وإنجليزية. يستخدم الكاميرا للتعرّف على الإشارات المدعومة وتحويلها إلى نص مقروء وصوت." data-en="A non-commercial sign-recognition prototype for Arabic and English contexts. It uses a camera pipeline to recognize supported signs and turn them into readable text and speech.">
@@ -508,17 +514,17 @@
               <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Python</span>
               <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">OpenCV</span>
               <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">MediaPipe</span>
-              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Gemini API</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Rule-based Demo</span>
             </div>
             <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
-              <span data-ar="تجربة مترجم الإشارة" data-en="Test Sign Recognition">تجربة مترجم الإشارة</span>
+              <span data-ar="فتح المعاينة والتفاصيل" data-en="Open Preview & Details">تجربة مترجم الإشارة</span>
               <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
             </div>
           </div>
         </article>
 
         <!-- Project 03: Nira Personal AI Agent -->
-        <article onclick="openProjectModal('nira')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+        <article onclick="openProjectModal('nira')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProjectModal('nira'); }" role="button" tabindex="0" aria-label="Open nira project preview" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
           <div>
             <div class="flex items-center justify-between mb-5">
               <span class="font-mono text-xs text-[#8EA6FF]">03 // AUTOMATION & AI AGENTS</span>
@@ -537,14 +543,14 @@
               <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Automation</span>
             </div>
             <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
-              <span data-ar="محاكاة بوابة الموافقة" data-en="Simulate Approval Gate">محاكاة بوابة الموافقة</span>
+              <span data-ar="فتح المعاينة والتفاصيل" data-en="Open Preview & Details">محاكاة بوابة الموافقة</span>
               <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
             </div>
           </div>
         </article>
 
         <!-- Project 04: Data & Automation -->
-        <article onclick="openProjectModal('data')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+        <article onclick="openProjectModal('data')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProjectModal('data'); }" role="button" tabindex="0" aria-label="Open data project preview" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
           <div>
             <div class="flex items-center justify-between mb-5">
               <span class="font-mono text-xs text-[#8EA6FF]">04 // DATA & ANALYTICS</span>
@@ -650,19 +656,19 @@
 
       </div>
 
-      <!-- Payment & Security Trust Note -->
+      <!-- Trust & Process Note -->
       <div class="glass-panel rounded-2xl p-6 border border-[#6382FF]/25 flex flex-col sm:flex-row gap-4 items-start">
         <div class="w-9 h-9 rounded-lg bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF] shrink-0">
           <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 66.8l0 378.1c138-66.8 175.1-214.8 176-303.4l-176-74.6 0 0z"/></svg>
         </div>
         <div class="text-sm text-[#8F9BB3] leading-relaxed">
           <p>
-            <b class="text-[#F4F6FB]" data-ar="الدفع الإلكتروني:" data-en="Online payment:">الدفع الإلكتروني:</b>
-            <span data-ar=" جاري إعداد بوابة دفع سعودية محلية. حالياً يمر كل طلب بمحادثة قصيرة أولاً لتحديد نطاق العمل والاتفاق على السعر قبل أي تنفيذ." data-en=" A local Saudi payment gateway is being set up. For now, every request goes through a short conversation first to scope the work and agree on price before anything starts."> جاري إعداد بوابة دفع سعودية محلية. حالياً يمر كل طلب بمحادثة قصيرة أولاً لتحديد نطاق العمل والاتفاق على السعر قبل أي تنفيذ.</span>
+            <b class="text-[#F4F6FB]" data-ar="طريقة العمل:" data-en="How it works:">طريقة العمل:</b>
+            <span data-ar=" تبدأ الطلبات بمحادثة قصيرة لتحديد النطاق والجدول الزمني والتكلفة قبل بدء التنفيذ." data-en="Every request starts with a short conversation to agree on scope, timeline, and cost before work begins."> تبدأ الطلبات بمحادثة قصيرة لتحديد النطاق والجدول الزمني والتكلفة قبل بدء التنفيذ.</span>
           </p>
           <p class="mt-2">
-            <b class="text-[#F4F6FB]" data-ar="الأمان:" data-en="Security:">الأمان:</b>
-            <span data-ar=" هذه الصفحة لا تجمع ولا تخزّن أي بيانات بطاقات أو مفاتيح دفع. أي اتصال مستقبلي بذكاء اصطناعي أو بوابة دفع سيتم عبر خادم خلفي منفصل، ولن تُكتب أي مفاتيح سرية داخل كود هذا الموقع." data-en=" This page never collects or stores card details or payment keys. Any future AI or payment integration will run through a separate backend server — no secret keys are ever written into this site's code."> هذه الصفحة لا تجمع ولا تخزّن أي بيانات بطاقات أو مفاتيح دفع. أي اتصال مستقبلي بذكاء اصطناعي أو بوابة دفع سيتم عبر خادم خلفي منفصل، ولن تُكتب أي مفاتيح سرية داخل كود هذا الموقع.</span>
+            <b class="text-[#F4F6FB]" data-ar="الخصوصية:" data-en="Privacy:">الخصوصية:</b>
+            <span data-ar=" لا يجمع الموقع بيانات بطاقات أو مفاتيح سرية. يتم فتح قناة التواصل التي تختارها أنت لإكمال التفاصيل بأمان." data-en=" This site does not collect card details or secret keys. It opens your chosen contact channel so you can complete the details directly."> لا يجمع الموقع بيانات بطاقات أو مفاتيح سرية. يتم فتح قناة التواصل التي تختارها أنت لإكمال التفاصيل بأمان.</span>
           </p>
         </div>
       </div>
@@ -1620,18 +1626,18 @@
           <div class="space-y-4">
             <span class="font-mono text-xs text-[#6382FF]">02 // ACCESSIBILITY & VISION AI</span>
             <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">SignBridge AI</h3>
-            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'نموذج للتعرف على لغة الإشارة العربية والإنجليزية عبر الكاميرا باستخدام MediaPipe وGemini API وتحويلها لنص وصوت.' : 'Arabic and English sign language recognition prototype using MediaPipe landmarks and Gemini API.'}</p>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'نموذج أولي محدود للتعرّف على إشارات يد مدعومة عبر الكاميرا باستخدام MediaPipe، وليس مترجماً شاملاً للغة الإشارة.' : 'A focused gesture-recognition prototype using MediaPipe landmarks; it is not a complete sign-language translator.'}</p>
             <div class="p-4 rounded-2xl bg-[#06080D] border border-[#6382FF]/30 space-y-3">
-              <div class="font-mono text-[11px] text-[#8EA6FF]">LIVE SIGN DECODER PREVIEW</div>
-              <div id="signSimScreen" class="p-4 rounded-xl bg-[#0D111A] text-center font-bold text-base text-[#F4F6FB]">${lang === 'ar' ? 'اختر إشارة لمحاكاة الترجمة الفورية' : 'Select a sign gesture to decode'}</div>
+              <div class="font-mono text-[11px] text-[#8EA6FF]">GESTURE PREVIEW</div>
+              <div id="signSimScreen" class="p-4 rounded-xl bg-[#0D111A] text-center font-bold text-base text-[#F4F6FB]">${lang === 'ar' ? 'اختر إشارة لعرض نتيجة النموذج' : 'Select a gesture to preview'}</div>
               <div class="grid grid-cols-3 gap-2">
                 <button onclick="document.getElementById('signSimScreen').textContent='👋 السلام عليكم / Hello'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">👋 تحية</button>
                 <button onclick="document.getElementById('signSimScreen').textContent='🙏 شكراً جزيلاً / Thank You'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">🙏 شكر</button>
                 <button onclick="document.getElementById('signSimScreen').textContent='✅ نعم، موافق / Approved'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">✅ تأكيد</button>
               </div>
             </div>
-            <a href="https://github.com/aymnb7178" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
-              <span>${lang === 'ar' ? 'عرض الحساب على GitHub' : 'View GitHub Profile'}</span>
+            <a href="https://github.com/aymnb7178/SignBridge-AI" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'فتح مستودع SignBridge' : 'Open SignBridge Repository'}</span>
               <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg>
             </a>
           </div>
@@ -1647,12 +1653,12 @@
               <div id="niraSimScreen" class="p-3 rounded-xl bg-[#0D111A] text-xs text-[#F4F6FB] leading-relaxed">
                 ${lang === 'ar' ? 'Nira: تم تجهيز ملخص المهام وجدولة التذكير. هل توافق على التنفيذ؟' : 'Nira: Task summary prepared. Shall I execute the workflow?'}
               </div>
-              <button onclick="document.getElementById('niraSimScreen').innerHTML='<span class=text-[#8EA6FF]>[APPROVED & EXECUTED]</span> تم إرسال التذكير وتحديث سجل المهام بنجاح.'" class="px-4 py-2 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <button onclick="document.getElementById('niraSimScreen').textContent='[APPROVED & EXECUTED] تم إرسال التذكير وتحديث سجل المهام بنجاح.'" class="px-4 py-2 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
                 ${lang === 'ar' ? 'موافق (Approve Action)' : 'Approve Action'}
               </button>
             </div>
-            <a href="https://github.com/aymnb7178" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
-              <span>${lang === 'ar' ? 'عرض الحساب على GitHub' : 'View GitHub Profile'}</span>
+            <a href="https://github.com/aymnb7178/Telegram-AI-Automation" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'فتح مستودع Nira' : 'Open Nira Repository'}</span>
               <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg>
             </a>
           </div>
@@ -1751,7 +1757,7 @@
       if (selectedDispatchChannel === 'whatsapp') {
         targetUrl = `https://wa.me/966566065221?text=${encoded}`;
       } else if (selectedDispatchChannel === 'telegram') {
-        targetUrl = `https://t.me/Il7IAI`;
+        targetUrl = `https://t.me/IT_Tech_Pioneers_ENG`;
       } else if (selectedDispatchChannel === 'x') {
         targetUrl = `https://x.com/uqg_9`;
       } else if (selectedDispatchChannel === 'instagram') {
