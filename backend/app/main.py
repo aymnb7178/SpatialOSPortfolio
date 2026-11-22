@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from .config import get_settings
-from .routers import admin, analytics, auth, messages, orders, payments
+from .routers import admin, analytics, assistant, auth, messages, orders, payments
 
 settings = get_settings()
 app = FastAPI(title="SpatialOS Portfolio API", version="1.0.0", docs_url="/docs", redoc_url="/redoc")
@@ -15,6 +15,7 @@ app.include_router(orders.router, prefix="/api")
 app.include_router(payments.router, prefix="/api")
 app.include_router(admin.router, prefix="/api")
 app.include_router(analytics.router, prefix="/api")
+app.include_router(assistant.router, prefix="/api")
 
 @app.get("/health")
 def health():
