@@ -1085,6 +1085,12 @@
           <button class="w-full px-4 py-3 rounded-xl bg-[#6382FF] text-white font-bold" data-ar="بدء الدفع" data-en="Start payment">بدء الدفع</button>
         </form>
         <div id="adminData" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
+        <div id="adminInsights" class="hidden space-y-4"></div>
+        <div id="adminLinkManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-white/10 p-5">
+          <div class="flex items-center justify-between gap-3 mb-4"><div><h3 class="font-bold text-[#F4F6FB]" data-ar="إدارة روابط الموقع" data-en="Site links">إدارة روابط الموقع</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="أضف روابط تظهر في نظام الموقع مستقبلاً." data-en="Add links for the site link system.">أضف روابط تظهر في نظام الموقع مستقبلاً.</p></div><span class="text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span></div>
+          <form onsubmit="createAdminLink(event)" class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-4"><input id="adminLinkLabel" required placeholder="اسم الرابط" class="account-input" /><input id="adminLinkUrl" type="url" required placeholder="https://..." class="account-input" dir="ltr" /><input id="adminLinkChannel" placeholder="telegram / portfolio" class="account-input" dir="ltr" /><button class="px-4 py-3 rounded-xl bg-[#C6F36C] text-[#06080D] font-bold text-xs" data-ar="إضافة الرابط" data-en="Add link">إضافة الرابط</button></form>
+          <div id="adminLinksList" class="space-y-2 text-xs"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1129,7 +1135,16 @@
       initLiquidGlassNavigation();
       initSpatialSentinelEngine();
       handleHashRouting();
+      recordPublicVisit();
       requestAnimationFrame(() => snapAllDroplets(true));
+    }
+
+    function recordPublicVisit() {
+      try {
+        let sessionKey = localStorage.getItem('spatialos-visitor-key');
+        if (!sessionKey) { sessionKey = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`); localStorage.setItem('spatialos-visitor-key', sessionKey); }
+        fetch('/api/analytics/visit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session_key: sessionKey, path: window.location.hash || '/', user_agent: navigator.userAgent }) }).catch(() => {});
+      } catch (e) {}
     }
 
     if (document.readyState === 'loading') {
@@ -1850,7 +1865,7 @@
       try {
         const orders = await apiRequest('/api/orders');
         document.getElementById('ordersList').innerHTML = orders.length ? orders.map(order => `<div class="p-3 rounded-xl border border-white/10 bg-white/[.03]"><div class="flex justify-between gap-2"><strong class="text-[#F4F6FB]">#${order.id} · ${order.service}</strong><span class="text-[#C6F36C]">${statusLabel(order.status)}</span></div><p class="mt-1">${order.details}</p>${order.status !== 'paid' ? `<button onclick="openCheckout(${order.id})" class="mt-2 text-[#8EA6FF]">${lang === 'ar' ? 'الدفع الآن ←' : 'Pay now →'}</button>` : ''}</div>`).join('') : `<p>${lang === 'ar' ? 'لا توجد طلبات بعد.' : 'No requests yet.'}</p>`;
-        if (currentUser.role === 'admin') await loadAdminDashboard();
+        if (currentUser.role === 'admin') { await loadAdminDashboard(); await loadAdminInsights(); }
       } catch (error) { showToast(error.message); }
     }
     function openCheckout(orderId) { document.getElementById('paymentOrderId').value = orderId; document.getElementById('checkoutPanel').classList.remove('hidden'); document.getElementById('checkoutPanel').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
@@ -1865,7 +1880,26 @@
       const summary = await apiRequest('/api/admin/summary');
       const box = document.getElementById('adminSummary'); box.classList.remove('hidden'); box.innerHTML = Object.entries(summary).map(([key, value]) => `<div class="p-3 rounded-xl bg-[#6382FF]/10 border border-[#6382FF]/20"><div class="text-xl font-extrabold text-[#F4F6FB]">${value}</div><div class="text-[10px] text-[#8F9BB3] uppercase">${key}</div></div>`).join('');
       const [messages, orders] = await Promise.all([apiRequest('/api/admin/messages'), apiRequest('/api/admin/orders')]);
-      const data = document.getElementById('adminData'); data.classList.remove('hidden'); data.innerHTML = `<div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الرسائل' : 'Latest messages'}</h3>${messages.slice(0, 5).map(m => `<div class="py-2 border-b border-white/10 text-xs"><strong>${m.name}</strong> · ${m.email}<p class="text-[#8F9BB3] mt-1">${m.message}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد رسائل</p>'}</div><div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الطلبات' : 'Latest orders'}</h3>${orders.slice(0, 5).map(o => `<div class="py-2 border-b border-white/10 text-xs"><strong>#${o.id} · ${o.service}</strong><p class="text-[#8F9BB3] mt-1">${statusLabel(o.status)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد طلبات</p>'}</div>`;
+      const data = document.getElementById('adminData'); data.classList.remove('hidden'); data.innerHTML = `<div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الرسائل' : 'Latest messages'}</h3>${messages.slice(0, 5).map(m => `<div class="py-2 border-b border-white/10 text-xs"><div class="flex items-center justify-between gap-2"><strong>${m.name}</strong><a class="text-[#8EA6FF]" href="mailto:${m.email}?subject=${encodeURIComponent('Re: ' + (m.subject || 'Portfolio inquiry'))}">${lang === 'ar' ? 'رد' : 'Reply'} ↗</a></div><span class="text-[#8F9BB3]">${m.email}</span><p class="text-[#8F9BB3] mt-1">${m.message}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد رسائل</p>'}</div><div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الطلبات' : 'Latest orders'}</h3>${orders.slice(0, 5).map(o => `<div class="py-2 border-b border-white/10 text-xs"><strong>#${o.id} · ${o.service}</strong><p class="text-[#8F9BB3] mt-1">${statusLabel(o.status)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد طلبات</p>'}</div>`;
+    }
+
+    async function loadAdminInsights() {
+      const panel = document.getElementById('adminInsights');
+      const [users, logins, visits, links] = await Promise.all([apiRequest('/api/admin/users'), apiRequest('/api/admin/login-events'), apiRequest('/api/admin/visits'), apiRequest('/api/admin/links')]);
+      panel.classList.remove('hidden');
+      document.getElementById('adminLinkManager').classList.remove('hidden');
+      document.getElementById('adminLinksList').innerHTML = links.length ? links.map(link => `<div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-white/[.03]"><div><strong class="text-[#F4F6FB]">${link.label}</strong><p class="text-[#8F9BB3]" dir="ltr">${link.url}</p></div><button type="button" onclick="deleteAdminLink(${link.id})" class="text-red-300 hover:text-red-200">${lang === 'ar' ? 'حذف' : 'Delete'}</button></div>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد روابط مضافة.' : 'No links added yet.'}</p>`;
+      panel.innerHTML = `<div class="grid grid-cols-1 xl:grid-cols-2 gap-4"><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'المستخدمون' : 'Users'}</h3><span class="text-xs text-[#8F9BB3]">${users.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${users.map(u => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${u.name}</strong><p class="text-[#8F9BB3]" dir="ltr">${u.email}</p><span class="text-[10px] text-[#8EA6FF]">${u.role} · ${u.is_active ? 'active' : 'disabled'}</span></div>`).join('')}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'آخر تسجيلات الدخول' : 'Recent logins'}</h3><span class="text-xs text-[#8F9BB3]">${logins.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${logins.slice(0, 20).map(item => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${item.name}</strong> · <span dir="ltr">${item.email}</span><p class="text-[#8F9BB3] mt-1">${new Date(item.created_at).toLocaleString()}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد عمليات دخول</p>'}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الزيارات' : 'Visits'}</h3><span class="text-xs text-[#C6F36C]">${visits.unique_sessions}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? `إجمالي المشاهدات: ${visits.total}. أسماء الزوار تظهر عند تسجيل الدخول فقط.` : `Total views: ${visits.total}. Names appear only for signed-in visitors.`}</p></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الروابط المحفوظة' : 'Saved links'}</h3><span class="text-xs text-[#8F9BB3]">${links.length}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'الروابط أصبحت قابلة للإدارة من API الخاص بالمشرف.' : 'Links are now manageable through the admin API.'}</p></section></div>`;
+    }
+
+    async function createAdminLink(event) {
+      event.preventDefault();
+      try { await apiRequest('/api/admin/links', { method: 'POST', body: JSON.stringify({ label: document.getElementById('adminLinkLabel').value, url: document.getElementById('adminLinkUrl').value, channel: document.getElementById('adminLinkChannel').value || 'other' }) }); event.target.reset(); showToast(lang === 'ar' ? 'تمت إضافة الرابط' : 'Link added'); await loadAdminInsights(); }
+      catch (error) { showToast(error.message); }
+    }
+    async function deleteAdminLink(id) {
+      try { await apiRequest(`/api/admin/links/${id}`, { method: 'DELETE' }); showToast(lang === 'ar' ? 'تم حذف الرابط' : 'Link deleted'); await loadAdminInsights(); }
+      catch (error) { showToast(error.message); }
     }
 
     // ==================== SERVICES → DISPATCHER HANDOFF ====================

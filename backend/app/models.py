@@ -11,6 +11,7 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(String(255))
     role: Mapped[str] = mapped_column(String(20), default="user")
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     orders: Mapped[list["Order"]] = relationship(back_populates="user")
 
@@ -34,6 +35,33 @@ class Order(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     user: Mapped[User] = relationship(back_populates="orders")
     payments: Mapped[list["Payment"]] = relationship(back_populates="order")
+
+class LoginEvent(Base):
+    __tablename__ = "login_events"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    user: Mapped[User] = relationship()
+
+class VisitEvent(Base):
+    __tablename__ = "visit_events"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True, index=True)
+    session_key: Mapped[str] = mapped_column(String(80), index=True)
+    path: Mapped[str] = mapped_column(String(255), default="/")
+    user_agent: Mapped[str] = mapped_column(String(500), default="")
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    user: Mapped[User | None] = relationship()
+
+class SiteLink(Base):
+    __tablename__ = "site_links"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    label: Mapped[str] = mapped_column(String(120))
+    url: Mapped[str] = mapped_column(String(1000))
+    channel: Mapped[str] = mapped_column(String(40), default="other")
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 class Payment(Base):
     __tablename__ = "payments"

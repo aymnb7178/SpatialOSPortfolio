@@ -5,7 +5,8 @@ from sqlalchemy.orm import Session
 from ..auth import create_token, get_current_user, hash_password, verify_password
 from ..config import get_settings
 from ..database import get_db
-from ..models import User
+from ..models import LoginEvent, User
+from datetime import datetime, timezone
 from ..schemas import LoginRequest, UserCreate, UserOut
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -33,6 +34,9 @@ def login(data: LoginRequest, response: Response, db: Session = Depends(get_db))
     user = db.scalar(select(User).where(User.email == data.email.lower()))
     if not user or not verify_password(data.password, user.password_hash):
         raise HTTPException(status_code=401, detail="البريد أو كلمة المرور غير صحيحة")
+    user.last_login_at = datetime.now(timezone.utc)
+    db.add(LoginEvent(user_id=user.id))
+    db.commit()
     response.set_cookie("access_token", create_token(user), httponly=True, secure=get_settings().cookie_secure, samesite="lax", max_age=get_settings().jwt_expire_minutes * 60)
     return user
 
