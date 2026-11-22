@@ -1127,6 +1127,7 @@
     let stageView = 'dual';
     let portraitCaptionVisible = true;
     let selectedDispatchChannel = 'whatsapp';
+    let managedLinks = {};
 
     // 0ms Instant Boot Sequence
     function bootPortfolioApp() {
@@ -1136,6 +1137,7 @@
       initSpatialSentinelEngine();
       handleHashRouting();
       recordPublicVisit();
+      loadPublicLinks();
       requestAnimationFrame(() => snapAllDroplets(true));
     }
 
@@ -1144,6 +1146,14 @@
         let sessionKey = localStorage.getItem('spatialos-visitor-key');
         if (!sessionKey) { sessionKey = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`); localStorage.setItem('spatialos-visitor-key', sessionKey); }
         fetch('/api/analytics/visit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session_key: sessionKey, path: window.location.hash || '/', user_agent: navigator.userAgent }) }).catch(() => {});
+      } catch (e) {}
+    }
+
+    async function loadPublicLinks() {
+      try {
+        const response = await fetch('/api/site-links');
+        const links = response.ok ? await response.json() : [];
+        managedLinks = Object.fromEntries(links.map(link => [link.channel, link.url]));
       } catch (e) {}
     }
 
@@ -1968,15 +1978,16 @@
 
       let targetUrl = '';
       if (selectedDispatchChannel === 'whatsapp') {
-        targetUrl = `https://wa.me/966566065221?text=${encoded}`;
+        targetUrl = `${managedLinks.whatsapp || 'https://wa.me/966566065221'}${managedLinks.whatsapp?.includes('?') ? '&' : '?'}text=${encoded}`;
       } else if (selectedDispatchChannel === 'telegram') {
-        targetUrl = `https://t.me/Il7IAI`;
+        targetUrl = managedLinks.telegram || 'https://t.me/Il7IAI';
       } else if (selectedDispatchChannel === 'x') {
-        targetUrl = `https://x.com/uqg_9`;
+        targetUrl = managedLinks.x || 'https://x.com/uqg_9';
       } else if (selectedDispatchChannel === 'instagram') {
-        targetUrl = `https://www.instagram.com/i1iair`;
+        targetUrl = managedLinks.instagram || 'https://www.instagram.com/i1iair';
       } else {
-        targetUrl = `mailto:aymnb7178@gmail.com?subject=${subjectEncoded}&body=${encoded}`;
+        const emailUrl = managedLinks.email || 'mailto:aymnb7178@gmail.com';
+        targetUrl = `${emailUrl}${emailUrl.includes('?') ? '&' : '?'}subject=${subjectEncoded}&body=${encoded}`;
       }
 
       showToast(saved ? (lang === 'ar' ? 'تم حفظ رسالتك وتجهيزها — جاري نقلك لحسابي...' : 'Message saved & prepared — opening platform...') : (lang === 'ar' ? 'تم تجهيز الرسالة — أضف بريدك لحفظها في النظام.' : 'Message prepared — add your email to save it in the system.'));
