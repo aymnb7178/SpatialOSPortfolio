@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /docs
+Disallow: /redoc
+Sitemap: https://spatialos-portfolio.onrender.com/sitemap.xml
