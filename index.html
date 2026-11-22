@@ -1,0 +1,1842 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#06080D" />
+  <meta name="description" content="Aymen Abdurabu Al Erwi — AI, Spatial Systems, Automation, Data & Digital Experiences." />
+  <title>أيمن عبدربه العروي | Aymen Abdurabu Al Erwi — SpatialOS Portfolio</title>
+
+  <!-- Google Fonts: Manrope, DM Sans, DM Mono & Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#06080D',
+            surface: '#0D111A',
+            surfaceLight: '#131927',
+            snow: '#F4F6FB',
+            slateMuted: '#8F9BB3',
+            cobalt: '#6382FF',
+            cobaltGlow: '#8EA6FF',
+            cyberLime: '#C6F36C',
+          },
+          fontFamily: {
+            display: ['Manrope', 'Tajawal', 'sans-serif'],
+            sans: ['DM Sans', 'Tajawal', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+            arabic: ['Tajawal', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- FontAwesome Icons -->
+
+  <style>
+    :root {
+      --bg-obsidian: #06080D;
+      --bg-surface: #0D111A;
+      --text-snow: #F4F6FB;
+      --text-muted: #8F9BB3;
+      --accent-cobalt: #6382FF;
+      --accent-cobalt-glow: #8EA6FF;
+      --accent-lime: #C6F36C;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: var(--bg-obsidian);
+      color: var(--text-snow);
+      font-family: 'DM Sans', 'Tajawal', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] body { font-family: 'Tajawal', 'DM Sans', sans-serif; }
+    html[dir="rtl"] .font-display { font-family: 'Tajawal', sans-serif; letter-spacing: 0 !important; }
+
+    /* Spatial Background Grid */
+    .spatial-grid {
+      background-size: 52px 52px;
+      background-image:
+        linear-gradient(to right, rgba(99, 130, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 130, 255, 0.045) 1px, transparent 1px);
+    }
+
+    /* Glass Panels */
+    .glass-panel {
+      background: rgba(13, 17, 26, 0.85);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(244, 246, 251, 0.09);
+    }
+
+    .glass-cobalt {
+      background: linear-gradient(145deg, rgba(16, 22, 36, 0.92), rgba(8, 11, 18, 0.96));
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(99, 130, 255, 0.34);
+      box-shadow: 0 28px 80px -20px rgba(0, 0, 0, 0.88), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    /* Crystal-Clear Official Portrait Card (ZERO dark overlay on face) */
+    .portrait-card {
+      position: relative;
+      background: radial-gradient(circle at 50% 25%, rgba(99, 130, 255, 0.18), rgba(13, 17, 26, 0.98) 85%);
+      border: 1px solid rgba(99, 130, 255, 0.45);
+      box-shadow: 0 0 42px -10px rgba(99, 130, 255, 0.32);
+      overflow: hidden;
+    }
+
+    .portrait-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: brightness(1.04) contrast(1.03);
+      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .portrait-card:hover .portrait-photo {
+      transform: scale(1.03);
+    }
+
+    /* Interactive 3D Tilt Cards */
+    .tilt-card {
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tilt-card:hover {
+      border-color: rgba(99, 130, 255, 0.55);
+      box-shadow: 0 24px 60px -15px rgba(99, 130, 255, 0.24);
+    }
+
+    /* Page View Transitions */
+    .page-view {
+      display: none;
+      animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .page-view.active {
+      display: block;
+    }
+
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================== APPLE iOS 26 LIQUID GLASS SYSTEM ==================== */
+    .liquid-nav-track {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+
+    .liquid-droplet {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 0;
+      border-radius: 12px;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.26) 0%,
+        rgba(99, 130, 255, 0.34) 50%,
+        rgba(142, 166, 255, 0.18) 100%
+      );
+      backdrop-filter: url(#liquid-glass-lens) blur(18px) saturate(180%) brightness(1.16);
+      -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.16);
+      box-shadow:
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.72),
+        inset 0 -1.5px 2px rgba(99, 130, 255, 0.48),
+        inset 1px 0 1px rgba(255, 255, 255, 0.35),
+        0 8px 28px rgba(99, 130, 255, 0.32),
+        0 2px 8px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      transform-origin: center center;
+      will-change: transform, width;
+    }
+
+    .liquid-droplet::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 12%;
+      right: 12%;
+      height: 36%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .nav-btn, .dock-btn {
+      position: relative;
+      z-index: 2;
+      background: transparent !important;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #06080D; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6382FF; }
+  
+    .ico{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
+
+    .ico-arrow{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
+</style>
+</head>
+<body class="spatial-grid min-h-screen flex flex-col selection:bg-[#6382FF]/30 selection:text-white">
+
+  <!-- ==================== INVISIBLE SVG REFRACTION LENS FILTER ==================== -->
+  <svg style="position:absolute;width:0;height:0;pointer-events:none" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass-lens" x="-15%" y="-15%" width="130%" height="130%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.014 0.028" numOctaves="2" seed="7" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="1.6" result="smoothNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="7" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ==================== AMBIENT COBALT RADIAL GLOWS ==================== -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 right-1/4 w-[520px] h-[520px] rounded-full bg-[#6382FF]/10 blur-[140px]"></div>
+    <div class="absolute top-1/2 -left-40 w-[460px] h-[460px] rounded-full bg-[#6382FF]/08 blur-[140px]"></div>
+  </div>
+
+  <!-- ==================== TOP STICKY HEADER ==================== -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity & Custom Geometric AY Monogram -->
+      <button onclick="navigateTo('overview')" class="flex items-center gap-3.5 text-start group focus:outline-none">
+        <div class="w-11 h-11 rounded-xl bg-[#0D111A] border border-[#6382FF]/45 flex items-center justify-center shadow-[0_0_24px_rgba(99,130,255,0.28)] group-hover:scale-105 transition-transform overflow-hidden">
+          <img src="aiman-logo.jpg" alt="Aymen Al Erwi logo" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-[#F4F6FB]" data-ar="أيمن العروي" data-en="AYMEN AL ERWI">أيمن العروي</span>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#C6F36C] animate-pulse"></span>
+              ONLINE
+            </span>
+          </div>
+          <p class="text-[11px] font-mono text-[#8F9BB3]" data-ar="أنظمة ذكية · أتمتة · تجارب مكانية" data-en="INTELLIGENT SYSTEMS · AUTOMATION · SPATIAL">أنظمة ذكية · أتمتة · تجارب مكانية</p>
+        </div>
+      </button>
+
+      <!-- Desktop 5-Page Liquid Glass Navigation -->
+      <nav id="topNavTrack" class="liquid-nav-track hidden lg:flex items-center gap-1 bg-[#06080D]/80 p-1.5 rounded-2xl border border-white/10">
+        <span id="topLiquidDroplet" class="liquid-droplet"></span>
+        <button onclick="navigateTo('overview')" data-nav="overview" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-extrabold text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-80 me-1">01</span>
+          <span data-ar="الرئيسية" data-en="Overview">الرئيسية</span>
+        </button>
+        <button onclick="navigateTo('work')" data-nav="work" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-70 me-1">02</span>
+          <span data-ar="المختبرات والأعمال" data-en="Work & Labs">المختبرات والأعمال</span>
+        </button>
+        <button onclick="navigateTo('services')" data-nav="services" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-70 me-1">03</span>
+          <span data-ar="الخدمات" data-en="Services">الخدمات</span>
+        </button>
+        <button onclick="navigateTo('capabilities')" data-nav="capabilities" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-70 me-1">04</span>
+          <span data-ar="القدرات" data-en="Capabilities">القدرات</span>
+        </button>
+        <button onclick="navigateTo('journey')" data-nav="journey" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-70 me-1">05</span>
+          <span data-ar="المسيرة والمجتمع" data-en="Journey">المسيرة والمجتمع</span>
+        </button>
+        <button onclick="navigateTo('contact')" data-nav="contact" class="nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors">
+          <span class="font-mono text-[10px] opacity-70 me-1">06</span>
+          <span data-ar="موزع التواصل" data-en="Dispatcher">موزع التواصل</span>
+        </button>
+      </nav>
+
+      <!-- Utility Controls: Command Palette & Bilingual Toggle -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="toggleCommandPalette()" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
+          <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M9.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L146.7 256 9.4 118.6zM224 384l256 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-256 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+          <span class="hidden sm:inline" data-ar="الأوامر" data-en="Command">الأوامر</span>
+          <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#06080D] text-[#8EA6FF] rounded border border-white/10">⌘K</kbd>
+        </button>
+
+        <button onclick="toggleLanguage()" id="langToggleBtn" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#6382FF]/15 hover:bg-[#6382FF]/25 border border-[#6382FF]/40 text-xs font-bold text-[#8EA6FF] transition-all">
+          <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M351.9 280l-190.9 0c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zM160.9 232l190.9 0C349 167.5 334.7 108.1 314.4 64.6 303 40.2 290.7 22.8 279.3 12.2 268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4zm-48 0C116.4 146.4 138.5 66.9 170.8 14.7 78.7 47.3 10.9 131.2 1.5 232l111.4 0zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3L1.5 280zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3l-111.4 0zm111.4-48C501.9 131.2 434.1 47.3 342 14.7 374.3 66.9 396.4 146.4 399.9 232l111.4 0z"/></svg>
+          <span id="langToggleLabel">English</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN SPA VIEWPORT ==================== -->
+  <main class="relative z-10 flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-28">
+
+    <!-- ========================================================= -->
+    <!-- PAGE 01: OVERVIEW (HERO STAGE + MANIFESTO)                -->
+    <!-- ========================================================= -->
+    <section id="view-overview" class="page-view active space-y-14">
+      
+      <!-- Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        
+        <!-- Copy Column -->
+        <div class="lg:col-span-6 space-y-6 order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#6382FF]/10 border border-[#6382FF]/30 text-[#8EA6FF] font-mono text-[11px] uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#C6F36C] shadow-[0_0_10px_#C6F36C]"></span>
+            <span data-ar="تقنية · بناء · تعلّم مستمر" data-en="TECHNOLOGY · BUILDING · LEARNING">تقنية · بناء · تعلّم مستمر</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.06] tracking-tight text-[#F4F6FB]">
+            <span class="block" data-ar="أيمن عبدربه" data-en="Aymen Abdurabu">أيمن عبدربه</span>
+            <span class="block text-[#6382FF]" data-ar="العروي." data-en="Al Erwi.">العروي.</span>
+          </h1>
+
+          <p class="text-[#8F9BB3] text-base sm:text-lg leading-relaxed max-w-xl" data-ar="أحوّل الأفكار إلى تجارب رقمية مفيدة — من الأنظمة الذكية والأتمتة إلى الحلول المبنية على البيانات والواجهات التفاعلية." data-en="I turn ideas into useful digital experiences — from intelligent systems and automation to data-led solutions and interactive spatial interfaces.">
+            أحوّل الأفكار إلى تجارب رقمية مفيدة — من الأنظمة الذكية والأتمتة إلى الحلول المبنية على البيانات والواجهات التفاعلية.
+          </p>
+
+          <!-- Primary CTA Row -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <button onclick="navigateTo('work')" class="px-6 py-3.5 rounded-2xl bg-[#6382FF] hover:bg-[#5271F5] text-white font-bold text-sm shadow-[0_14px_35px_-10px_rgba(99,130,255,0.65)] transition-all flex items-center gap-2.5">
+              <span data-ar="استكشف أعمالي ومختبراتي" data-en="Explore Work & Labs">استكشف أعمالي ومختبراتي</span>
+              <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+            </button>
+            <button onclick="navigateTo('contact')" class="px-6 py-3.5 rounded-2xl glass-panel hover:bg-white/10 border border-white/15 text-[#F4F6FB] font-bold text-sm transition-all flex items-center gap-2.5">
+              <svg class="ico text-[#6382FF]" viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
+              <span data-ar="تواصل مباشر" data-en="Smart Dispatcher">تواصل مباشر</span>
+            </button>
+          </div>
+
+          <!-- Quick Executive Telemetry -->
+          <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/10">
+            <div>
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-[#F4F6FB]">100+</div>
+              <div class="font-mono text-[10px] uppercase text-[#8F9BB3] mt-1" data-ar="عميل ومشروع مستقل" data-en="Clients Served">عميل ومشروع مستقل</div>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-[#6382FF]">7K+</div>
+              <div class="font-mono text-[10px] uppercase text-[#8F9BB3] mt-1" data-ar="عضو في Techno Repos" data-en="Community Members">عضو في Techno Repos</div>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-[#8EA6FF]">04</div>
+              <div class="font-mono text-[10px] uppercase text-[#8F9BB3] mt-1" data-ar="أنظمة ذكاء اصطناعي" data-en="Flagship AI Labs">أنظمة ذكاء اصطناعي</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Stage (#heroStage): DUAL STAGE | PORTRAIT | 3D SENTINEL -->
+        <div class="lg:col-span-6 order-1 lg:order-2">
+          <div id="heroStage" class="glass-cobalt rounded-3xl p-3.5 sm:p-4 relative">
+            
+            <!-- Top Stage Switcher Tabs -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#C6F36C] animate-ping"></span>
+                <span id="stageHeaderLabel" class="font-mono text-[10px] uppercase tracking-wider text-[#8EA6FF]" data-ar="العرض المزدوج (البورتريه + 3D)" data-en="DUAL STAGE">العرض المزدوج (البورتريه + 3D)</span>
+              </div>
+
+              <!-- 3 Clear Switcher Tabs -->
+              <div class="flex items-center bg-[#06080D]/90 p-1 rounded-xl border border-white/10">
+                <button onclick="setStageView('dual')" id="tab-dual" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#6382FF] text-white transition-all">
+                  <span data-ar="العرض المزدوج" data-en="DUAL STAGE">العرض المزدوج</span>
+                </button>
+                <button onclick="setStageView('portrait')" id="tab-portrait" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all">
+                  <span data-ar="البورتريه" data-en="PORTRAIT">البورتريه</span>
+                </button>
+                <button onclick="setStageView('sentinel')" id="tab-sentinel" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all">
+                  <span data-ar="الحارس 3D" data-en="3D SENTINEL">الحارس 3D</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Interactive Stage Viewport -->
+            <div id="heroStageGrid" class="grid grid-cols-1 sm:grid-cols-12 gap-3 h-[470px] sm:h-[510px] transition-all duration-500">
+              
+              <!-- LEFT PANEL: BESPOKE 60FPS HTML5 SPATIAL SENTINEL ENGINE (5 cols in dual mode) -->
+              <div id="stageSentinelBox" class="sm:col-span-5 relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30">
+                <canvas id="sentinel3DCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
+
+                <!-- Top Telemetry Badge -->
+                <div class="absolute top-2.5 inset-x-2.5 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-1 rounded-lg bg-[#06080D]/80 backdrop-blur-md border border-[#6382FF]/35 font-mono text-[9px] text-[#8EA6FF]">
+                    SENTINEL 3D
+                  </span>
+                  <span class="px-2 py-1 rounded-lg bg-[#06080D]/80 backdrop-blur-md border border-white/10 font-mono text-[9px] text-[#C6F36C]">
+                    TRACKING
+                  </span>
+                </div>
+
+                <!-- Bottom 3D Mode Buttons & Pulse Trigger -->
+                <div class="absolute bottom-2.5 inset-x-2 flex items-center justify-between gap-1 bg-[#06080D]/90 backdrop-blur-md p-1.5 rounded-xl border border-white/10">
+                  <div class="flex items-center gap-1">
+                    <button onclick="setSentinelMode('SENTINEL')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#6382FF] text-white">SENTINEL</button>
+                    <button onclick="setSentinelMode('NEURAL')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white">NEURAL CORE</button>
+                    <button onclick="setSentinelMode('GYRO')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white">GYRO MATRIX</button>
+                  </div>
+                  <button onclick="pulseSentinel()" title="Energy Pulse" class="px-2 py-1 rounded-md bg-[#6382FF]/20 hover:bg-[#6382FF]/40 border border-[#6382FF]/45 font-mono text-[9px] text-[#8EA6FF]">
+                    <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- RIGHT PANEL: CRYSTAL-CLEAR PORTRAIT SHOWCASE (7 cols in dual mode) -->
+              <div id="stagePortraitBox" class="sm:col-span-7 portrait-card rounded-2xl h-full relative group">
+                
+                <!-- Crystal Clear Portrait Image (NO dark gradient overlay covering the face) -->
+                                <img
+                  id="aymenPortraitImg"
+                  src="aiman-portrait.jpg"
+                  alt="Aymen Abdurabu Al Erwi"
+                  style="width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;"
+                  class="portrait-photo"
+                />
+<!-- Top Floating Action Controls (Change Photo & Toggle HUD) -->
+                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
+                  <button type="button" onclick="togglePortraitOverlay()" title="Toggle Clean Portrait / HUD" class="w-8 h-8 rounded-lg bg-[#06080D]/85 hover:bg-[#6382FF] border border-white/15 text-white flex items-center justify-center transition-all">
+                    <i id="portraitEyeIcon" class="fa-solid fa-eye text-xs"></i>
+                  </button>
+                </div>
+
+                <!-- Minimalist Bottom Signature Bar -->
+                <div id="portraitCaptionBar" class="absolute bottom-2.5 inset-x-2.5 z-20 px-3 py-2 rounded-xl bg-[#06080D]/85 backdrop-blur-md border border-[#6382FF]/35 flex items-center justify-between transition-all duration-300">
+                  <div>
+                    <div class="text-xs font-extrabold text-[#F4F6FB]" data-ar="أيمن عبدربه العروي" data-en="Aymen Al Erwi">أيمن عبدربه العروي</div>
+                    <div class="font-mono text-[9px] text-[#8EA6FF]" data-ar="مكة المكرمة · السعودية" data-en="MAKKAH · KSA">مكة المكرمة · السعودية</div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded bg-[#6382FF]/20 border border-[#6382FF]/45 font-mono text-[9px] text-[#8EA6FF]">AY</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manifesto Banner -->
+      <div class="glass-panel rounded-3xl p-7 sm:p-10 border border-white/10 relative overflow-hidden">
+        <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-4" data-ar="// رؤيتي التقنية" data-en="// A POINT OF VIEW">// رؤيتي التقنية</div>
+        <blockquote class="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-[#F4F6FB] max-w-4xl">
+          <span data-ar="التقنية ليست هي الوجهة؛ إنها الأداة التي أستخدمها " data-en="Technology is not the destination. It's the material I use to ">التقنية ليست هي الوجهة؛ إنها الأداة التي أستخدمها </span>
+          <span class="text-[#6382FF]" data-ar="لتحويل الأفكار إلى واقع." data-en="make ideas real.">لتحويل الأفكار إلى واقع.</span>
+        </blockquote>
+        <div class="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p class="text-sm text-[#8F9BB3] max-w-2xl leading-relaxed" data-ar="أنا أيمن عبدربه العروي، طالب تقنية معلومات، أعمل بشكل مستقل في تنفيذ الحلول الرقمية، وأشارك في قيادة مجتمع تقني. اهتماماتي تقع عند تقاطع البرمجيات والبيانات والأتمتة والتجارب المدروسة." data-en="I'm Aymen Abdurabu Al Erwi, an Information Technology student, freelance builder, and community lead. My interests sit where software, data, automation, and thoughtful experiences meet.">
+            أنا أيمن عبدربه العروي، طالب تقنية معلومات، أعمل بشكل مستقل في تنفيذ الحلول الرقمية، وأشارك في قيادة مجتمع تقني. اهتماماتي تقع عند تقاطع البرمجيات والبيانات والأتمتة والتجارب المدروسة.
+          </p>
+          <button onclick="navigateTo('work')" class="shrink-0 text-xs font-mono uppercase tracking-wider text-[#8EA6FF] hover:text-white flex items-center gap-2">
+            <span data-ar="استعرض المختبرات" data-en="VIEW SELECTED LABS">استعرض المختبرات</span>
+            <svg class="ico rtl:rotate-0 ltr:rotate-180" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PAGE 02: WORK & LABS (INTERACTIVE SIMULATORS)             -->
+    <!-- ========================================================= -->
+    <section id="view-work" class="page-view space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">02 // SELECTED PROJECTS & LABS</div>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="أفكار أصبحت واقعاً." data-en="Ideas, made tangible.">أفكار أصبحت واقعاً.</h2>
+        </div>
+        <p class="text-sm text-[#8F9BB3] max-w-md" data-ar="اختر أي مشروع لتشغيل المحاكاة التفاعلية الحية واستكشاف التفاصيل الهندسية والمستودع البرمجي." data-en="Select any project to launch its live interactive simulation drawer and explore architectural details.">
+          اختر أي مشروع لتشغيل المحاكاة التفاعلية الحية واستكشاف التفاصيل الهندسية والمستودع البرمجي.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Project 01: J.A.R.V.I.S / SpatialOS -->
+        <article onclick="openProjectModal('jarvis')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs text-[#8EA6FF]">01 // SPATIAL INTERACTION</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">LIVE SIM</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3">J.A.R.V.I.S / SpatialOS</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="تجربة سطح مكتب يتم التحكم بها عبر إيماءات اليد والصوت. تستكشف التفاعل مع مجسمات ثلاثية الأبعاد باستخدام الكاميرا، وتنفيذ الإيماءات، وتشغيل تطبيقات النظام بالأوامر الصوتية." data-en="A desktop experience controlled through hand gestures and voice. It explores camera-based interaction with 3D objects, gesture actions, and voice commands that can launch system applications.">
+              تجربة سطح مكتب يتم التحكم بها عبر إيماءات اليد والصوت. تستكشف التفاعل مع مجسمات ثلاثية الأبعاد باستخدام الكاميرا، وتنفيذ الإيماءات، وتشغيل تطبيقات النظام بالأوامر الصوتية.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-5 font-mono text-[10px] uppercase">
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Python</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">OpenCV</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Computer Vision</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Voice UI</span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
+              <span data-ar="تشغيل المحاكاة التفاعلية" data-en="Launch Interactive Demo">تشغيل المحاكاة التفاعلية</span>
+              <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02: SignBridge AI -->
+        <article onclick="openProjectModal('signbridge')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs text-[#8EA6FF]">02 // ACCESSIBILITY & AI</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">VISION LAB</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3">SignBridge AI</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="نموذج غير تجاري للتعرّف على إشارات اليد في سياقات عربية وإنجليزية. يستخدم الكاميرا للتعرّف على الإشارات المدعومة وتحويلها إلى نص مقروء وصوت." data-en="A non-commercial sign-recognition prototype for Arabic and English contexts. It uses a camera pipeline to recognize supported signs and turn them into readable text and speech.">
+              نموذج غير تجاري للتعرّف على إشارات اليد في سياقات عربية وإنجليزية. يستخدم الكاميرا للتعرّف على الإشارات المدعومة وتحويلها إلى نص مقروء وصوت.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-5 font-mono text-[10px] uppercase">
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Python</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">OpenCV</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">MediaPipe</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Gemini API</span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
+              <span data-ar="تجربة مترجم الإشارة" data-en="Test Sign Recognition">تجربة مترجم الإشارة</span>
+              <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03: Nira Personal AI Agent -->
+        <article onclick="openProjectModal('nira')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs text-[#8EA6FF]">03 // AUTOMATION & AI AGENTS</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">APPROVAL GATE</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3">Nira Personal AI Agent</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="مساعد ذكاء اصطناعي عبر تيليجرام مبني باستخدام n8n وGemini. يربط سير العمل والخدمات المفيدة، مع خطوة موافقة واضحة قبل تنفيذ الإجراءات." data-en="A Telegram-based AI assistant built with n8n and Gemini. Designed to connect useful workflows and services, with an explicit approval step before actions are carried out.">
+              مساعد ذكاء اصطناعي عبر تيليجرام مبني باستخدام n8n وGemini. يربط سير العمل والخدمات المفيدة، مع خطوة موافقة واضحة قبل تنفيذ الإجراءات.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-5 font-mono text-[10px] uppercase">
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">n8n</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Gemini</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Telegram</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Automation</span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
+              <span data-ar="محاكاة بوابة الموافقة" data-en="Simulate Approval Gate">محاكاة بوابة الموافقة</span>
+              <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 04: Data & Automation -->
+        <article onclick="openProjectModal('data')" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs text-[#8EA6FF]">04 // DATA & ANALYTICS</span>
+              <span class="px-3 py-1 rounded-full font-mono text-[10px] bg-[#6382FF]/15 text-[#8EA6FF] border border-[#6382FF]/30">BI PIPELINE</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB] group-hover:text-[#6382FF] transition-colors mb-3" data-ar="البيانات والأتمتة الذكية" data-en="Data & Automation">البيانات والأتمتة الذكية</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed mb-6" data-ar="أعمال عملية مستقلة في الجداول والتقارير وتجهيز البيانات وأتمتة العمليات، باستخدام Excel وPython وPower BI لجعل العمل اليومي أوضح وأكثر كفاءة." data-en="Practical freelance work across spreadsheets, reports, data preparation, and process automation — using Excel, Python, and Power BI to make everyday work clearer and more efficient.">
+              أعمال عملية مستقلة في الجداول والتقارير وتجهيز البيانات وأتمتة العمليات، باستخدام Excel وPython وPower BI لجعل العمل اليومي أوضح وأكثر كفاءة.
+            </p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 mb-5 font-mono text-[10px] uppercase">
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Excel</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Power BI</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">Python</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#06080D] border border-white/10 text-[#8F9BB3]">SQL</span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#8EA6FF]">
+              <span data-ar="معاينة لوحة المؤشرات" data-en="Inspect Data Snapshot">معاينة لوحة المؤشرات</span>
+              <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PAGE 03: SERVICES & STORE                                 -->
+    <!-- ========================================================= -->
+    <section id="view-services" class="page-view space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">03 // SERVICES &amp; STORE</div>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="اعمل معي." data-en="Work with me.">اعمل معي.</h2>
+        </div>
+        <p class="text-sm text-[#8F9BB3] max-w-md" data-ar="اختر الخدمة اللي تحتاجها، وراح تنتقل مباشرة إلى موزع التواصل مع تعبئة الموضوع تلقائياً." data-en="Pick the service you need and you'll jump straight to the contact dispatcher with the subject pre-filled.">
+          اختر الخدمة اللي تحتاجها، وراح تنتقل مباشرة إلى موزع التواصل مع تعبئة الموضوع تلقائياً.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="serviceGrid">
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('Data &amp; Excel Work','أعمال البيانات والإكسل')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M384 96l0 64-64 0 0-64 64 0zm0 128l0 64-64 0 0-64 64 0zm0 128l0 64-64 0 0-64 64 0zM256 288l-64 0 0-64 64 0 0 64zm-64 64l64 0 0 64-64 0 0-64zm-64-64l-64 0 0-64 64 0 0 64zM64 352l64 0 0 64-64 0 0-64zm0-192l0-64 64 0 0 64-64 0zm128 0l0-64 64 0 0 64-64 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="أعمال البيانات والإكسل" data-en="Data &amp; Excel Work">أعمال البيانات والإكسل</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="تنظيف الجداول، المعادلات، الجداول المحورية، ولوحات Power BI." data-en="Spreadsheet cleanup, formulas, PivotTables, and Power BI dashboards.">تنظيف الجداول، المعادلات، الجداول المحورية، ولوحات Power BI.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('Python Automation','أتمتة بايثون')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="أتمتة بايثون" data-en="Python Automation">أتمتة بايثون</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="سكربتات وأدوات صغيرة تؤتمت المهام المتكررة ومعالجة الملفات." data-en="Scripts and small tools that automate repetitive tasks and file processing.">سكربتات وأدوات صغيرة تؤتمت المهام المتكررة ومعالجة الملفات.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('AI &amp; n8n Workflows','أتمتة بالذكاء الاصطناعي وn8n')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 640 512" aria-hidden="true"><path fill="currentColor" d="M352 0c0-17.7-14.3-32-32-32S288-17.7 288 0l0 64-96 0c-53 0-96 43-96 96l0 224c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-224c0-53-43-96-96-96l-96 0 0-64zM160 368c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm120 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zm120 0c0-13.3 10.7-24 24-24l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24zM224 176a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm144 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM64 224c0-17.7-14.3-32-32-32S0 206.3 0 224l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96zm544-32c-17.7 0-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="أتمتة بالذكاء الاصطناعي وn8n" data-en="AI &amp; n8n Workflows">أتمتة بالذكاء الاصطناعي وn8n</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="بوتات تيليجرام وسير عمل آلي يربط Gemini وGmail وDrive وغيرها." data-en="Telegram bots and automation workflows connecting Gemini, Gmail, Drive and more.">بوتات تيليجرام وسير عمل آلي يربط Gemini وGmail وDrive وغيرها.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('Canva &amp; Gamma Design','تصميم Canva وGamma')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M512 256c0 .9 0 1.8 0 2.7-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48 0 3.4 .4 6.7 1 9.9 2.1 10.2 6.5 20 10.8 29.9 6.1 13.8 12.1 27.5 12.1 42 0 31.8-21.6 60.7-53.4 62-3.5 .1-7 .2-10.6 .2-141.4 0-256-114.6-256-256S114.6 0 256 0 512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="تصميم Canva وGamma" data-en="Canva &amp; Gamma Design">تصميم Canva وGamma</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="عروض تقديمية ومستندات وتصاميم بصرية للعملاء والفرق." data-en="Presentations, documents and visual assets for clients and teams.">عروض تقديمية ومستندات وتصاميم بصرية للعملاء والفرق.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('Computer Vision Prototypes','نماذج رؤية حاسوبية')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0-10.4-31.2C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="نماذج رؤية حاسوبية" data-en="Computer Vision Prototypes">نماذج رؤية حاسوبية</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="نماذج أولية تعتمد على الإيماءات أو OpenCV/MediaPipe للعروض والبحث." data-en="Gesture-controlled or OpenCV/MediaPipe prototypes for demos and research.">نماذج أولية تعتمد على الإيماءات أو OpenCV/MediaPipe للعروض والبحث.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+        <div class="svc-card tilt-card glass-panel rounded-2xl p-6 border border-white/10 cursor-pointer flex flex-col gap-3"
+             onclick="requestService('IT Support','دعم تقني')">
+          <div class="w-10 h-10 rounded-xl bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF]">
+            <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M70.8-6.7c5.4-5.4 13.8-6.2 20.2-2L209.9 70.5c8.9 5.9 14.2 15.9 14.2 26.6l0 49.6 90.8 90.8c33.3-15 73.9-8.9 101.2 18.5L542.2 382.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L288.1 384c-27.4-27.4-33.5-67.9-18.5-101.2l-90.8-90.8-49.6 0c-10.7 0-20.7-5.3-26.6-14.2L23.4 58.9c-4.2-6.3-3.4-14.8 2-20.2L70.8-6.7zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5 35.2 35.1zM384.1 0c20.1 0 39.4 3.7 57.1 10.5 10 3.8 11.8 16.5 4.3 24.1L388.8 91.3c-3 3-4.7 7.1-4.7 11.3l0 41.4c0 8.8 7.2 16 16 16l41.4 0c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3 6.8 17.7 10.5 37 10.5 57.1 0 43.2-17.2 82.3-45 111.1l-49.1-49.1c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8 0-29.7-.2-5c-.8-12.4-4.4-24.3-10.5-34.9 29.4-35 73.4-57.2 122.7-57.3z"/></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F4F6FB]" data-ar="دعم تقني" data-en="IT Support">دعم تقني</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed flex-grow" data-ar="حل مشاكل ويندوز وأساسيات لينكس، وإعداد شبكات صغيرة." data-en="Windows and basic Linux troubleshooting, small network setup.">حل مشاكل ويندوز وأساسيات لينكس، وإعداد شبكات صغيرة.</p>
+          <span class="text-xs font-bold text-[#8EA6FF] flex items-center gap-1.5"><span data-ar="اطلب هذه الخدمة" data-en="Request this">اطلب هذه الخدمة</span> <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90 text-[10px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg></span>
+        </div>
+
+      </div>
+
+      <!-- Payment & Security Trust Note -->
+      <div class="glass-panel rounded-2xl p-6 border border-[#6382FF]/25 flex flex-col sm:flex-row gap-4 items-start">
+        <div class="w-9 h-9 rounded-lg bg-[#6382FF]/15 border border-[#6382FF]/35 flex items-center justify-center text-[#8EA6FF] shrink-0">
+          <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 66.8l0 378.1c138-66.8 175.1-214.8 176-303.4l-176-74.6 0 0z"/></svg>
+        </div>
+        <div class="text-sm text-[#8F9BB3] leading-relaxed">
+          <p>
+            <b class="text-[#F4F6FB]" data-ar="الدفع الإلكتروني:" data-en="Online payment:">الدفع الإلكتروني:</b>
+            <span data-ar=" جاري إعداد بوابة دفع سعودية محلية. حالياً يمر كل طلب بمحادثة قصيرة أولاً لتحديد نطاق العمل والاتفاق على السعر قبل أي تنفيذ." data-en=" A local Saudi payment gateway is being set up. For now, every request goes through a short conversation first to scope the work and agree on price before anything starts."> جاري إعداد بوابة دفع سعودية محلية. حالياً يمر كل طلب بمحادثة قصيرة أولاً لتحديد نطاق العمل والاتفاق على السعر قبل أي تنفيذ.</span>
+          </p>
+          <p class="mt-2">
+            <b class="text-[#F4F6FB]" data-ar="الأمان:" data-en="Security:">الأمان:</b>
+            <span data-ar=" هذه الصفحة لا تجمع ولا تخزّن أي بيانات بطاقات أو مفاتيح دفع. أي اتصال مستقبلي بذكاء اصطناعي أو بوابة دفع سيتم عبر خادم خلفي منفصل، ولن تُكتب أي مفاتيح سرية داخل كود هذا الموقع." data-en=" This page never collects or stores card details or payment keys. Any future AI or payment integration will run through a separate backend server — no secret keys are ever written into this site's code."> هذه الصفحة لا تجمع ولا تخزّن أي بيانات بطاقات أو مفاتيح دفع. أي اتصال مستقبلي بذكاء اصطناعي أو بوابة دفع سيتم عبر خادم خلفي منفصل، ولن تُكتب أي مفاتيح سرية داخل كود هذا الموقع.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PAGE 04: CAPABILITIES (FILTERABLE 8-MODULE TECH MATRIX)   -->
+    <!-- ========================================================= -->
+    <section id="view-capabilities" class="page-view space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">04 // WHAT I WORK WITH</div>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="أدوات لتحويل الأفكار إلى حلول." data-en="A toolkit for making things work.">أدوات لتحويل الأفكار إلى حلول.</h2>
+        </div>
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-1.5 bg-[#0D111A] p-1.5 rounded-2xl border border-white/10">
+          <button onclick="filterCapabilities('all')" class="cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-[#6382FF] text-white" data-filter="all" data-ar="الكل (08)" data-en="All (08)">الكل (08)</button>
+          <button onclick="filterCapabilities('data')" class="cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white" data-filter="data" data-ar="البيانات" data-en="Data & BI">البيانات</button>
+          <button onclick="filterCapabilities('code')" class="cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white" data-filter="code" data-ar="البرمجة والأتمتة" data-en="Code & AI">البرمجة والأتمتة</button>
+          <button onclick="filterCapabilities('systems')" class="cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white" data-filter="systems" data-ar="الأنظمة" data-en="Systems">الأنظمة</button>
+        </div>
+      </div>
+
+      <!-- 8-Module Interactive Matrix -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="capMatrixGrid">
+        
+        <div data-cat="code" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">01 / CODE</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Python</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="البرمجة ومعالجة البيانات وبناء سكريبتات الأتمتة والذكاء الاصطناعي." data-en="Scripting, data handling, computer vision pipelines, and automation.">البرمجة ومعالجة البيانات وبناء سكريبتات الأتمتة والذكاء الاصطناعي.</p>
+        </div>
+
+        <div data-cat="data" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">02 / DATA</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2" data-ar="تحليل البيانات" data-en="Data Analysis">تحليل البيانات</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="استكشاف البيانات وتنظيفها وتجهيزها واستخلاص الرؤى القابلة للتنفيذ." data-en="Exploration, preparation, cleaning, and actionable insights.">استكشاف البيانات وتنظيفها وتجهيزها واستخلاص الرؤى القابلة للتنفيذ.</p>
+        </div>
+
+        <div data-cat="data" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">03 / REPORTING</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Excel</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="بناء جداول منظمة، نماذج تشغيلية، وتقارير أتمتة عملية." data-en="Structured spreadsheets, operational trackers, and reporting.">بناء جداول منظمة، نماذج تشغيلية، وتقارير أتمتة عملية.</p>
+        </div>
+
+        <div data-cat="data" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">04 / BI</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Power BI</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="تصميم لوحات المعلومات التفاعلية والتقارير المرئية لدعم القرار." data-en="Interactive dashboards and visual executive reporting.">تصميم لوحات المعلومات التفاعلية والتقارير المرئية لدعم القرار.</p>
+        </div>
+
+        <div data-cat="data" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">05 / QUERY</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">SQL</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="التعامل مع قواعد البيانات العلائقية واستخراج البيانات بدقة." data-en="Querying and structuring relational databases.">التعامل مع قواعد البيانات العلائقية واستخراج البيانات بدقة.</p>
+        </div>
+
+        <div data-cat="code" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">06 / AUTOMATION</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">n8n & Workflows</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="ربط الأدوات السحابية وبناء وكلاء أتمتة ذكية للمهام المتكررة." data-en="Connecting tools, APIs, and automating multi-step tasks.">ربط الأدوات السحابية وبناء وكلاء أتمتة ذكية للمهام المتكررة.</p>
+        </div>
+
+        <div data-cat="systems" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">07 / SYSTEMS</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">IT Support</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="الدعم التقني، إدارة الأنظمة، واستكشاف المشكلات وحلها بكفاءة." data-en="Technical support, troubleshooting, and IT foundations.">الدعم التقني، إدارة الأنظمة، واستكشاف المشكلات وحلها بكفاءة.</p>
+        </div>
+
+        <div data-cat="code" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-[11px] text-[#6382FF] mb-6">08 / INTERFACES</div>
+          <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Web & AI</h3>
+          <p class="text-xs text-[#8F9BB3] leading-relaxed" data-ar="بناء نماذج الواجهات الحديثة والتطبيقات المدعومة بالذكاء الاصطناعي." data-en="Prototyping spatial interfaces and AI-powered web experiences.">بناء نماذج الواجهات الحديثة والتطبيقات المدعومة بالذكاء الاصطناعي.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PAGE 04: JOURNEY, EDUCATION & TECHNO REPOS COMMUNITY      -->
+    <!-- ========================================================= -->
+    <section id="view-journey" class="page-view space-y-10">
+      <div>
+        <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">05 // THE JOURNEY SO FAR</div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="أتعلّم من خلال التجربة والعمل." data-en="Learning by doing the work.">أتعلّم من خلال التجربة والعمل.</h2>
+      </div>
+
+      <!-- Techno Repos Community Leadership Spotlight -->
+      <div class="rounded-3xl bg-[#6382FF] text-white p-7 sm:p-10 relative overflow-hidden shadow-[0_24px_60px_-15px_rgba(99,130,255,0.45)]">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div class="space-y-4 max-w-2xl">
+            <div class="font-mono text-xs uppercase tracking-widest text-[#C6F36C]" data-ar="المجتمع · القيادة" data-en="COMMUNITY · LEADERSHIP">المجتمع · القيادة</div>
+            <h3 class="font-display text-4xl sm:text-5xl font-extrabold tracking-tight">Techno Repos.</h3>
+            <p class="text-white/90 text-sm sm:text-base leading-relaxed" data-ar="بصفتي المسؤول العام، أساهم في قيادة مجتمع تقني متنامٍ، من خلال تنسيق الفريق ودعم الورش والمبادرات وصناعة مساحة يتعلم فيها المهتمون ويبنون معاً." data-en="As General Supervisor, I help guide a growing technology community — coordinating its team, supporting workshops and initiatives, and creating space for people to learn and build together.">
+              بصفتي المسؤول العام، أساهم في قيادة مجتمع تقني متنامٍ، من خلال تنسيق الفريق ودعم الورش والمبادرات وصناعة مساحة يتعلم فيها المهتمون ويبنون معاً.
+            </p>
+            <div class="flex gap-8 pt-2">
+              <div>
+                <div class="font-display text-3xl font-extrabold">7K+</div>
+                <div class="font-mono text-[10px] uppercase text-white/80" data-ar="عضو بالمجتمع" data-en="Community Members">عضو بالمجتمع</div>
+              </div>
+              <div>
+                <div class="font-display text-3xl font-extrabold">20</div>
+                <div class="font-mono text-[10px] uppercase text-white/80" data-ar="مشرفاً بالفريق" data-en="Team Supervisors">مشرفاً بالفريق</div>
+              </div>
+            </div>
+          </div>
+          <a href="https://t.me/IT_Tech_Pioneers_ENG" target="_blank" rel="noopener" class="self-start lg:self-end px-6 py-3.5 rounded-2xl bg-[#06080D] hover:bg-[#131927] text-white font-bold text-xs tracking-wide transition-all flex items-center gap-2">
+            <span data-ar="اكتشف المجتمع" data-en="EXPLORE THE COMMUNITY">اكتشف المجتمع</span>
+            <svg class="ico-arrow rtl:rotate-0 ltr:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Career & Education Timeline -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-xs text-[#6382FF] mb-2">2023 — PRESENT</div>
+          <h4 class="font-display text-xl font-bold text-[#F4F6FB] mb-2" data-ar="العمل الحر · خدمات رقمية وتقنية" data-en="Freelance · Digital & Technical Services">العمل الحر · خدمات رقمية وتقنية</h4>
+          <p class="text-sm text-[#8F9BB3] leading-relaxed mb-4" data-ar="التعاون مع أكثر من 100 عميل في الجداول والتقارير والعروض والأبحاث والحلول الرقمية الخفيفة وأتمتة المهام باستخدام Python وExcel." data-en="Working with 100+ clients on spreadsheets, reports, presentations, research, lightweight digital builds, and Python / Excel automation.">
+            التعاون مع أكثر من 100 عميل في الجداول والتقارير والعروض والأبحاث والحلول الرقمية الخفيفة وأتمتة المهام باستخدام Python وExcel.
+          </p>
+          <span class="inline-block font-mono text-[10px] px-2.5 py-1 rounded bg-[#06080D] border border-white/10 text-[#8EA6FF]" data-ar="عمل مستقل" data-en="INDEPENDENT WORK">عمل مستقل</span>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-xs text-[#6382FF] mb-2">HAJJ SEASON · 2025</div>
+          <h4 class="font-display text-xl font-bold text-[#F4F6FB] mb-2" data-ar="فندق دار البركة · البيانات والعمليات" data-en="Dar Al Baraka Hotel · Data & Operations">فندق دار البركة · البيانات والعمليات</h4>
+          <p class="text-sm text-[#8F9BB3] leading-relaxed mb-4" data-ar="إدخال وتحديث سجلات النزلاء والغرف والحجوزات والمدفوعات باستخدام Excel خلال موسم الحج." data-en="Maintained and updated guest, room, booking, and payment records in Excel during the Hajj season.">
+            إدخال وتحديث سجلات النزلاء والغرف والحجوزات والمدفوعات باستخدام Excel خلال موسم الحج.
+          </p>
+          <span class="inline-block font-mono text-[10px] px-2.5 py-1 rounded bg-[#06080D] border border-white/10 text-[#8EA6FF]" data-ar="عمليات الضيافة" data-en="HOSPITALITY OPERATIONS">عمليات الضيافة</span>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-xs text-[#6382FF] mb-2">CURRENT // DEGREE IN PROGRESS</div>
+          <h4 class="font-display text-xl font-bold text-[#F4F6FB] mb-2" data-ar="بكالوريوس تقنية المعلومات" data-en="Bachelor of Information Technology">بكالوريوس تقنية المعلومات</h4>
+          <p class="text-sm text-[#8F9BB3] leading-relaxed mb-4" data-ar="جامعة ميدأوشن. أواصل بناء معرفتي في الحوسبة والأنظمة ومجالات التقنية." data-en="MidOcean University. Continuing to build foundations across computing, systems, and technology.">
+            جامعة ميدأوشن. أواصل بناء معرفتي في الحوسبة والأنظمة ومجالات التقنية.
+          </p>
+          <span class="inline-block font-mono text-[10px] px-2.5 py-1 rounded bg-[#06080D] border border-white/10 text-[#8EA6FF]">MIDOCEAN UNIVERSITY</span>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+          <div class="font-mono text-xs text-[#6382FF] mb-2">CERTIFICATION // COMPLETED</div>
+          <h4 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Google IT Support Professional Certificate</h4>
+          <p class="text-sm text-[#8F9BB3] leading-relaxed mb-4" data-ar="مكتملة — معرفة تأسيسية متكاملة في الدعم التقني والشبكات واستكشاف المشكلات وإصلاحها." data-en="Completed — foundational knowledge in IT support, networking, and troubleshooting.">
+            مكتملة — معرفة تأسيسية متكاملة في الدعم التقني والشبكات واستكشاف المشكلات وإصلاحها.
+          </p>
+          <span class="inline-block font-mono text-[10px] px-2.5 py-1 rounded bg-[#06080D] border border-white/10 text-[#8EA6FF]">GOOGLE CERTIFIED</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PAGE 05: SMART MULTI-CHANNEL CONTACT DISPATCHER           -->
+    <!-- ========================================================= -->
+    <section id="view-contact" class="page-view space-y-8">
+      <div>
+        <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">06 // SMART MULTI-CHANNEL DISPATCHER</div>
+        <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-[#F4F6FB]" data-ar="خلّنا نحول فكرتك إلى واقع." data-en="Let's make it happen.">خلّنا نحول فكرتك إلى واقع.</h2>
+        <p class="text-sm text-[#8F9BB3] mt-2 max-w-2xl" data-ar="اكتب اسمك وموضوعك ورسالتك، ثم اختر وسيلة التواصل المناسبة لك — سيتم نسخ رسالتك وتجهيزها ونقلك مباشرة إلى حسابي." data-en="Compose your Name, Subject, and Message once, choose your preferred platform, and jump directly to my account with your message formatted and copied.">
+          اكتب اسمك وموضوعك ورسالتك، ثم اختر وسيلة التواصل المناسبة لك — سيتم نسخ رسالتك وتجهيزها ونقلك مباشرة إلى حسابي.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Smart Composer Card -->
+        <div class="lg:col-span-7 glass-cobalt rounded-3xl p-6 sm:p-8 space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="اسمك الكريم" data-en="YOUR NAME">اسمك الكريم</label>
+              <input id="senderName" type="text" placeholder="الاسم / Name" class="w-full px-4 py-3 rounded-xl bg-[#06080D]/90 border border-white/10 focus:border-[#6382FF] focus:outline-none text-sm text-[#F4F6FB]" />
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="عنوان الموضوع" data-en="SUBJECT">عنوان الموضوع</label>
+              <input id="senderSubject" type="text" placeholder="مثال: مشروع تقني / استشارة" class="w-full px-4 py-3 rounded-xl bg-[#06080D]/90 border border-white/10 focus:border-[#6382FF] focus:outline-none text-sm text-[#F4F6FB]" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2" data-ar="نص الرسالة" data-en="MESSAGE">نص الرسالة</label>
+            <textarea id="senderMessage" rows="4" placeholder="اكتب تفاصيل ما يدور في بالك هنا..." class="w-full px-4 py-3 rounded-xl bg-[#06080D]/90 border border-white/10 focus:border-[#6382FF] focus:outline-none text-sm text-[#F4F6FB]"></textarea>
+          </div>
+
+          <!-- Channel Selector Radio Pills -->
+          <div>
+            <label class="block font-mono text-[11px] text-[#8EA6FF] uppercase mb-2.5" data-ar="1. حدد وسيلة التواصل المفضلة:" data-en="1. SELECT PREFERRED CHANNEL:">1. حدد وسيلة التواصل المفضلة:</label>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="channelSelector">
+              <button type="button" onclick="selectChannel('whatsapp')" data-ch="whatsapp" class="ch-btn px-3 py-2.5 rounded-xl bg-[#6382FF] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                <span>WhatsApp</span>
+              </button>
+              <button type="button" onclick="selectChannel('telegram')" data-ch="telegram" class="ch-btn px-3 py-2.5 rounded-xl bg-[#06080D] border border-white/10 text-[#8F9BB3] hover:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/></svg>
+                <span>Telegram</span>
+              </button>
+              <button type="button" onclick="selectChannel('x')" data-ch="x" class="ch-btn px-3 py-2.5 rounded-xl bg-[#06080D] border border-white/10 text-[#8F9BB3] hover:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/></svg>
+                <span>X (@uqg_9)</span>
+              </button>
+              <button type="button" onclick="selectChannel('instagram')" data-ch="instagram" class="ch-btn px-3 py-2.5 rounded-xl bg-[#06080D] border border-white/10 text-[#8F9BB3] hover:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                <span>Instagram</span>
+              </button>
+              <button type="button" onclick="selectChannel('email')" data-ch="email" class="ch-btn px-3 py-2.5 rounded-xl bg-[#06080D] border border-white/10 text-[#8F9BB3] hover:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/></svg>
+                <span>Email</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Execute Dispatch Button -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button type="button" onclick="executeDispatch()" class="flex-grow sm:flex-grow-0 px-7 py-4 rounded-2xl bg-[#6382FF] hover:bg-[#5271F5] text-white font-extrabold text-sm shadow-[0_14px_35px_-10px_rgba(99,130,255,0.65)] transition-all flex items-center justify-center gap-2.5">
+              <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
+              <span data-ar="2. إرسال والانتقال المباشر لحسابي" data-en="2. Send & Open Direct Account">2. إرسال والانتقال المباشر لحسابي</span>
+            </button>
+            <button type="button" onclick="copyMessageOnly()" class="px-4 py-4 rounded-2xl bg-[#06080D] hover:bg-white/10 border border-white/15 text-[#8F9BB3] hover:text-white text-xs font-bold transition-all">
+              <svg class="ico me-1" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-200.6c0-17.4-7.1-34.1-19.7-46.2L370.6 17.8C358.7 6.4 342.8 0 326.3 0L192 0zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-16-64 0 0 16-192 0 0-256 16 0 0-64-16 0z"/></svg>
+              <span data-ar="نسخ الرسالة" data-en="Copy">نسخ الرسالة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Direct Directory Links -->
+        <div class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 space-y-3">
+          <div class="font-mono text-xs text-[#8EA6FF] uppercase tracking-wider mb-3" data-ar="الحسابات والمنصات المباشرة" data-en="DIRECT VERIFIED DIRECTORY">الحسابات والمنصات المباشرة</div>
+          
+          <a href="https://wa.me/966566065221" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/></svg> WhatsApp</span>
+            <span class="font-mono text-xs text-[#8F9BB3]" dir="ltr">+966 56 606 5221 ↗</span>
+          </a>
+
+          <a href="https://x.com/uqg_9" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M357.2 48L427.8 48 273.6 224.2 455 464 313 464 201.7 318.6 74.5 464 3.8 464 168.7 275.5-5.2 48 140.4 48 240.9 180.9 357.2 48zM332.4 421.8l39.1 0-252.4-333.8-42 0 255.3 333.8z"/></svg> X (Twitter)</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">@uqg_9 ↗</span>
+          </a>
+
+          <a href="https://t.me/IT_Tech_Pioneers_ENG" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496zM371 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2 .5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3 .6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7 .5 3.2 .6 6.5 .4 9.8z"/></svg> Telegram Community</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">IT_Tech_Pioneers ↗</span>
+          </a>
+
+          <a href="https://t.me/TechnoRepos" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M461.2 18.9C472.7 24 480 35.4 480 48l0 416c0 12.6-7.3 24-18.8 29.1s-24.8 3.2-34.3-5.1l-46.6-40.7c-43.6-38.1-98.7-60.3-156.4-63l0 95.7c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-96C57.3 384 0 326.7 0 256S57.3 128 128 128l84.5 0c61.8-.2 121.4-22.7 167.9-63.3l46.6-40.7c9.4-8.3 22.9-10.2 34.3-5.1zM224 320l0 .2c70.3 2.7 137.8 28.5 192 73.4l0-275.3c-54.2 44.9-121.7 70.7-192 73.4L224 320z"/></svg> Techno Repos Channel</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">@TechnoRepos ↗</span>
+          </a>
+
+          <a href="https://www.instagram.com/i1iair" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagram</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">@i1iair ↗</span>
+          </a>
+
+          <a href="https://github.com/aymnb7178" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5l0 52C323 491.5 335.5 500 350.5 494 441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5l0-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21z"/></svg> GitHub</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">aymnb7178 ↗</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/aiman-al-erwi-976b04400/" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/></svg> LinkedIn</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">Aiman Al Erwi ↗</span>
+          </a>
+
+          <a href="mailto:aymnb7178@gmail.com" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
+            <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/></svg> Email</span>
+            <span class="font-mono text-xs text-[#8F9BB3]">aymnb7178@gmail.com ↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#06080D] py-6 mb-16 sm:mb-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#8F9BB3]">
+      <div class="flex items-center gap-2.5">
+        <img src="aiman-logo.jpg" alt="Aymen Al Erwi logo" class="w-5 h-5 rounded object-cover" />
+        <span>© 2026 AYMEN ABDURABU AL ERWI</span>
+      </div>
+      <span data-ar="صُمم بعناية · مكة المكرمة، المملكة العربية السعودية" data-en="DESIGNED WITH INTENTION · MAKKAH, SAUDI ARABIA">صُمم بعناية · مكة المكرمة، المملكة العربية السعودية</span>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING SPATIAL DOCK (LIQUID GLASS) ==================== -->
+  <div class="fixed bottom-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
+    <div id="bottomDockTrack" class="liquid-nav-track floating-dock pointer-events-auto glass-cobalt px-2.5 py-2 rounded-2xl flex items-center gap-1 sm:gap-2">
+      <span id="bottomLiquidDroplet" class="liquid-droplet"></span>
+      <button onclick="navigateTo('overview')" data-dock="overview" class="dock-btn px-3 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM240 320l32 0c26.5 0 48 21.5 48 48l0 96-128 0 0-96c0-26.5 21.5-48 48-48z"/></svg>
+        <span class="hidden sm:inline" data-ar="الرئيسية" data-en="Home">الرئيسية</span>
+      </button>
+      <button onclick="navigateTo('work')" data-dock="work" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M288 0L128 0C110.3 0 96 14.3 96 32s14.3 32 32 32L128 215.5 7.5 426.3C2.6 435 0 444.7 0 454.7 0 486.4 25.6 512 57.3 512l333.4 0c31.6 0 57.3-25.6 57.3-57.3 0-10-2.6-19.8-7.5-28.4L320 215.5 320 64c17.7 0 32-14.3 32-32S337.7 0 320 0L288 0zM192 215.5l0-151.5 64 0 0 151.5c0 11.1 2.9 22.1 8.4 31.8l41.6 72.7-164 0 41.6-72.7c5.5-9.7 8.4-20.6 8.4-31.8z"/></svg>
+        <span class="hidden sm:inline" data-ar="المختبرات" data-en="Labs">المختبرات</span>
+      </button>
+      <button onclick="navigateTo('services')" data-dock="services" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M160 80c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 384c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48c0-61.9-50.1-112-112-112S112 18.1 112 80l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+        <span class="hidden sm:inline" data-ar="الخدمات" data-en="Services">الخدمات</span>
+      </button>
+      <button onclick="navigateTo('capabilities')" data-dock="capabilities" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z"/></svg>
+        <span class="hidden sm:inline" data-ar="القدرات" data-en="Stack">القدرات</span>
+      </button>
+      <button onclick="navigateTo('journey')" data-dock="journey" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M160 169.3c28.3-12.3 48-40.5 48-73.3 0-44.2-35.8-80-80-80S48 51.8 48 96c0 32.8 19.7 61 48 73.3l0 54.7-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l224 0 0 54.7c-28.3 12.3-48 40.5-48 73.3 0 44.2 35.8 80 80 80s80-35.8 80-80c0-32.8-19.7-61-48-73.3l0-54.7 224 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-54.7c28.3-12.3 48-40.5 48-73.3 0-44.2-35.8-80-80-80s-80 35.8-80 80c0 32.8 19.7 61 48 73.3l0 54.7-256 0 0-54.7z"/></svg>
+        <span class="hidden sm:inline" data-ar="المسيرة" data-en="Journey">المسيرة</span>
+      </button>
+      <button onclick="navigateTo('contact')" data-dock="contact" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+        <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
+        <span class="hidden sm:inline" data-ar="تواصل" data-en="Contact">تواصل</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== PROJECT SIMULATION DRAWER MODAL ==================== -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-cobalt w-full max-w-2xl rounded-3xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeProjectModal()" class="absolute top-5 left-5 rtl:left-5 ltr:right-5 w-9 h-9 rounded-xl bg-[#06080D] hover:bg-[#6382FF] border border-white/15 text-white flex items-center justify-center transition-all">
+        <svg class="ico " viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></svg>
+      </button>
+      <div id="projectModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== COMMAND PALETTE (CMD/CTRL + K) ==================== -->
+  <div id="commandModal" class="fixed inset-0 z-50 hidden items-start justify-center pt-20 p-4 bg-black/75 backdrop-blur-sm">
+    <div class="glass-cobalt w-full max-w-lg rounded-2xl overflow-hidden">
+      <div class="p-3.5 border-b border-white/10 flex items-center gap-3">
+        <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+        <input id="cmdInput" oninput="renderCmdItems(this.value)" type="text" placeholder="ابحث أو انتقل إلى صفحة... (1-6)" class="w-full bg-transparent text-sm text-[#F4F6FB] focus:outline-none placeholder-[#8F9BB3]" />
+        <button onclick="toggleCommandPalette()" class="font-mono text-[10px] text-[#8F9BB3] px-2 py-1 rounded bg-white/5">ESC</button>
+      </div>
+      <div id="cmdItemsContainer" class="p-2 max-h-72 overflow-y-auto space-y-1 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toastBanner" class="fixed top-24 left-1/2 -translate-x-1/2 z-[60] pointer-events-none opacity-0 transition-all duration-300">
+    <div class="px-5 py-3 rounded-2xl bg-[#0D111A] border border-[#6382FF] text-[#F4F6FB] text-xs font-bold shadow-[0_10px_30px_rgba(99,130,255,0.4)] flex items-center gap-2.5">
+      <span class="w-2 h-2 rounded-full bg-[#C6F36C]"></span>
+      <span id="toastText">تم تجهيز الرسالة</span>
+    </div>
+  </div>
+
+  <!-- ==================== CLEAN BUG-FREE JAVASCRIPT ENGINE ==================== -->
+  <script>
+    let lang = 'ar';
+    try {
+      const saved = localStorage.getItem('aymen-portfolio-lang');
+      if (saved === 'en' || saved === 'ar') lang = saved;
+    } catch (e) {}
+
+    let activePage = 'overview';
+    let stageView = 'dual';
+    let portraitCaptionVisible = true;
+    let selectedDispatchChannel = 'whatsapp';
+
+    // 0ms Instant Boot Sequence
+    function bootPortfolioApp() {
+      restoreSavedPortrait();
+      applyLanguage(lang);
+      initLiquidGlassNavigation();
+      initSpatialSentinelEngine();
+      handleHashRouting();
+      requestAnimationFrame(() => snapAllDroplets(true));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bootPortfolioApp);
+    } else {
+      bootPortfolioApp();
+    }
+
+    // ==================== PORTRAIT INSTANT UPLOAD & PERSISTENCE ====================
+    function triggerPortraitUpload() {
+      const input = document.getElementById('portraitFileInput');
+      if (input) input.click();
+    }
+
+    function applyPortraitSource(srcData) {
+      const img = document.getElementById('aymenPortraitImg');
+      const fallback = document.getElementById('portraitUploadFallback');
+      if (!img || !fallback) return;
+
+      if (srcData && srcData.trim().length > 10) {
+        img.src = srcData;
+        img.style.display = 'block';
+        fallback.style.display = 'none';
+      } else {
+        img.style.display = 'none';
+        fallback.style.display = 'flex';
+      }
+    }
+
+    function handlePortraitFileUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const dataUrl = e.target.result;
+        applyPortraitSource(dataUrl);
+        try {
+          localStorage.setItem('aymen-official-portrait', dataUrl);
+        } catch (err) {}
+        showToast(lang === 'ar' ? 'تم تحميل وعرض صورتك الشخصية بوضوح تام!' : 'Portrait loaded and saved in crystal clarity!');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function restoreSavedPortrait() {
+      const img = document.getElementById('aymenPortraitImg');
+      if (img && img.getAttribute('src') && img.getAttribute('src').trim().length > 10) {
+        applyPortraitSource(img.getAttribute('src'));
+        return;
+      }
+      try {
+        const savedPortrait = localStorage.getItem('aymen-official-portrait');
+        if (savedPortrait) {
+          applyPortraitSource(savedPortrait);
+        }
+      } catch (e) {}
+    }
+
+    // ==================== BILINGUAL ENGINE (AR RTL / EN LTR) ====================
+    function toggleLanguage() {
+      applyLanguage(lang === 'ar' ? 'en' : 'ar');
+    }
+
+    function applyLanguage(nextLang) {
+      lang = nextLang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      const langLabel = document.getElementById('langToggleLabel');
+      if (langLabel) langLabel.textContent = lang === 'ar' ? 'English' : 'العربية';
+      document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      try { localStorage.setItem('aymen-portfolio-lang', lang); } catch (e) {}
+      renderCmdItems();
+      requestAnimationFrame(() => snapAllDroplets(false));
+    }
+
+    // ==================== APPLE iOS 26 LIQUID GLASS PHYSICS ENGINE ====================
+    const liquidControllers = [];
+
+    class LiquidGlassController {
+      constructor(trackEl, dropletEl, itemSelector, dataKey) {
+        this.track = trackEl;
+        this.droplet = dropletEl;
+        this.itemSelector = itemSelector;
+        this.dataKey = dataKey;
+        this.currentX = 0;
+        this.currentW = 0;
+        this.targetX = 0;
+        this.targetW = 0;
+        this.velX = 0;
+        this.isDragging = false;
+        this.dragMoved = false;
+        this.startPointerX = 0;
+        this.hoveredPage = null;
+
+        this.bindEvents();
+        this.animate();
+      }
+
+      getItems() {
+        return Array.from(this.track.querySelectorAll(this.itemSelector));
+      }
+
+      getTargetRectForPage(pageId) {
+        const items = this.getItems();
+        const activeBtn = items.find(b => b.dataset[this.dataKey] === pageId) || items[0];
+        if (!activeBtn) return null;
+        return { x: activeBtn.offsetLeft, w: activeBtn.offsetWidth };
+      }
+
+      snapToPage(pageId, immediate = false) {
+        const rect = this.getTargetRectForPage(pageId);
+        if (!rect || rect.w === 0) return;
+        this.targetX = rect.x;
+        this.targetW = rect.w;
+        if (immediate) {
+          this.currentX = rect.x;
+          this.currentW = rect.w;
+          this.velX = 0;
+        }
+      }
+
+      highlightHover(pageId) {
+        this.getItems().forEach(btn => {
+          const isMatch = btn.dataset[this.dataKey] === pageId;
+          if (this.dataKey === 'nav') {
+            btn.className = isMatch
+              ? 'nav-btn px-3.5 py-2 rounded-xl text-xs font-extrabold text-white transition-colors'
+              : 'nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors';
+          } else {
+            btn.className = isMatch
+              ? 'dock-btn px-3 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5 transition-colors'
+              : 'dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors';
+          }
+        });
+      }
+
+      bindEvents() {
+        this.track.addEventListener('pointerdown', (e) => {
+          if (e.button !== undefined && e.button !== 0 && e.pointerType === 'mouse') return;
+          this.isDragging = true;
+          this.dragMoved = false;
+          this.startPointerX = e.clientX;
+          try { this.track.setPointerCapture(e.pointerId); } catch (err) {}
+          this.updateScrub(e.clientX, false);
+        });
+
+        this.track.addEventListener('pointermove', (e) => {
+          if (!this.isDragging) return;
+          if (Math.abs(e.clientX - this.startPointerX) > 4) {
+            this.dragMoved = true;
+          }
+          this.updateScrub(e.clientX, true);
+        });
+
+        const releasePointer = (e) => {
+          if (!this.isDragging) return;
+          this.isDragging = false;
+          try { this.track.releasePointerCapture(e.pointerId); } catch (err) {}
+          if (this.dragMoved && this.hoveredPage) {
+            navigateTo(this.hoveredPage);
+          } else {
+            this.snapToPage(activePage, false);
+          }
+        };
+
+        this.track.addEventListener('pointerup', releasePointer);
+        this.track.addEventListener('pointercancel', releasePointer);
+      }
+
+      updateScrub(clientX, isMoving) {
+        const trackRect = this.track.getBoundingClientRect();
+        const items = this.getItems();
+        if (!items.length) return;
+
+        let closestBtn = items[0];
+        let minDist = Infinity;
+        items.forEach(btn => {
+          const bRect = btn.getBoundingClientRect();
+          const center = bRect.left + bRect.width / 2;
+          const dist = Math.abs(clientX - center);
+          if (dist < minDist) {
+            minDist = dist;
+            closestBtn = btn;
+          }
+        });
+
+        this.hoveredPage = closestBtn.dataset[this.dataKey];
+        this.highlightHover(this.hoveredPage);
+
+        const relX = clientX - trackRect.left;
+        const desiredW = closestBtn.offsetWidth * (isMoving ? 1.08 : 1.04);
+        const rawX = relX - desiredW / 2;
+        const magneticX = closestBtn.offsetLeft - (desiredW - closestBtn.offsetWidth) / 2;
+        const blendedX = rawX * 0.62 + magneticX * 0.38;
+
+        const minX = 6;
+        const maxX = Math.max(minX, this.track.clientWidth - desiredW - 6);
+        this.targetX = Math.max(minX, Math.min(maxX, blendedX));
+        this.targetW = desiredW;
+      }
+
+      animate() {
+        requestAnimationFrame(() => this.animate());
+        if (!this.droplet || this.track.offsetParent === null) return;
+
+        if (this.targetW === 0) {
+          this.snapToPage(activePage, true);
+        }
+
+        const stiffness = this.isDragging ? 0.28 : 0.18;
+        const damping = this.isDragging ? 0.62 : 0.72;
+
+        const forceX = (this.targetX - this.currentX) * stiffness;
+        this.velX = (this.velX + forceX) * damping;
+        this.currentX += this.velX;
+        this.currentW += (this.targetW - this.currentW) * 0.22;
+
+        const speed = Math.abs(this.velX);
+        const stretchX = 1 + Math.min(speed * 0.018, 0.26);
+        const squashY = 1 - Math.min(speed * 0.008, 0.11);
+
+        this.droplet.style.width = `${Math.max(24, this.currentW)}px`;
+        this.droplet.style.transform = `translate3d(${this.currentX}px, 0, 0) scale(${stretchX}, ${squashY})`;
+      }
+    }
+
+    function initLiquidGlassNavigation() {
+      const topTrack = document.getElementById('topNavTrack');
+      const topDrop = document.getElementById('topLiquidDroplet');
+      if (topTrack && topDrop) {
+        liquidControllers.push(new LiquidGlassController(topTrack, topDrop, '.nav-btn', 'nav'));
+      }
+
+      const bottomTrack = document.getElementById('bottomDockTrack');
+      const bottomDrop = document.getElementById('bottomLiquidDroplet');
+      if (bottomTrack && bottomDrop) {
+        liquidControllers.push(new LiquidGlassController(bottomTrack, bottomDrop, '.dock-btn', 'dock'));
+      }
+    }
+
+    function snapAllDroplets(immediate = false) {
+      liquidControllers.forEach(ctrl => ctrl.snapToPage(activePage, immediate));
+    }
+
+    // ==================== 5-PAGE SPA ROUTER ====================
+    function navigateTo(pageId) {
+      activePage = pageId;
+      document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById(`view-${pageId}`);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('.nav-btn').forEach(b => {
+        b.className = b.dataset.nav === pageId
+          ? 'nav-btn px-3.5 py-2 rounded-xl text-xs font-extrabold text-white transition-colors'
+          : 'nav-btn px-3.5 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white transition-colors';
+      });
+
+      document.querySelectorAll('.dock-btn').forEach(b => {
+        b.className = b.dataset.dock === pageId
+          ? 'dock-btn px-3 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5 transition-colors'
+          : 'dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors';
+      });
+
+      snapAllDroplets(false);
+      try { history.replaceState(null, '', `#${pageId}`); } catch (e) {}
+
+      if (pageId === 'overview') {
+        setTimeout(resizeSentinel, 60);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleHashRouting() {
+      const hash = window.location.hash.replace('#', '');
+      if (['overview', 'work', 'services', 'capabilities', 'journey', 'contact'].includes(hash)) {
+        navigateTo(hash);
+      }
+    }
+
+    // ==================== HERO STAGE SWITCHER ====================
+    function setStageView(mode) {
+      stageView = mode;
+      const grid = document.getElementById('heroStageGrid');
+      const pBox = document.getElementById('stagePortraitBox');
+      const sBox = document.getElementById('stageSentinelBox');
+      const label = document.getElementById('stageHeaderLabel');
+
+      document.querySelectorAll('.stage-switch-btn').forEach(btn => {
+        btn.className = 'stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all';
+      });
+      const activeBtn = document.getElementById(`tab-${mode}`);
+      if (activeBtn) {
+        activeBtn.className = 'stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#6382FF] text-white transition-all';
+      }
+
+      if (mode === 'dual') {
+        grid.className = 'grid grid-cols-1 sm:grid-cols-12 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
+        sBox.className = 'sm:col-span-5 relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30';
+        pBox.className = 'sm:col-span-7 portrait-card rounded-2xl h-full relative group';
+        label.textContent = lang === 'ar' ? 'العرض المزدوج (البورتريه + 3D)' : 'DUAL STAGE';
+      } else if (mode === 'portrait') {
+        grid.className = 'grid grid-cols-1 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
+        sBox.className = 'hidden';
+        pBox.className = 'portrait-card rounded-2xl h-full relative group';
+        label.textContent = lang === 'ar' ? 'البورتريه الرسمي · دقة فائقة' : 'PORTRAIT · CRYSTAL CLARITY';
+      } else {
+        grid.className = 'grid grid-cols-1 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
+        pBox.className = 'hidden';
+        sBox.className = 'relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30';
+        label.textContent = lang === 'ar' ? 'الحارس ثلاثي الأبعاد · SENTINEL v3.0' : '3D SENTINEL · INTERACTIVE CORE';
+      }
+      setTimeout(resizeSentinel, 60);
+    }
+
+    function togglePortraitOverlay() {
+      portraitCaptionVisible = !portraitCaptionVisible;
+      const bar = document.getElementById('portraitCaptionBar');
+      const icon = document.getElementById('portraitEyeIcon');
+      if (portraitCaptionVisible) {
+        bar.classList.remove('opacity-0', 'pointer-events-none');
+        icon.className = 'fa-solid fa-eye text-xs';
+      } else {
+        bar.classList.add('opacity-0', 'pointer-events-none');
+        icon.className = 'fa-solid fa-eye-slash text-xs';
+      }
+    }
+
+    // ==================== BESPOKE 60FPS SPATIAL SENTINEL ENGINE ====================
+    let pointerX = 0, pointerY = 0;
+    let springEyeX = 0, springEyeY = 0;
+    let sentinelSubMode = 'SENTINEL';
+    let energyPulse = 0;
+    let sentinelParticles = [];
+
+    function initSpatialSentinelEngine() {
+      const canvas = document.getElementById('sentinel3DCanvas');
+      const container = document.getElementById('stageSentinelBox');
+      if (!canvas || !container) return;
+
+      for (let i = 0; i < 48; i++) {
+        sentinelParticles.push({
+          angle: Math.random() * Math.PI * 2,
+          radius: 40 + Math.random() * 115,
+          speed: (0.004 + Math.random() * 0.008) * (Math.random() > 0.5 ? 1 : -1),
+          size: 1 + Math.random() * 1.8,
+          alpha: 0.25 + Math.random() * 0.65
+        });
+      }
+
+      window.addEventListener('pointermove', (e) => {
+        pointerX = (e.clientX / window.innerWidth) * 2 - 1;
+        pointerY = (e.clientY / window.innerHeight) * 2 - 1;
+      });
+
+      canvas.addEventListener('pointerdown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        pointerX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        pointerY = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+        pulseSentinel();
+      });
+
+      resizeSentinel();
+      renderSentinelFrame();
+    }
+
+    function setSentinelMode(mode) {
+      sentinelSubMode = mode;
+      document.querySelectorAll('.s-pill').forEach(btn => {
+        const label = btn.textContent.trim();
+        const active = (mode === 'SENTINEL' && label === 'SENTINEL') ||
+                       (mode === 'NEURAL' && label === 'NEURAL CORE') ||
+                       (mode === 'GYRO' && label === 'GYRO MATRIX');
+        btn.className = active
+          ? 's-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#6382FF] text-white'
+          : 's-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white';
+      });
+      pulseSentinel();
+    }
+
+    function pulseSentinel() {
+      energyPulse = 1.0;
+    }
+
+    function resizeSentinel() {
+      const container = document.getElementById('stageSentinelBox');
+      const canvas = document.getElementById('sentinel3DCanvas');
+      if (!container || !canvas || container.classList.contains('hidden')) return;
+      const w = container.clientWidth || 260;
+      const h = container.clientHeight || 460;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+    }
+
+    window.addEventListener('resize', () => {
+      resizeSentinel();
+      snapAllDroplets(true);
+    });
+
+    function renderSentinelFrame() {
+      requestAnimationFrame(renderSentinelFrame);
+      const canvas = document.getElementById('sentinel3DCanvas');
+      if (!canvas || canvas.offsetParent === null) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
+      if (w <= 0 || h <= 0) return;
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      const cx = w / 2;
+      const cy = h / 2 - 6;
+      const t = Date.now() * 0.002;
+      const scaleFactor = Math.min(w, h) / 280;
+
+      // Spring eye tracking interpolation
+      springEyeX += (pointerX - springEyeX) * 0.12;
+      springEyeY += (pointerY - springEyeY) * 0.12;
+
+      const pulseBoost = energyPulse * 18;
+      if (energyPulse > 0.01) energyPulse *= 0.91;
+
+      // 1. Ambient Cobalt Core Aura
+      const aura = ctx.createRadialGradient(cx, cy, 8, cx, cy, (125 + pulseBoost) * scaleFactor);
+      aura.addColorStop(0, `rgba(99, 130, 255, ${0.32 + energyPulse * 0.25})`);
+      aura.addColorStop(0.55, 'rgba(99, 130, 255, 0.08)');
+      aura.addColorStop(1, 'rgba(6, 8, 13, 0)');
+      ctx.fillStyle = aura;
+      ctx.fillRect(0, 0, w, h);
+
+      // 2. Telemetry Crosshairs
+      ctx.strokeStyle = 'rgba(99, 130, 255, 0.14)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - 120 * scaleFactor, cy);
+      ctx.lineTo(cx + 120 * scaleFactor, cy);
+      ctx.moveTo(cx, cy - 120 * scaleFactor);
+      ctx.lineTo(cx, cy + 120 * scaleFactor);
+      ctx.stroke();
+
+      // 3. Orbiting Spatial Particles
+      sentinelParticles.forEach(p => {
+        p.angle += p.speed * (sentinelSubMode === 'GYRO' ? 2.4 : 1);
+        const px = cx + Math.cos(p.angle) * p.radius * scaleFactor;
+        const py = cy + Math.sin(p.angle) * (p.radius * 0.65) * scaleFactor;
+        ctx.fillStyle = `rgba(142, 166, 255, ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(px, py, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 4. 3D Projected Gyroscopic Rings
+      const speedMult = sentinelSubMode === 'NEURAL' ? 2.2 : (sentinelSubMode === 'GYRO' ? 3.2 : 1.0);
+      ctx.save();
+      ctx.translate(cx, cy);
+
+      // Outer Cobalt Ring
+      ctx.strokeStyle = 'rgba(99, 130, 255, 0.72)';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 102 * scaleFactor, (36 + Math.sin(t * speedMult) * 14) * scaleFactor, Math.sin(t * 0.4) * 0.35 + springEyeX * 0.2, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Inner Snow-White Ring
+      ctx.strokeStyle = 'rgba(244, 246, 251, 0.42)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, (44 + Math.cos(t * speedMult) * 12) * scaleFactor, 98 * scaleFactor, -t * 0.25 * speedMult + springEyeY * 0.2, 0, Math.PI * 2);
+      ctx.stroke();
+
+      if (sentinelSubMode === 'GYRO' || sentinelSubMode === 'NEURAL') {
+        ctx.strokeStyle = 'rgba(198, 243, 108, 0.35)';
+        ctx.setLineDash([5, 6]);
+        ctx.beginPath();
+        ctx.arc(0, 0, (112 + energyPulse * 10) * scaleFactor, t * speedMult, t * speedMult + Math.PI * 1.4);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.restore();
+
+      // 5. Metallic Obsidian Sentinel Core Shell
+      const hx = cx + springEyeX * 14 * scaleFactor;
+      const hy = cy + springEyeY * 12 * scaleFactor + Math.sin(t * 1.4) * 4;
+      const r = (52 + energyPulse * 5) * scaleFactor;
+
+      ctx.save();
+      ctx.translate(hx, hy);
+      const shellGrad = ctx.createLinearGradient(-r, -r, r, r);
+      shellGrad.addColorStop(0, '#161F33');
+      shellGrad.addColorStop(0.5, '#0B0F19');
+      shellGrad.addColorStop(1, '#06080D');
+
+      ctx.fillStyle = shellGrad;
+      ctx.strokeStyle = '#6382FF';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      for (let i = 0; i < 8; i++) {
+        const a = (i * Math.PI) / 4 + Math.PI / 8;
+        const vx = Math.cos(a) * r;
+        const vy = Math.sin(a) * r;
+        if (i === 0) ctx.moveTo(vx, vy);
+        else ctx.lineTo(vx, vy);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Visor Recess
+      ctx.fillStyle = 'rgba(6, 8, 13, 0.92)';
+      ctx.strokeStyle = 'rgba(142, 166, 255, 0.5)';
+      ctx.lineWidth = 1.2;
+      const vw = r * 1.32;
+      const vh = r * 0.44;
+      ctx.beginPath();
+      ctx.roundRect(-vw / 2, -vh / 2, vw, vh, 10);
+      ctx.fill();
+      ctx.stroke();
+
+      // Glowing Tracking Eyes
+      const ex = springEyeX * 8 * scaleFactor;
+      const ey = springEyeY * 5 * scaleFactor;
+      ctx.fillStyle = '#F4F6FB';
+      ctx.shadowColor = '#6382FF';
+      ctx.shadowBlur = 14 + energyPulse * 12;
+
+      if (sentinelSubMode === 'NEURAL') {
+        ctx.beginPath();
+        ctx.arc(ex, ey, (8 + energyPulse * 3) * scaleFactor, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        const eyeOffset = 16 * scaleFactor;
+        const eyeRadius = (5.2 + energyPulse * 2) * scaleFactor;
+        ctx.beginPath();
+        ctx.arc(ex - eyeOffset, ey, eyeRadius, 0, Math.PI * 2);
+        ctx.arc(ex + eyeOffset, ey, eyeRadius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+      ctx.restore();
+    }
+
+    // ==================== CAPABILITIES FILTER ====================
+    function filterCapabilities(cat) {
+      document.querySelectorAll('.cap-filter-btn').forEach(btn => {
+        btn.className = btn.dataset.filter === cat
+          ? 'cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-[#6382FF] text-white'
+          : 'cap-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white';
+      });
+      document.querySelectorAll('.cap-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+
+    // ==================== INTERACTIVE PROJECT SIMULATION DRAWERS ====================
+    function openProjectModal(projectKey) {
+      const body = document.getElementById('projectModalBody');
+      let content = '';
+
+      if (projectKey === 'jarvis') {
+        content = `
+          <div class="space-y-4">
+            <span class="font-mono text-xs text-[#6382FF]">01 // SPATIALOS WORKSTATION</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">J.A.R.V.I.S / SpatialOS</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'تجربة سطح مكتب تفاعلية تعتمد على تتبع إيماءات اليد والأوامر الصوتية للتحكم في العناصر ثلاثية الأبعاد وتشغيل التطبيقات.' : 'Camera-driven hand gesture and voice control desktop workstation for 3D spatial manipulation and app launching.'}</p>
+            <div class="p-4 rounded-2xl bg-[#06080D] border border-[#6382FF]/30 space-y-3">
+              <div class="font-mono text-[11px] text-[#8EA6FF]">GESTURE & VOICE SIMULATOR</div>
+              <div id="jarvisSimScreen" class="p-3 rounded-xl bg-[#0D111A] font-mono text-xs text-[#F4F6FB]">> Ready for hand gesture or voice command...</div>
+              <div class="flex flex-wrap gap-2">
+                <button onclick="document.getElementById('jarvisSimScreen').textContent='> [GESTURE: PINCH_ROTATE] 3D Object rotated 45° on Y-axis.'" class="px-3 py-1.5 rounded-lg bg-[#6382FF]/20 border border-[#6382FF]/40 font-mono text-xs text-white">✋ Pinch Rotate</button>
+                <button onclick="document.getElementById('jarvisSimScreen').textContent='> [VOICE: LAUNCH_WORKSPACE] Executing system environment...'" class="px-3 py-1.5 rounded-lg bg-[#6382FF]/20 border border-[#6382FF]/40 font-mono text-xs text-white">🎙️ Voice Launch</button>
+              </div>
+            </div>
+            <a href="https://github.com/aymnb7178/SpatialOS-JARVIS-Workstation" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'فتح المستودع على GitHub' : 'Open GitHub Repository'}</span>
+              <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg>
+            </a>
+          </div>
+        `;
+      } else if (projectKey === 'signbridge') {
+        content = `
+          <div class="space-y-4">
+            <span class="font-mono text-xs text-[#6382FF]">02 // ACCESSIBILITY & VISION AI</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">SignBridge AI</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'نموذج للتعرف على لغة الإشارة العربية والإنجليزية عبر الكاميرا باستخدام MediaPipe وGemini API وتحويلها لنص وصوت.' : 'Arabic and English sign language recognition prototype using MediaPipe landmarks and Gemini API.'}</p>
+            <div class="p-4 rounded-2xl bg-[#06080D] border border-[#6382FF]/30 space-y-3">
+              <div class="font-mono text-[11px] text-[#8EA6FF]">LIVE SIGN DECODER PREVIEW</div>
+              <div id="signSimScreen" class="p-4 rounded-xl bg-[#0D111A] text-center font-bold text-base text-[#F4F6FB]">${lang === 'ar' ? 'اختر إشارة لمحاكاة الترجمة الفورية' : 'Select a sign gesture to decode'}</div>
+              <div class="grid grid-cols-3 gap-2">
+                <button onclick="document.getElementById('signSimScreen').textContent='👋 السلام عليكم / Hello'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">👋 تحية</button>
+                <button onclick="document.getElementById('signSimScreen').textContent='🙏 شكراً جزيلاً / Thank You'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">🙏 شكر</button>
+                <button onclick="document.getElementById('signSimScreen').textContent='✅ نعم، موافق / Approved'" class="p-2 rounded-xl bg-[#0D111A] hover:bg-[#6382FF]/25 border border-white/10 text-xs">✅ تأكيد</button>
+              </div>
+            </div>
+            <a href="https://github.com/aymnb7178" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'عرض الحساب على GitHub' : 'View GitHub Profile'}</span>
+              <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg>
+            </a>
+          </div>
+        `;
+      } else if (projectKey === 'nira') {
+        content = `
+          <div class="space-y-4">
+            <span class="font-mono text-xs text-[#6382FF]">03 // PERSONAL AI AGENT</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">Nira AI Assistant</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'مساعد شخصي ذكي عبر تيليجرام يربط سير العمل عبر n8n وGemini مع بوابة موافقة بشرية صريحة قبل تنفيذ أي إجراء.' : 'Telegram AI assistant powered by n8n and Gemini featuring an explicit human-in-the-loop approval gate.'}</p>
+            <div class="p-4 rounded-2xl bg-[#06080D] border border-[#6382FF]/30 space-y-3">
+              <div class="font-mono text-[11px] text-[#8EA6FF]">APPROVAL GATE WORKFLOW</div>
+              <div id="niraSimScreen" class="p-3 rounded-xl bg-[#0D111A] text-xs text-[#F4F6FB] leading-relaxed">
+                ${lang === 'ar' ? 'Nira: تم تجهيز ملخص المهام وجدولة التذكير. هل توافق على التنفيذ؟' : 'Nira: Task summary prepared. Shall I execute the workflow?'}
+              </div>
+              <button onclick="document.getElementById('niraSimScreen').innerHTML='<span class=text-[#8EA6FF]>[APPROVED & EXECUTED]</span> تم إرسال التذكير وتحديث سجل المهام بنجاح.'" class="px-4 py-2 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+                ${lang === 'ar' ? 'موافق (Approve Action)' : 'Approve Action'}
+              </button>
+            </div>
+            <a href="https://github.com/aymnb7178" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'عرض الحساب على GitHub' : 'View GitHub Profile'}</span>
+              <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0-201.4 201.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3 448 192c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 96C35.8 96 0 131.8 0 176L0 432c0 44.2 35.8 80 80 80l256 0c44.2 0 80-35.8 80-80l0-80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 80c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l80 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 96z"/></svg>
+            </a>
+          </div>
+        `;
+      } else {
+        content = `
+          <div class="space-y-4">
+            <span class="font-mono text-xs text-[#6382FF]">04 // DATA & AUTOMATION</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">${lang === 'ar' ? 'البيانات والأتمتة الذكية' : 'Data & Automation'}</h3>
+            <p class="text-sm text-[#8F9BB3] leading-relaxed">${lang === 'ar' ? 'بناء لوحات مؤشرات تفاعلية وتقارير Excel متقدمة وأتمتة معالجة البيانات باستخدام Python وPower BI.' : 'Interactive dashboards, clean reporting pipelines, and workflow automation using Python, Excel, and Power BI.'}</p>
+            <div class="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-[#06080D] border border-[#6382FF]/30 text-center">
+              <div>
+                <div class="font-display text-xl font-extrabold text-white">100+</div>
+                <div class="font-mono text-[10px] text-[#8EA6FF]">PROJECTS</div>
+              </div>
+              <div>
+                <div class="font-display text-xl font-extrabold text-[#6382FF]">Excel</div>
+                <div class="font-mono text-[10px] text-[#8EA6FF]">+ Power BI</div>
+              </div>
+              <div>
+                <div class="font-display text-xl font-extrabold text-white">Python</div>
+                <div class="font-mono text-[10px] text-[#8EA6FF]">+ SQL</div>
+              </div>
+            </div>
+            <button onclick="closeProjectModal(); navigateTo('contact');" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#6382FF] text-white text-xs font-bold">
+              <span>${lang === 'ar' ? 'اطلب حل بيانات أو أتمتة' : 'Request Data / Automation Build'}</span>
+            </button>
+          </div>
+        `;
+      }
+
+      body.innerHTML = content;
+      const modal = document.getElementById('projectModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // ==================== SERVICES → DISPATCHER HANDOFF ====================
+    function requestService(enLabel, arLabel) {
+      navigateTo('contact');
+      setTimeout(() => {
+        const subjectInput = document.getElementById('senderSubject');
+        if (subjectInput) subjectInput.value = lang === 'ar' ? arLabel : enLabel;
+        const nameInput = document.getElementById('senderName');
+        if (nameInput) nameInput.focus({ preventScroll: true });
+      }, 350);
+    }
+
+    // ==================== SMART MULTI-CHANNEL CONTACT DISPATCHER ====================
+    function selectChannel(ch) {
+      selectedDispatchChannel = ch;
+      document.querySelectorAll('.ch-btn').forEach(btn => {
+        btn.className = btn.dataset.ch === ch
+          ? 'ch-btn px-3 py-2.5 rounded-xl bg-[#6382FF] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all'
+          : 'ch-btn px-3 py-2.5 rounded-xl bg-[#06080D] border border-white/10 text-[#8F9BB3] hover:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-all';
+      });
+    }
+
+    function buildFormattedPayload() {
+      const name = (document.getElementById('senderName').value || '').trim() || (lang === 'ar' ? 'زائر' : 'Visitor');
+      const subject = (document.getElementById('senderSubject').value || '').trim() || (lang === 'ar' ? 'تواصل عبر الموقع' : 'Portfolio Inquiry');
+      const msg = (document.getElementById('senderMessage').value || '').trim() || (lang === 'ar' ? 'مرحباً أيمن، أود التواصل معك بخصوص تعاون تقني.' : 'Hi Aymen, I would like to connect regarding a project.');
+      return `الاسم / Name: ${name}\nالموضوع / Subject: ${subject}\n------------------\n${msg}`;
+    }
+
+    function copyTextFallback(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    function copyMessageOnly() {
+      const payload = buildFormattedPayload();
+      copyTextFallback(payload);
+      showToast(lang === 'ar' ? 'تم نسخ رسالتك المنسقة بنجاح!' : 'Formatted message copied to clipboard!');
+    }
+
+    function executeDispatch() {
+      const payload = buildFormattedPayload();
+      copyTextFallback(payload);
+      const encoded = encodeURIComponent(payload);
+      const subjectEncoded = encodeURIComponent((document.getElementById('senderSubject').value || 'Portfolio Inquiry').trim());
+
+      let targetUrl = '';
+      if (selectedDispatchChannel === 'whatsapp') {
+        targetUrl = `https://wa.me/966566065221?text=${encoded}`;
+      } else if (selectedDispatchChannel === 'telegram') {
+        targetUrl = `https://t.me/Il7IAI`;
+      } else if (selectedDispatchChannel === 'x') {
+        targetUrl = `https://x.com/uqg_9`;
+      } else if (selectedDispatchChannel === 'instagram') {
+        targetUrl = `https://www.instagram.com/i1iair`;
+      } else {
+        targetUrl = `mailto:aymnb7178@gmail.com?subject=${subjectEncoded}&body=${encoded}`;
+      }
+
+      showToast(lang === 'ar' ? 'تم نسخ رسالتك وتجهيزها — جاري نقلك لحسابي...' : 'Message copied & prepared — opening platform...');
+      setTimeout(() => {
+        window.open(targetUrl, '_blank', 'noopener');
+      }, 450);
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      const text = document.getElementById('toastText');
+      if (!banner || !text) return;
+      text.textContent = msg;
+      banner.classList.remove('opacity-0');
+      banner.classList.add('opacity-100');
+      setTimeout(() => {
+        banner.classList.remove('opacity-100');
+        banner.classList.add('opacity-0');
+      }, 3400);
+    }
+
+    // ==================== COMMAND PALETTE (CMD/CTRL + K) ====================
+    const cmdActions = [
+      { key: '1', ar: '01 · الانتقال إلى الرئيسية', en: '01 · Go to Overview', fn: () => navigateTo('overview') },
+      { key: '2', ar: '02 · الانتقال إلى المختبرات والأعمال', en: '02 · Go to Work & Labs', fn: () => navigateTo('work') },
+      { key: '3', ar: '03 · الانتقال إلى الخدمات', en: '03 · Go to Services', fn: () => navigateTo('services') },
+      { key: '4', ar: '04 · الانتقال إلى القدرات والتقنيات', en: '04 · Go to Capabilities', fn: () => navigateTo('capabilities') },
+      { key: '5', ar: '05 · الانتقال إلى المسيرة ومجتمع Techno Repos', en: '05 · Go to Journey & Community', fn: () => navigateTo('journey') },
+      { key: '6', ar: '06 · الانتقال إلى موزع التواصل الذكي', en: '06 · Go to Contact Dispatcher', fn: () => navigateTo('contact') },
+      { key: 'L', ar: 'تبديل اللغة (العربية / English)', en: 'Switch Language (AR / EN)', fn: () => toggleLanguage() },
+    ];
+
+    function toggleCommandPalette() {
+      const modal = document.getElementById('commandModal');
+      const isHidden = modal.classList.contains('hidden');
+      if (isHidden) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        const inp = document.getElementById('cmdInput');
+        inp.value = '';
+        renderCmdItems('');
+        setTimeout(() => inp.focus(), 50);
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function renderCmdItems(filter = '') {
+      const container = document.getElementById('cmdItemsContainer');
+      if (!container) return;
+      const q = filter.toLowerCase();
+      container.innerHTML = '';
+      cmdActions
+        .filter(item => item.ar.toLowerCase().includes(q) || item.en.toLowerCase().includes(q) || item.key.toLowerCase() === q)
+        .forEach(item => {
+          const btn = document.createElement('button');
+          btn.className = 'w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#6382FF]/20 text-start text-[#F4F6FB] transition-all';
+          btn.innerHTML = `<span>${lang === 'ar' ? item.ar : item.en}</span><kbd class="font-mono text-[10px] px-2 py-0.5 rounded bg-[#06080D] text-[#8EA6FF] border border-white/10">${item.key}</kbd>`;
+          btn.onclick = () => {
+            toggleCommandPalette();
+            item.fn();
+          };
+          container.appendChild(btn);
+        });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        toggleCommandPalette();
+      } else if (e.key === 'Escape') {
+        closeProjectModal();
+        const cmd = document.getElementById('commandModal');
+        if (!cmd.classList.contains('hidden')) toggleCommandPalette();
+      }
+    });
+  </script>
+</body>
+</html>
+</body></html>
