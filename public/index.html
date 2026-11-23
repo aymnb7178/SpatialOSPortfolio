@@ -482,36 +482,21 @@
           </div>
         </div>
 
-        <!-- Interactive Visual Stage (#heroStage): DUAL STAGE | PORTRAIT | 3D SENTINEL -->
+        <!-- Interactive Visual Stage (#heroStage): 3D SENTINEL ONLY -->
         <div class="lg:col-span-6 order-1 lg:order-2">
           <div id="heroStage" class="glass-cobalt rounded-3xl p-3.5 sm:p-4 relative">
             
-            <!-- Top Stage Switcher Tabs -->
             <div class="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-[#C6F36C] animate-ping"></span>
-                <span id="stageHeaderLabel" class="font-mono text-[10px] uppercase tracking-wider text-[#8EA6FF]" data-ar="العرض المزدوج (البورتريه + 3D)" data-en="DUAL STAGE">العرض المزدوج (البورتريه + 3D)</span>
-              </div>
-
-              <!-- 3 Clear Switcher Tabs -->
-              <div class="flex items-center bg-[#06080D]/90 p-1 rounded-xl border border-white/10">
-                <button onclick="setStageView('dual')" id="tab-dual" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#6382FF] text-white transition-all">
-                  <span data-ar="العرض المزدوج" data-en="DUAL STAGE">العرض المزدوج</span>
-                </button>
-                <button onclick="setStageView('portrait')" id="tab-portrait" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all">
-                  <span data-ar="البورتريه" data-en="PORTRAIT">البورتريه</span>
-                </button>
-                <button onclick="setStageView('sentinel')" id="tab-sentinel" class="stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all">
-                  <span data-ar="الحارس 3D" data-en="3D SENTINEL">الحارس 3D</span>
-                </button>
+                <span id="stageHeaderLabel" class="font-mono text-[10px] uppercase tracking-wider text-[#8EA6FF]" data-ar="الحارس ثلاثي الأبعاد" data-en="3D SENTINEL">الحارس ثلاثي الأبعاد</span>
               </div>
             </div>
 
             <!-- Interactive Stage Viewport -->
-            <div id="heroStageGrid" class="grid grid-cols-1 sm:grid-cols-12 gap-3 h-[470px] sm:h-[510px] transition-all duration-500">
-              
-              <!-- LEFT PANEL: BESPOKE 60FPS HTML5 SPATIAL SENTINEL ENGINE (5 cols in dual mode) -->
-              <div id="stageSentinelBox" class="sm:col-span-5 relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30">
+            <div id="heroStageGrid" class="grid grid-cols-1 gap-3 h-[470px] sm:h-[510px]">
+              <!-- BESPOKE HTML5 SPATIAL SENTINEL ENGINE -->
+              <div id="stageSentinelBox" class="relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30">
                 <canvas id="sentinel3DCanvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
 
                 <!-- Top Telemetry Badge -->
@@ -534,34 +519,6 @@
                   <button onclick="pulseSentinel()" title="Energy Pulse" class="px-2 py-1 rounded-md bg-[#6382FF]/20 hover:bg-[#6382FF]/40 border border-[#6382FF]/45 font-mono text-[9px] text-[#8EA6FF]">
                     <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z"/></svg>
                   </button>
-                </div>
-              </div>
-
-              <!-- RIGHT PANEL: CRYSTAL-CLEAR PORTRAIT SHOWCASE (7 cols in dual mode) -->
-              <div id="stagePortraitBox" class="sm:col-span-7 portrait-card rounded-2xl h-full relative group">
-                
-                <!-- Crystal Clear Portrait Image (NO dark gradient overlay covering the face) -->
-                                <img
-                  id="aymenPortraitImg"
-                  src="aiman-portrait.jpg"
-                  alt="Aymen Abdurabu Al Erwi"
-                  style="width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;"
-                  class="portrait-photo"
-                />
-<!-- Top Floating Action Controls (Change Photo & Toggle HUD) -->
-                <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
-                  <button type="button" onclick="togglePortraitOverlay()" title="Toggle Clean Portrait / HUD" class="w-8 h-8 rounded-lg bg-[#06080D]/85 hover:bg-[#6382FF] border border-white/15 text-white flex items-center justify-center transition-all">
-                    <i id="portraitEyeIcon" class="fa-solid fa-eye text-xs"></i>
-                  </button>
-                </div>
-
-                <!-- Minimalist Bottom Signature Bar -->
-                <div id="portraitCaptionBar" class="absolute bottom-2.5 inset-x-2.5 z-20 px-3 py-2 rounded-xl bg-[#06080D]/85 backdrop-blur-md border border-[#6382FF]/35 flex items-center justify-between transition-all duration-300">
-                  <div>
-                    <div class="text-xs font-extrabold text-[#F4F6FB]" data-ar="أيمن عبدربه العروي" data-en="Aymen Al Erwi">أيمن عبدربه العروي</div>
-                    <div class="font-mono text-[9px] text-[#8EA6FF]" data-ar="مكة المكرمة · السعودية" data-en="MAKKAH · KSA">مكة المكرمة · السعودية</div>
-                  </div>
-                  <span class="px-2 py-0.5 rounded bg-[#6382FF]/20 border border-[#6382FF]/45 font-mono text-[9px] text-[#8EA6FF]">AY</span>
                 </div>
               </div>
 
@@ -1285,7 +1242,7 @@
     } catch (e) {}
 
     let activePage = 'overview';
-    let stageView = 'dual';
+    let stageView = 'sentinel';
     let portraitCaptionVisible = true;
     let selectedDispatchChannel = 'whatsapp';
     let managedLinks = {};
@@ -1629,38 +1586,15 @@
       }
     }
 
-    // ==================== HERO STAGE SWITCHER ====================
+    // ==================== HERO 3D STAGE ====================
     function setStageView(mode) {
-      stageView = mode;
+      stageView = 'sentinel';
       const grid = document.getElementById('heroStageGrid');
-      const pBox = document.getElementById('stagePortraitBox');
       const sBox = document.getElementById('stageSentinelBox');
       const label = document.getElementById('stageHeaderLabel');
-
-      document.querySelectorAll('.stage-switch-btn').forEach(btn => {
-        btn.className = 'stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-semibold text-[#8F9BB3] hover:text-white transition-all';
-      });
-      const activeBtn = document.getElementById(`tab-${mode}`);
-      if (activeBtn) {
-        activeBtn.className = 'stage-switch-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-[#6382FF] text-white transition-all';
-      }
-
-      if (mode === 'dual') {
-        grid.className = 'grid grid-cols-1 sm:grid-cols-12 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
-        sBox.className = 'sm:col-span-5 relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30';
-        pBox.className = 'sm:col-span-7 portrait-card rounded-2xl h-full relative group';
-        label.textContent = lang === 'ar' ? 'العرض المزدوج (البورتريه + 3D)' : 'DUAL STAGE';
-      } else if (mode === 'portrait') {
-        grid.className = 'grid grid-cols-1 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
-        sBox.className = 'hidden';
-        pBox.className = 'portrait-card rounded-2xl h-full relative group';
-        label.textContent = lang === 'ar' ? 'البورتريه الرسمي · دقة فائقة' : 'PORTRAIT · CRYSTAL CLARITY';
-      } else {
-        grid.className = 'grid grid-cols-1 gap-3 h-[470px] sm:h-[510px] transition-all duration-500';
-        pBox.className = 'hidden';
-        sBox.className = 'relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30';
-        label.textContent = lang === 'ar' ? 'الحارس ثلاثي الأبعاد · SENTINEL v3.0' : '3D SENTINEL · INTERACTIVE CORE';
-      }
+      if (grid) grid.className = 'grid grid-cols-1 gap-3 h-[470px] sm:h-[510px]';
+      if (sBox) sBox.className = 'relative h-full rounded-2xl overflow-hidden bg-[#06080D] border border-[#6382FF]/30';
+      if (label) label.textContent = lang === 'ar' ? 'الحارس ثلاثي الأبعاد' : '3D SENTINEL';
       setTimeout(resizeSentinel, 60);
     }
 
