@@ -139,6 +139,16 @@
     html[data-theme="light"] [class~="bg-[#6382FF"]] [class~="text-white"],
     html[data-theme="light"] [class~="bg-[#06080D]"][class~="text-white"],
     html[data-theme="light"] [class~="bg-[#06080D"]] [class~="text-white"] { color: #FFFFFF !important; }
+    /* Preserve readable white-on-dark controls that intentionally use translucent dark fills. */
+    html[data-theme="light"] [class*="bg-[#06080D]/"] {
+      background-color: #242832 !important;
+      color: #F4F6FB !important;
+      border-color: rgba(255,255,255,.14) !important;
+    }
+    html[data-theme="light"] [class*="bg-[#06080D]/"] [class~="text-[#8F9BB3]"] { color: #C8D0E0 !important; }
+    html[data-theme="light"] [class*="bg-[#06080D]/"] [class~="text-white"],
+    html[data-theme="light"] [class*="bg-[#06080D]/"] [class~="text-[#F4F6FB]"] { color: #FFFFFF !important; }
+    html[data-theme="light"] [class*="bg-[#06080D]/"]::placeholder { color: #C8D0E0 !important; opacity: 1; }
     html[data-theme="light"] .text-white\/90 { color: #24324A !important; }
     html[data-theme="light"] .nav-btn.text-white, html[data-theme="light"] .dock-btn.text-white { color: #101827 !important; }
     html[data-theme="light"] .fixed.inset-0.pointer-events-none { opacity: .35; }
