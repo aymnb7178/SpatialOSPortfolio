@@ -115,6 +115,22 @@
     html[data-theme="light"] .assistant-message.bot { background: rgba(16,24,39,.05); border-color: rgba(16,24,39,.12); color: #101827; }
     html[data-theme="light"] ::-webkit-scrollbar-track { background: #F7F9FC; }
     html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+    html[data-theme="light"] [class~="text-[#F4F6FB]"] { color: #101827 !important; }
+    html[data-theme="light"] [class~="text-[#C8D0E0]"] { color: #25344D !important; }
+    html[data-theme="light"] [class~="text-white"] { color: #101827 !important; }
+    html[data-theme="light"] [class~="bg-[#06080D]"] { background-color: #EEF2F8 !important; }
+    html[data-theme="light"] [class~="bg-[#0D111A]"] { background-color: #FFFFFF !important; }
+    html[data-theme="light"] [class~="border-white/10"] { border-color: rgba(16,24,39,.12) !important; }
+    html[data-theme="light"] [class~="border-white/15"] { border-color: rgba(16,24,39,.16) !important; }
+    html[data-theme="light"] [class~="hover:text-white"]:hover { color: #101827 !important; }
+    html[data-theme="light"] .fixed.inset-0.pointer-events-none { opacity: .35; }
+
+    .page-view { contain: layout paint; }
+    .glass-panel, .glass-cobalt { contain: paint; }
+    @media (prefers-reduced-motion: reduce), (max-width: 640px) {
+      .liquid-droplet { display: none; }
+      .glass-panel, .glass-cobalt { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -270,6 +286,7 @@
     .account-submit { min-height: 48px; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
     .account-submit:hover { transform: translateY(-1px); filter: brightness(1.08); box-shadow: 0 12px 26px -14px rgba(99,130,255,.9); }
     .account-submit:active { transform: translateY(0); }
+    .account-submit:disabled, button:disabled { opacity: .65; cursor: wait; transform: none !important; }
 </style>
 </head>
 <body class="spatial-grid min-h-screen flex flex-col selection:bg-[#6382FF]/30 selection:text-white">
@@ -1093,8 +1110,8 @@
   </div>
 
   <!-- ==================== ACCOUNT CENTER ==================== -->
-  <div id="accountModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-    <div class="glass-cobalt w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl p-5 sm:p-7">
+  <div id="accountModal" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass-cobalt w-full max-w-7xl max-h-[94vh] overflow-y-auto rounded-3xl p-4 sm:p-7 lg:p-9">
       <div class="flex items-start justify-between gap-4 mb-6">
         <div>
           <div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">ACCOUNT // CONTROL CENTER</div>
@@ -1111,7 +1128,8 @@
           <input id="loginEmail" type="email" required autocomplete="email" placeholder="you@example.com" class="account-input" dir="ltr" />
           <label class="block text-xs font-bold text-[#C8D0E0]" for="loginPassword" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
           <input id="loginPassword" type="password" required autocomplete="current-password" placeholder="••••••••" class="account-input" dir="ltr" />
-          <button class="account-submit w-full px-4 py-3 rounded-2xl bg-[#6382FF] text-white font-extrabold text-sm" data-ar="دخول آمن" data-en="Sign in securely">دخول آمن</button>
+          <p id="authStatus" class="hidden text-xs text-[#8EA6FF]" role="status"></p>
+          <button id="loginSubmitBtn" class="account-submit w-full px-4 py-3 rounded-2xl bg-[#6382FF] text-white font-extrabold text-sm" data-ar="دخول آمن" data-en="Sign in securely">دخول آمن</button>
         </form>
         <form onsubmit="submitAuth(event, 'register')" class="account-auth-card rounded-3xl p-5 sm:p-6 space-y-4">
           <div class="flex items-start gap-3"><div class="w-11 h-11 rounded-2xl bg-[#C6F36C]/10 border border-[#C6F36C]/30 flex items-center justify-center text-[#C6F36C] text-lg">+</div><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#C6F36C]" data-ar="ابدأ رحلتك" data-en="Start your journey">ابدأ رحلتك</div><h3 class="font-display text-xl font-extrabold text-[#F4F6FB] mt-1" data-ar="إنشاء حساب" data-en="Create account">إنشاء حساب</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="احفظ طلباتك وتابع تقدمها." data-en="Save requests and track progress.">احفظ طلباتك وتابع تقدمها.</p></div></div>
@@ -1136,6 +1154,12 @@
             <div><div class="font-mono text-[10px] uppercase tracking-widest text-[#C6F36C]">ADMIN // PRIVATE CONTROL</div><p class="text-xs text-[#C8D0E0] mt-1" data-ar="هذه القائمة تظهر لك فقط بصلاحية المشرف." data-en="This control area is visible only to your admin account.">هذه القائمة تظهر لك فقط بصلاحية المشرف.</p></div>
             <span class="px-2.5 py-1 rounded-full bg-[#C6F36C]/10 border border-[#C6F36C]/25 text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span>
           </div>
+        </div>
+        <div id="adminToolbar" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button type="button" onclick="loadAdminDashboard(); loadAdminInsights();" class="rounded-2xl border border-[#6382FF]/25 bg-[#6382FF]/10 p-4 text-start hover:bg-[#6382FF]/20 transition-colors"><span class="block text-xl mb-1">↻</span><span class="text-xs font-bold" data-ar="تحديث البيانات" data-en="Refresh data">تحديث البيانات</span></button>
+          <button type="button" onclick="document.getElementById('adminLinkManager').scrollIntoView({behavior:'smooth',block:'center'})" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">↗</span><span class="text-xs font-bold" data-ar="إدارة الروابط" data-en="Manage links">إدارة الروابط</span></button>
+          <button type="button" onclick="document.getElementById('adminInsights').scrollIntoView({behavior:'smooth',block:'center'})" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">▦</span><span class="text-xs font-bold" data-ar="التحليلات" data-en="Analytics">التحليلات</span></button>
+          <button type="button" onclick="logoutAccount()" class="rounded-2xl border border-red-300/20 bg-red-300/[.06] p-4 text-start hover:bg-red-300/[.12] transition-colors"><span class="block text-xl mb-1">×</span><span class="text-xs font-bold" data-ar="خروج آمن" data-en="Secure sign out">خروج آمن</span></button>
         </div>
         <div id="adminSummary" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -1561,7 +1585,7 @@
       if (pageId === 'overview') {
         setTimeout(resizeSentinel, 60);
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
     function handleHashRouting() {
@@ -1694,7 +1718,7 @@
     function renderSentinelFrame() {
       requestAnimationFrame(renderSentinelFrame);
       const canvas = document.getElementById('sentinel3DCanvas');
-      if (!canvas || canvas.offsetParent === null) return;
+      if (!canvas || canvas.offsetParent === null || activePage !== 'overview' || document.hidden) return;
       const ctx = canvas.getContext('2d');
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = canvas.width / dpr;
@@ -1958,7 +1982,15 @@
     // ==================== ACCOUNT, ORDERS & ADMIN CENTER ====================
     let currentUser = null;
     const apiRequest = async (path, options = {}) => {
-      const response = await fetch(path, { credentials: 'include', ...options, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), options.timeout || 15000);
+      let response;
+      try {
+        response = await fetch(path, { credentials: 'include', ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
+      } catch (error) {
+        if (error.name === 'AbortError') throw new Error(lang === 'ar' ? 'انتهت مهلة الاتصال بالخادم. حاول مرة أخرى.' : 'The server took too long to respond. Please try again.');
+        throw new Error(lang === 'ar' ? 'تعذر الاتصال بالخادم.' : 'Could not connect to the server.');
+      } finally { clearTimeout(timeout); }
       const raw = await response.text();
       let body = null;
       try { body = raw ? JSON.parse(raw) : null; } catch (e) {}
@@ -1983,6 +2015,7 @@
       document.getElementById('dashboardPanel').classList.toggle('hidden', !user);
       const isAdmin = user?.role === 'admin';
       document.getElementById('adminGate').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminToolbar').classList.toggle('hidden', !isAdmin);
       document.getElementById('adminSummary').classList.toggle('hidden', !isAdmin);
       document.getElementById('adminData').classList.toggle('hidden', !isAdmin);
       if (!user) return;
@@ -1995,11 +2028,24 @@
     }
     async function submitAuth(event, mode) {
       event.preventDefault();
+      const submitButton = event.submitter || document.getElementById('loginSubmitBtn');
+      const status = document.getElementById('authStatus');
+      if (submitButton) { submitButton.disabled = true; submitButton.dataset.originalText = submitButton.textContent; submitButton.textContent = lang === 'ar' ? 'جارٍ التحقق...' : 'Checking...'; }
+      if (status) { status.textContent = lang === 'ar' ? 'يتم التحقق من بيانات الحساب...' : 'Verifying account details...'; status.classList.remove('hidden'); }
       const data = mode === 'login'
         ? { email: document.getElementById('loginEmail').value.trim(), password: document.getElementById('loginPassword').value }
         : { name: document.getElementById('registerName').value, email: document.getElementById('registerEmail').value, password: document.getElementById('registerPassword').value };
-      try { setAccountState(await apiRequest(`/api/auth/${mode}`, { method: 'POST', body: JSON.stringify(data) })); showToast(lang === 'ar' ? 'تم تسجيل الدخول بنجاح' : 'Signed in successfully'); }
-      catch (error) { showToast(error.message); }
+      try {
+        const user = await apiRequest(`/api/auth/${mode}`, { method: 'POST', body: JSON.stringify(data), timeout: 20000 });
+        setAccountState(user);
+        if (status) { status.textContent = lang === 'ar' ? 'تم الدخول بنجاح.' : 'Signed in successfully.'; }
+        showToast(lang === 'ar' ? 'تم تسجيل الدخول بنجاح' : 'Signed in successfully');
+      } catch (error) {
+        if (status) { status.textContent = error.message; status.classList.remove('hidden'); }
+        showToast(error.message);
+      } finally {
+        if (submitButton) { submitButton.disabled = false; submitButton.textContent = submitButton.dataset.originalText || (lang === 'ar' ? 'دخول آمن' : 'Sign in securely'); }
+      }
     }
     async function logoutAccount() {
       try { await apiRequest('/api/auth/logout', { method: 'POST' }); setAccountState(null); showToast(lang === 'ar' ? 'تم تسجيل الخروج' : 'Signed out'); }
