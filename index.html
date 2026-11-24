@@ -110,6 +110,9 @@
     html[dir="rtl"] .leading-relaxed { line-height: 1.95 !important; }
     html[dir="rtl"] .leading-tight { line-height: 1.35 !important; }
     html[dir="rtl"] p, html[dir="rtl"] label, html[dir="rtl"] li { line-height: 1.8; }
+    /* Arabic copy should not inherit the wide glyph spacing of the mono utility. */
+    html[dir="rtl"] header p.font-mono,
+    html[dir="rtl"] footer .font-mono { font-family: 'Thmanyah Sans', sans-serif; letter-spacing: 0 !important; }
     .hero-name-img { display: none !important; }
     .hero-name-text { display: block; color: var(--accent-cobalt); font-family: 'Thmanyah Display', 'Thmanyah Sans', sans-serif; font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 900; line-height: 1.22; letter-spacing: 0; overflow-wrap: anywhere; }
 
