@@ -15,6 +15,9 @@
   <meta name="twitter:title" content="أيمن عبدربه العروي | Aymen Abdurabu Al Erwi" />
   <meta name="twitter:description" content="Python, data analytics, automation, Arabic AI, and practical digital systems." />
   <link rel="canonical" href="https://spatialos-portfolio.onrender.com/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,49 +30,29 @@
     }
   </script>
   <title>أيمن عبدربه العروي | Aymen Abdurabu Al Erwi — SpatialOS Portfolio</title>
+  <link rel="preload" href="/fonts/thmanyah/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/thmanyah/thmanyahserifdisplay-Black.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Thmanyah typeface: locally hosted with permission from Thmanyah -->
   <style>
-    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
-  </style>
+    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            obsidian: '#06080D',
-            surface: '#0D111A',
-            surfaceLight: '#131927',
-            snow: '#F4F6FB',
-            slateMuted: '#8F9BB3',
-            cobalt: '#6382FF',
-            cobaltGlow: '#8EA6FF',
-            cyberLime: '#C6F36C',
-          },
-          fontFamily: {
-            display: ['Thmanyah Display', 'Thmanyah Sans', 'sans-serif'],
-            sans: ['Thmanyah Sans', 'sans-serif'],
-            mono: ['DM Mono', 'monospace'],
-            arabic: ['Thmanyah Sans', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+    .cv-paper.cv-editorial { border-top: 8px solid #6382FF; }
+    .cv-paper.cv-minimal { border-left: 6px solid #C6F36C; }
+    .cv-paper h4 { letter-spacing: .04em; }
+    @media print { body > *:not(main), header, footer, #cvGenerator > div:first-child, #cvGenerator > div:last-child > div:first-child, #commandModal, [role="dialog"] { display: none !important; } body, main, #view-journey, #cvGenerator { background: #fff !important; color: #111827 !important; max-width: none !important; padding: 0 !important; margin: 0 !important; } .cv-paper { display: block !important; box-shadow: none !important; min-height: 0 !important; width: 100% !important; } #view-journey > *:not(#cvGenerator), #cvGenerator > div:first-child, #cvGenerator > p { display: none !important; } }
+</style>
 
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Tailwind CSS: precompiled locally for stable first paint. -->
+  <link rel="preload" href="/tailwind.css" as="style" />
+  <link rel="stylesheet" href="/tailwind.css" />
 
   <style>
     :root {
@@ -174,6 +157,7 @@
     .assistant-message.user { margin-inline-start: auto; background: rgba(99,130,255,.22); border: 1px solid rgba(99,130,255,.35); }
     .assistant-message.bot { margin-inline-end: auto; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); }
     .assistant-fab { box-shadow: 0 16px 35px -12px rgba(99,130,255,.8); }
+    :where(button, a, input, textarea, select):focus-visible { outline: 3px solid var(--accent-cobalt-glow); outline-offset: 3px; }
 
     /* Spatial Background Grid */
     .spatial-grid {
@@ -302,7 +286,7 @@
     ::-webkit-scrollbar-track { background: #06080D; }
     ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 999px; }
     ::-webkit-scrollbar-thumb:hover { background: #6382FF; }
-  
+
     .ico{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
 
     .ico-arrow{width:1em;height:1em;display:inline-block;vertical-align:-0.125em;flex-shrink:0;}
@@ -342,11 +326,11 @@
   <!-- ==================== TOP STICKY HEADER ==================== -->
   <header class="sticky top-0 z-40 glass-panel border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-20 py-3 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
-      
+
       <!-- Brand Identity & Custom Geometric AY Monogram -->
       <button onclick="navigateTo('overview')" class="min-w-0 flex-1 basis-[220px] flex items-center gap-3.5 text-start group focus:outline-none">
         <div class="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#0D111A] border border-[#6382FF]/45 flex items-center justify-center shadow-[0_0_24px_rgba(99,130,255,0.28)] group-hover:scale-105 transition-transform overflow-hidden">
-          <img src="aiman-logo.jpg" alt="Aymen Al Erwi logo" class="w-full h-full object-cover" />
+          <img src="/aiman-logo.jpg" alt="Aymen Al Erwi logo" width="48" height="48" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
         </div>
         <div class="min-w-0 flex-1">
           <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -397,7 +381,7 @@
 
       <!-- Utility Controls: Command Palette & Bilingual Toggle -->
       <div class="shrink-0 flex items-center gap-1.5 sm:gap-2.5">
-        <button onclick="toggleCommandPalette()" class="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
+        <button onclick="toggleCommandPalette()" aria-label="الأوامر / Command palette" class="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
           <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M9.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L146.7 256 9.4 118.6zM224 384l256 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-256 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
           <span class="hidden sm:inline" data-ar="الأوامر" data-en="Command">الأوامر</span>
           <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#06080D] text-[#8EA6FF] rounded border border-white/10">⌘K</kbd>
@@ -408,12 +392,12 @@
           <span class="text-[#C6F36C]">●</span><span class="hidden sm:inline" data-ar="الحساب" data-en="Account">الحساب</span>
         </button>
 
-        <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="تبديل المظهر" class="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
+        <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="تبديل المظهر" aria-label="الأوامر / Command palette" class="flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-[#0D111A] hover:bg-[#131927] border border-white/10 hover:border-[#6382FF]/50 text-xs text-[#8F9BB3] hover:text-white transition-all">
           <span id="themeToggleIcon" aria-hidden="true">☼</span>
           <span id="themeToggleLabel" class="hidden sm:inline" data-ar="فاتح" data-en="Light">فاتح</span>
         </button>
 
-        <button onclick="toggleLanguage()" id="langToggleBtn" class="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#6382FF]/15 hover:bg-[#6382FF]/25 border border-[#6382FF]/40 text-xs font-bold text-[#8EA6FF] transition-all">
+        <button onclick="toggleLanguage()" id="langToggleBtn" aria-label="تبديل اللغة العربية والإنجليزية / Switch Arabic and English" class="flex items-center gap-2 px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#6382FF]/15 hover:bg-[#6382FF]/25 border border-[#6382FF]/40 text-xs font-bold text-[#8EA6FF] transition-all">
           <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M351.9 280l-190.9 0c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zM160.9 232l190.9 0C349 167.5 334.7 108.1 314.4 64.6 303 40.2 290.7 22.8 279.3 12.2 268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4zm-48 0C116.4 146.4 138.5 66.9 170.8 14.7 78.7 47.3 10.9 131.2 1.5 232l111.4 0zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3L1.5 280zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3l-111.4 0zm111.4-48C501.9 131.2 434.1 47.3 342 14.7 374.3 66.9 396.4 146.4 399.9 232l111.4 0z"/></svg>
           <span id="langToggleLabel" class="hidden sm:inline">English</span>
         </button>
@@ -428,10 +412,10 @@
     <!-- PAGE 01: OVERVIEW (HERO STAGE + MANIFESTO)                -->
     <!-- ========================================================= -->
     <section id="view-overview" class="page-view active space-y-14">
-      
+
       <!-- Hero Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-        
+
         <!-- Copy Column -->
         <div class="lg:col-span-6 space-y-6 order-2 lg:order-1">
           <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#6382FF]/10 border border-[#6382FF]/30 text-[#8EA6FF] font-mono text-[11px] uppercase tracking-wider">
@@ -442,9 +426,9 @@
           <h1 class="font-display text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.06] tracking-tight text-[#F4F6FB]">
             <img
               class="hero-name-img block w-auto max-w-full h-[2.4em] sm:h-[2.3em] lg:h-[2.2em]"
-              data-ar-src="hero-name-ar.png"
-              data-en-src="hero-name-en.png"
-              src="hero-name-ar.png"
+              data-ar-src="/hero-name-ar.png"
+              data-en-src="/hero-name-en.png"
+              src="/hero-name-ar.png"
               alt=""
               aria-hidden="true"
               draggable="false"
@@ -492,7 +476,7 @@
         <!-- Interactive Visual Stage (#heroStage): 3D SENTINEL ONLY -->
         <div class="lg:col-span-6 order-1 lg:order-2">
           <div id="heroStage" class="glass-cobalt rounded-3xl p-3.5 sm:p-4 relative">
-            
+
             <div class="flex flex-wrap items-center justify-between gap-2 mb-3 px-1">
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-[#C6F36C] animate-ping"></span>
@@ -519,7 +503,7 @@
                 <!-- Bottom 3D Mode Buttons & Pulse Trigger -->
                 <div class="absolute bottom-2.5 inset-x-2 flex items-center justify-between gap-1 bg-[#06080D]/90 backdrop-blur-md p-1.5 rounded-xl border border-white/10">
                   <div class="flex items-center gap-1">
-                    <button onclick="setSentinelMode('SENTINEL')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#6382FF] text-white">SENTINEL</button>
+                    <button onclick="setSentinelMode('SENTINEL')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#315BEA] text-white">SENTINEL</button>
                     <button onclick="setSentinelMode('NEURAL')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white">NEURAL CORE</button>
                     <button onclick="setSentinelMode('GYRO')" class="s-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white">GYRO MATRIX</button>
                   </div>
@@ -568,8 +552,24 @@
         </p>
       </div>
 
+      <div class="rounded-3xl border border-white/10 bg-white/[.025] p-4 sm:p-5 space-y-4" aria-label="Project search and filters">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          <div>
+            <div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]" data-ar="دراسات حالة موثقة" data-en="VERIFIED CASE STUDIES">دراسات حالة موثقة</div>
+            <p class="text-xs text-[#8F9BB3] mt-1" data-ar="المعلومات مأخوذة من المستودعات العامة، والحقول غير المتاحة قابلة للتحرير من الإدارة." data-en="Facts come from public repositories; unavailable fields remain editable from admin.">المعلومات مأخوذة من المستودعات العامة، والحقول غير المتاحة قابلة للتحرير من الإدارة.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <label class="sr-only" for="projectSearch">Search projects</label>
+            <input id="projectSearch" oninput="filterProjectExplorer()" type="search" class="account-input !min-h-[42px] !rounded-xl text-xs" placeholder="ابحث في المشاريع / Search projects" />
+            <label class="sr-only" for="projectCategoryFilter">Filter projects</label>
+            <select id="projectCategoryFilter" onchange="filterProjectExplorer()" class="account-input !min-h-[42px] !rounded-xl text-xs"><option value="all">كل المجالات / All categories</option></select>
+          </div>
+        </div>
+        <div id="projectExplorer" class="grid grid-cols-1 lg:grid-cols-3 gap-3" aria-live="polite"></div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
+
         <!-- Project 01: J.A.R.V.I.S / SpatialOS -->
         <article onclick="openProjectModal('jarvis')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openProjectModal('jarvis'); }" role="button" tabindex="0" aria-label="Open jarvis project preview" class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 cursor-pointer flex flex-col justify-between group">
           <div>
@@ -735,6 +735,24 @@
           </a>
         </div>
       </div>
+
+      <!-- P1.2: GitHub Intelligence -->
+      <div id="github-intelligence" class="pt-10 border-t border-white/10 space-y-5">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="font-mono text-xs text-[#6382FF] uppercase tracking-widest mb-2">06 // GITHUB INTELLIGENCE</div>
+            <h3 class="font-display text-2xl sm:text-4xl font-extrabold text-[#F4F6FB]" data-ar="نبض GitHub الحقيقي" data-en="The live GitHub pulse">نبض GitHub الحقيقي</h3>
+          </div>
+          <button type="button" onclick="loadGithubOverview(true)" class="rounded-xl border border-[#6382FF]/35 bg-[#6382FF]/10 px-4 py-2.5 text-xs font-bold text-[#8EA6FF] hover:bg-[#6382FF]/20" data-ar="تحديث البيانات" data-en="Refresh data">تحديث البيانات</button>
+        </div>
+        <div id="githubProfileCard" class="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-4" aria-live="polite"><div class="rounded-3xl border border-white/10 bg-white/[.03] p-5 animate-pulse min-h-[150px]"></div><div class="rounded-3xl border border-white/10 bg-white/[.03] p-5 animate-pulse min-h-[150px]"></div></div>
+        <div class="rounded-3xl border border-white/10 bg-white/[.025] p-4 sm:p-5 space-y-4">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3"><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">REPOSITORY EXPLORER</div><p id="githubSyncStatus" class="text-xs text-[#8F9BB3] mt-1"></p></div><div class="flex flex-col sm:flex-row gap-2"><label class="sr-only" for="githubRepoSearch">Search GitHub repositories</label><input id="githubRepoSearch" oninput="filterGithubRepos()" type="search" class="account-input !min-h-[42px] !rounded-xl text-xs" placeholder="ابحث في المستودعات / Search repositories" /><label class="sr-only" for="githubLanguageFilter">Filter GitHub repositories by language</label><select id="githubLanguageFilter" onchange="filterGithubRepos()" class="account-input !min-h-[42px] !rounded-xl text-xs"><option value="all">كل اللغات / All languages</option></select><label class="sr-only" for="githubSort">Sort GitHub repositories</label><select id="githubSort" onchange="filterGithubRepos()" class="account-input !min-h-[42px] !rounded-xl text-xs"><option value="updated">الأحدث تحديثاً / Recently updated</option><option value="stars">الأكثر نجومًا / Most stars</option><option value="name">الاسم / Name</option></select></div></div>
+          <div id="githubRepoGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3" aria-live="polite"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><div class="rounded-3xl border border-white/10 bg-white/[.025] p-5"><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF] mb-4">LANGUAGE ANALYTICS</div><div id="githubLanguageChart" class="space-y-3" aria-live="polite"></div></div><div class="rounded-3xl border border-white/10 bg-white/[.025] p-5"><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF] mb-4">PUBLIC ACTIVITY</div><div id="githubActivityTimeline" class="space-y-3 max-h-72 overflow-auto" aria-live="polite"></div></div></div>
+        <div id="githubRepoDetail" class="hidden rounded-3xl border border-[#6382FF]/30 bg-[#6382FF]/[.06] p-5" aria-live="polite"></div>
+      </div>
     </section>
 
     <!-- ========================================================= -->
@@ -853,7 +871,7 @@
 
       <!-- 10-Module Interactive Matrix -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="capMatrixGrid">
-        
+
         <div data-cat="code" class="cap-card tilt-card glass-panel rounded-2xl p-6 border border-white/10">
           <div class="font-mono text-[11px] text-[#6382FF] mb-6">01 / CODE</div>
           <h3 class="font-display text-xl font-bold text-[#F4F6FB] mb-2">Python</h3>
@@ -915,6 +933,14 @@
         </div>
 
       </div>
+
+      <section class="mt-10 rounded-3xl border border-[#6382FF]/25 bg-[#6382FF]/[.05] p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">05 // SKILLS INTELLIGENCE</div><h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB]" data-ar="خريطة المهارات التفاعلية" data-en="Interactive skills map">خريطة المهارات التفاعلية</h3><p class="text-xs text-[#8F9BB3] mt-2" data-ar="بيانات المهارات المعلنة فقط؛ المستوى قابل للإدارة من لوحة المشرف." data-en="Only published skills are shown; levels are managed from the admin panel.">بيانات المهارات المعلنة فقط؛ المستوى قابل للإدارة من لوحة المشرف.</p></div>
+          <select id="skillCategoryFilter" onchange="renderSkillsMap()" aria-label="تصنيف المهارات / Skill category" class="account-input !min-h-[40px] !w-auto"><option value="all">كل المجالات</option></select>
+        </div>
+        <div id="skillsMapGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6"><p class="text-xs text-[#8F9BB3]">جارٍ تحميل المهارات…</p></div>
+      </section>
     </section>
 
     <!-- ========================================================= -->
@@ -1005,6 +1031,16 @@
           <span class="inline-block font-mono text-[10px] px-2.5 py-1 rounded bg-[#06080D] border border-white/10 text-[#8EA6FF]" data-ar="لغات التواصل" data-en="COMMUNICATION LANGUAGES">لغات التواصل</span>
         </div>
       </div>
+
+      <section class="rounded-3xl border border-[#6382FF]/25 bg-white/[.025] p-6 sm:p-8">
+        <div class="flex flex-wrap items-end justify-between gap-4"><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">CAREER // LIVE DATA</div><h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB]" data-ar="المسار المهني المدار" data-en="Managed career journey">المسار المهني المدار</h3><p class="text-xs text-[#8F9BB3] mt-2" data-ar="محطات منشورة من قاعدة البيانات، مع إبقاء المحتوى غير المتوفر قابلاً للإضافة من لوحة الإدارة." data-en="Published milestones from the database; unavailable details remain editable from admin.">محطات منشورة من قاعدة البيانات، مع إبقاء المحتوى غير المتوفر قابلاً للإضافة من لوحة الإدارة.</p></div><button type="button" onclick="loadCareerAndSkills()" class="rounded-xl border border-white/10 px-3 py-2 text-xs text-[#C8D0E0]">↻ <span data-ar="تحديث" data-en="Refresh">تحديث</span></button></div>
+        <div id="careerTimeline" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"><p class="text-xs text-[#8F9BB3]">جارٍ تحميل المسار…</p></div>
+      </section>
+
+      <section class="rounded-3xl border border-[#C6F36C]/25 bg-[#C6F36C]/[.04] p-6 sm:p-8" id="cvGenerator">
+        <div class="flex flex-wrap items-end justify-between gap-4"><div><div class="font-mono text-[10px] uppercase tracking-widest text-[#C6F36C]">CV // BUILDER</div><h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#F4F6FB]" data-ar="مولّد السيرة الذاتية الذكي" data-en="Smart CV generator">مولّد السيرة الذاتية الذكي</h3><p class="text-xs text-[#8F9BB3] mt-2" data-ar="عدّل النصوص، اختر الأقسام، ثم اطبع أو احفظ PDF من نافذة الطباعة. لا يتم اختلاق أي بيانات." data-en="Edit the text, choose sections, then print or save PDF. No information is invented.">عدّل النصوص، اختر الأقسام، ثم اطبع أو احفظ PDF من نافذة الطباعة. لا يتم اختلاق أي بيانات.</p></div><div class="flex gap-2"><select id="cvTemplate" onchange="renderCvPreview()" aria-label="قالب السيرة / CV template" class="account-input !min-h-[40px] !w-auto"><option value="classic">Classic</option><option value="editorial">Editorial</option><option value="minimal">Minimal</option></select><button type="button" onclick="window.print()" class="rounded-xl bg-[#C6F36C] px-4 py-2 text-xs font-extrabold text-[#06080D]">PDF / Print</button></div></div>
+        <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-5 mt-6"><div class="space-y-3"><label class="block text-xs font-bold text-[#C8D0E0]" for="cvName" data-ar="الاسم" data-en="Name">الاسم</label><input id="cvName" class="account-input" value="أيمن عبدربه العروي" oninput="renderCvPreview()" /><label class="block text-xs font-bold text-[#C8D0E0]" for="cvHeadline" data-ar="العنوان المهني" data-en="Headline">العنوان المهني</label><input id="cvHeadline" class="account-input" value="أنظمة ذكية · أتمتة · تجارب مكانية" oninput="renderCvPreview()" /><label class="block text-xs font-bold text-[#C8D0E0]" for="cvSummary" data-ar="الملخص" data-en="Summary">الملخص</label><textarea id="cvSummary" rows="5" class="account-input" oninput="renderCvPreview()">متخصص في بناء حلول تقنية وأتمتة عملية، مع اهتمام بالبيانات والواجهات المدعومة بالذكاء الاصطناعي.</textarea><div class="flex flex-wrap gap-3 text-xs text-[#C8D0E0]"><label><input type="checkbox" checked data-cv-section="summary" onchange="renderCvPreview()" /> Summary</label><label><input type="checkbox" checked data-cv-section="skills" onchange="renderCvPreview()" /> Skills</label><label><input type="checkbox" checked data-cv-section="journey" onchange="renderCvPreview()" /> Journey</label></div><p class="text-[10px] text-[#8F9BB3]">تُحفظ تعديلاتك محلياً في هذا المتصفح فقط.</p></div><article id="cvPreview" class="cv-paper rounded-2xl bg-white text-slate-900 p-7 min-h-[430px] shadow-2xl"></article></div>
+      </section>
     </section>
 
     <!-- ========================================================= -->
@@ -1020,7 +1056,7 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
+
         <!-- Smart Composer Card -->
         <div class="lg:col-span-7 glass-cobalt rounded-3xl p-6 sm:p-8 space-y-5">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1086,7 +1122,7 @@
         <!-- Direct Directory Links -->
         <div class="lg:col-span-5 glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 space-y-3">
           <div class="font-mono text-xs text-[#8EA6FF] uppercase tracking-wider mb-3" data-ar="الحسابات والمنصات المباشرة" data-en="DIRECT VERIFIED DIRECTORY">الحسابات والمنصات المباشرة</div>
-          
+
           <a href="https://wa.me/966566065221" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-2xl bg-[#06080D]/80 hover:border-[#6382FF]/50 border border-white/10 transition-all">
             <span class="flex items-center gap-3 text-sm font-bold"><svg class="ico text-[#6382FF]" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z"/></svg> WhatsApp</span>
             <span class="font-mono text-xs text-[#8F9BB3]" dir="ltr">+966 56 606 5221 ↗</span>
@@ -1137,7 +1173,7 @@
   <footer class="relative z-10 border-t border-white/10 bg-[#06080D] py-6 mb-16 sm:mb-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#8F9BB3]">
       <div class="flex items-center gap-2.5">
-        <img src="aiman-logo.jpg" alt="Aymen Al Erwi logo" class="w-5 h-5 rounded object-cover" />
+        <img src="/aiman-logo.jpg" alt="Aymen Al Erwi logo" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 rounded object-cover" />
         <span>© 2026 AYMEN ABDURABU AL ERWI</span>
       </div>
       <span data-ar="صُمم بعناية · مكة المكرمة، المملكة العربية السعودية" data-en="DESIGNED WITH INTENTION · MAKKAH, SAUDI ARABIA">صُمم بعناية · مكة المكرمة، المملكة العربية السعودية</span>
@@ -1148,27 +1184,27 @@
   <div class="fixed bottom-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
     <div id="bottomDockTrack" class="liquid-nav-track floating-dock pointer-events-auto glass-cobalt px-2.5 py-2 rounded-2xl flex items-center gap-1 sm:gap-2">
       <span id="bottomLiquidDroplet" class="liquid-droplet"></span>
-      <button onclick="navigateTo('overview')" data-dock="overview" class="dock-btn px-3 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('overview')" data-dock="overview" aria-label="الرئيسية / Overview" class="dock-btn px-3 py-2 rounded-xl text-xs font-extrabold text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM240 320l32 0c26.5 0 48 21.5 48 48l0 96-128 0 0-96c0-26.5 21.5-48 48-48z"/></svg>
         <span class="hidden sm:inline" data-ar="الرئيسية" data-en="Home">الرئيسية</span>
       </button>
-      <button onclick="navigateTo('work')" data-dock="work" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('work')" data-dock="work" aria-label="الأعمال / Work" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M288 0L128 0C110.3 0 96 14.3 96 32s14.3 32 32 32L128 215.5 7.5 426.3C2.6 435 0 444.7 0 454.7 0 486.4 25.6 512 57.3 512l333.4 0c31.6 0 57.3-25.6 57.3-57.3 0-10-2.6-19.8-7.5-28.4L320 215.5 320 64c17.7 0 32-14.3 32-32S337.7 0 320 0L288 0zM192 215.5l0-151.5 64 0 0 151.5c0 11.1 2.9 22.1 8.4 31.8l41.6 72.7-164 0 41.6-72.7c5.5-9.7 8.4-20.6 8.4-31.8z"/></svg>
         <span class="hidden sm:inline" data-ar="المختبرات" data-en="Labs">المختبرات</span>
       </button>
-      <button onclick="navigateTo('services')" data-dock="services" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('services')" data-dock="services" aria-label="الخدمات / Services" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M160 80c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 384c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48c0-61.9-50.1-112-112-112S112 18.1 112 80l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
         <span class="hidden sm:inline" data-ar="الخدمات" data-en="Services">الخدمات</span>
       </button>
-      <button onclick="navigateTo('capabilities')" data-dock="capabilities" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('capabilities')" data-dock="capabilities" aria-label="القدرات / Capabilities" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z"/></svg>
         <span class="hidden sm:inline" data-ar="القدرات" data-en="Stack">القدرات</span>
       </button>
-      <button onclick="navigateTo('journey')" data-dock="journey" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('journey')" data-dock="journey" aria-label="المسيرة / Journey" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M160 169.3c28.3-12.3 48-40.5 48-73.3 0-44.2-35.8-80-80-80S48 51.8 48 96c0 32.8 19.7 61 48 73.3l0 54.7-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l224 0 0 54.7c-28.3 12.3-48 40.5-48 73.3 0 44.2 35.8 80 80 80s80-35.8 80-80c0-32.8-19.7-61-48-73.3l0-54.7 224 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-54.7c28.3-12.3 48-40.5 48-73.3 0-44.2-35.8-80-80-80s-80 35.8-80 80c0 32.8 19.7 61 48 73.3l0 54.7-256 0 0-54.7z"/></svg>
         <span class="hidden sm:inline" data-ar="المسيرة" data-en="Journey">المسيرة</span>
       </button>
-      <button onclick="navigateTo('contact')" data-dock="contact" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
+      <button onclick="navigateTo('contact')" data-dock="contact" aria-label="التواصل / Contact" class="dock-btn px-3 py-2 rounded-xl text-xs font-semibold text-[#8F9BB3] hover:text-white flex items-center gap-1.5 transition-colors">
         <svg class="ico " viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z"/></svg>
         <span class="hidden sm:inline" data-ar="تواصل" data-en="Contact">تواصل</span>
       </button>
@@ -1178,10 +1214,21 @@
   <!-- ==================== PROJECT SIMULATION DRAWER MODAL ==================== -->
   <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
     <div class="glass-cobalt w-full max-w-2xl rounded-3xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
-      <button onclick="closeProjectModal()" class="absolute top-5 left-5 rtl:left-5 ltr:right-5 w-9 h-9 rounded-xl bg-[#06080D] hover:bg-[#6382FF] border border-white/15 text-white flex items-center justify-center transition-all">
+      <button onclick="closeProjectModal()" aria-label="إغلاق معاينة المشروع / Close project preview" class="absolute top-5 left-5 rtl:left-5 ltr:right-5 w-9 h-9 rounded-xl bg-[#06080D] hover:bg-[#6382FF] border border-white/15 text-white flex items-center justify-center transition-all">
         <svg class="ico " viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"/></svg>
       </button>
       <div id="projectModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ==================== PROJECT CASE STUDY PAGE ==================== -->
+  <div id="projectDetailView" class="fixed inset-0 z-[55] hidden overflow-y-auto bg-[#06080D] backdrop-blur-xl">
+    <div class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-8 sm:py-10">
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <button type="button" onclick="closeProjectDetails()" class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[.04] px-4 py-2 text-xs font-bold text-[#C8D0E0] hover:border-[#6382FF]/50 hover:text-white"><span aria-hidden="true">←</span><span data-ar="العودة إلى المشاريع" data-en="Back to projects">العودة إلى المشاريع</span></button>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF]">P1.1 // CASE STUDY</span>
+      </div>
+      <div id="projectDetailBody"></div>
     </div>
   </div>
 
@@ -1194,7 +1241,7 @@
           <h2 class="font-display text-2xl font-extrabold text-[#F4F6FB] mt-1" data-ar="مركز الحساب" data-en="Account Center">مركز الحساب</h2>
           <p id="accountStatus" class="text-xs text-[#8F9BB3] mt-1" data-ar="سجل دخولك لمتابعة طلباتك" data-en="Sign in to track your requests">سجل دخولك لمتابعة طلباتك</p>
         </div>
-        <button onclick="closeAccountCenter()" class="px-3 py-2 rounded-xl bg-white/5 text-[#8F9BB3] hover:text-white">×</button>
+        <button onclick="closeAccountCenter()" aria-label="إغلاق مركز الحساب / Close account center" class="px-3 py-2 rounded-xl bg-white/5 text-[#8F9BB3] hover:text-white">×</button>
       </div>
 
       <div id="authPanel" class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -1235,18 +1282,21 @@
           <button type="button" onclick="loadAdminDashboard(); loadAdminInsights();" class="rounded-2xl border border-[#6382FF]/25 bg-[#6382FF]/10 p-4 text-start hover:bg-[#6382FF]/20 transition-colors"><span class="block text-xl mb-1">↻</span><span class="text-xs font-bold" data-ar="تحديث البيانات" data-en="Refresh data">تحديث البيانات</span></button>
           <button type="button" onclick="document.getElementById('adminLinkManager').scrollIntoView({behavior:'smooth',block:'center'})" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">↗</span><span class="text-xs font-bold" data-ar="إدارة الروابط" data-en="Manage links">إدارة الروابط</span></button>
           <button type="button" onclick="document.getElementById('adminInsights').scrollIntoView({behavior:'smooth',block:'center'})" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">▦</span><span class="text-xs font-bold" data-ar="التحليلات" data-en="Analytics">التحليلات</span></button>
+          <button type="button" onclick="document.getElementById('adminProjectManager').scrollIntoView({behavior:'smooth',block:'center'}); loadAdminProjects();" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">◈</span><span class="text-xs font-bold" data-ar="إدارة المشاريع" data-en="Projects">إدارة المشاريع</span></button>
+          <button type="button" onclick="document.getElementById('adminGithubManager').scrollIntoView({behavior:'smooth',block:'center'}); loadAdminGithub();" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">⌘</span><span class="text-xs font-bold" data-ar="إدارة GitHub" data-en="GitHub controls">إدارة GitHub</span></button>
+          <button type="button" onclick="document.getElementById('adminCareerManager').scrollIntoView({behavior:'smooth',block:'center'}); loadAdminCareer();" class="rounded-2xl border border-white/10 bg-white/[.03] p-4 text-start hover:bg-white/[.07] transition-colors"><span class="block text-xl mb-1">✦</span><span class="text-xs font-bold" data-ar="المسيرة والمهارات" data-en="Career & skills">المسيرة والمهارات</span></button>
           <button type="button" onclick="logoutAccount()" class="rounded-2xl border border-red-300/20 bg-red-300/[.06] p-4 text-start hover:bg-red-300/[.12] transition-colors"><span class="block text-xl mb-1">×</span><span class="text-xs font-bold" data-ar="خروج آمن" data-en="Secure sign out">خروج آمن</span></button>
         </div>
         <div id="adminSummary" class="hidden grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <form onsubmit="submitOrder(event)" class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5 space-y-3">
             <h3 class="font-bold text-[#F4F6FB]" data-ar="طلب خدمة جديد" data-en="New service request">طلب خدمة جديد</h3>
-            <select id="orderService" class="account-input"><option value="Python & API">Python & API</option><option value="Data Analytics">Data Analytics</option><option value="Automation">Automation</option><option value="AI Assistant">AI Assistant</option></select>
-            <textarea id="orderDetails" required minlength="10" rows="4" placeholder="اكتب تفاصيل المشروع والنتيجة المطلوبة" class="account-input"></textarea>
+            <select id="orderService" aria-label="نوع الخدمة / Service type" class="account-input"><option value="Python & API">Python & API</option><option value="Data Analytics">Data Analytics</option><option value="Automation">Automation</option><option value="AI Assistant">AI Assistant</option></select>
+            <textarea id="orderDetails" aria-label="تفاصيل الطلب / Request details" required minlength="10" rows="4" placeholder="اكتب تفاصيل المشروع والنتيجة المطلوبة" class="account-input"></textarea>
             <button class="w-full px-4 py-3 rounded-xl bg-[#C6F36C] text-[#06080D] font-extrabold text-sm" data-ar="إرسال الطلب" data-en="Submit request">إرسال الطلب</button>
           </form>
           <div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5">
-            <div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]" data-ar="طلباتي" data-en="My requests">طلباتي</h3><button onclick="loadDashboard()" class="text-xs text-[#8EA6FF]">↻</button></div>
+            <div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]" data-ar="طلباتي" data-en="My requests">طلباتي</h3><button onclick="loadDashboard()" aria-label="تحديث الطلبات / Refresh orders" class="text-xs text-[#8EA6FF]">↻</button></div>
             <div id="ordersList" class="space-y-2 text-xs text-[#8F9BB3]"></div>
           </div>
         </div>
@@ -1258,8 +1308,34 @@
         <div id="adminInsights" class="hidden space-y-4"></div>
         <div id="adminLinkManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-white/10 p-5">
           <div class="flex items-center justify-between gap-3 mb-4"><div><h3 class="font-bold text-[#F4F6FB]" data-ar="إدارة روابط الموقع" data-en="Site links">إدارة روابط الموقع</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="أضف روابط تظهر في نظام الموقع مستقبلاً." data-en="Add links for the site link system.">أضف روابط تظهر في نظام الموقع مستقبلاً.</p></div><span class="text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span></div>
-          <form onsubmit="createAdminLink(event)" class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-4"><input id="adminLinkLabel" required placeholder="اسم الرابط" class="account-input" /><input id="adminLinkUrl" type="url" required placeholder="https://..." class="account-input" dir="ltr" /><input id="adminLinkChannel" placeholder="telegram / portfolio" class="account-input" dir="ltr" /><button class="px-4 py-3 rounded-xl bg-[#C6F36C] text-[#06080D] font-bold text-xs" data-ar="إضافة الرابط" data-en="Add link">إضافة الرابط</button></form>
+          <form onsubmit="createAdminLink(event)" class="grid grid-cols-1 md:grid-cols-4 gap-2 mb-4"><input id="adminLinkLabel" aria-label="اسم الرابط / Link label" required placeholder="اسم الرابط" class="account-input" /><input id="adminLinkUrl" aria-label="عنوان الرابط / Link URL" type="url" required placeholder="https://..." class="account-input" dir="ltr" /><input id="adminLinkChannel" aria-label="قناة الرابط / Link channel" placeholder="telegram / portfolio" class="account-input" dir="ltr" /><button class="px-4 py-3 rounded-xl bg-[#C6F36C] text-[#06080D] font-bold text-xs" data-ar="إضافة الرابط" data-en="Add link">إضافة الرابط</button></form>
           <div id="adminLinksList" class="space-y-2 text-xs"></div>
+        </div>
+        <div id="adminProjectManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#6382FF]/20 p-5 space-y-4">
+          <div class="flex items-center justify-between gap-3"><div><h3 class="font-bold text-[#F4F6FB]" data-ar="إدارة دراسات الحالة" data-en="Case study management">إدارة دراسات الحالة</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="CRUD محمي من الخادم، مع ترتيب وظهور وروابط ووسائط." data-en="Server-protected CRUD with ordering, visibility, links and media.">CRUD محمي من الخادم، مع ترتيب وظهور وروابط ووسائط.</p></div><span class="text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span></div>
+          <form onsubmit="saveAdminProject(event)" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <input id="projectAdminId" type="hidden" />
+            <input id="projectAdminSlug" required pattern="[a-z0-9-]+" class="account-input" dir="ltr" placeholder="slug" aria-label="Project slug" />
+            <input id="projectAdminTitle" required class="account-input" placeholder="العنوان / Title" aria-label="Project title" />
+            <input id="projectAdminCategory" class="account-input" placeholder="category" aria-label="Project category" />
+            <textarea id="projectAdminSummary" class="account-input md:col-span-2" rows="2" placeholder="Summary / الملخص" aria-label="Project summary"></textarea>
+            <input id="projectAdminGithub" class="account-input" dir="ltr" placeholder="GitHub URL" aria-label="GitHub URL" />
+            <input id="projectAdminDemo" class="account-input" dir="ltr" placeholder="Live demo URL" aria-label="Live demo URL" />
+            <input id="projectAdminTech" class="account-input md:col-span-2" placeholder="Python, MediaPipe, ..." aria-label="Technologies separated by comma" />
+            <label class="flex items-center gap-2 text-xs text-[#C8D0E0]"><input id="projectAdminFeatured" type="checkbox" /> Featured</label>
+            <label class="flex items-center gap-2 text-xs text-[#C8D0E0]"><input id="projectAdminVisible" type="checkbox" checked /> Visible</label>
+            <div class="md:col-span-3 flex flex-wrap gap-2"><button class="px-4 py-2 rounded-xl bg-[#6382FF] text-white text-xs font-bold" data-ar="حفظ المشروع" data-en="Save project">حفظ المشروع</button><button type="button" onclick="resetAdminProjectForm()" class="px-4 py-2 rounded-xl border border-white/10 text-xs text-[#C8D0E0]" data-ar="جديد" data-en="New">جديد</button></div>
+          </form>
+          <div id="adminProjectsList" class="space-y-2 text-xs"></div>
+        </div>
+        <div id="adminCareerManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#6382FF]/20 p-5 space-y-4">
+          <div class="flex items-center justify-between gap-3"><div><h3 class="font-bold text-[#F4F6FB]" data-ar="إدارة المسار والمهارات" data-en="Career & skills management">إدارة المسار والمهارات</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="إضافة وتعديل وإخفاء المحطات والمهارات من الخادم." data-en="Create, edit, and hide career milestones and skills through the server.">إضافة وتعديل وإخفاء المحطات والمهارات من الخادم.</p></div><span class="text-[10px] font-mono text-[#C6F36C]">ADMIN ONLY</span></div>
+          <form onsubmit="saveAdminCareer(event)" class="grid grid-cols-1 md:grid-cols-4 gap-2"><input id="careerAdminId" type="hidden" /><input id="careerAdminTitle" required class="account-input" placeholder="Title / العنوان" aria-label="Career title" /><input id="careerAdminOrg" class="account-input" placeholder="Organization" aria-label="Organization" /><input id="careerAdminPeriod" class="account-input" placeholder="Period" aria-label="Period" /><textarea id="careerAdminDescription" class="account-input md:col-span-3" rows="2" placeholder="Description / الوصف" aria-label="Career description"></textarea><label class="flex items-center gap-2 text-xs text-[#C8D0E0]"><input id="careerAdminVisible" type="checkbox" checked /> Visible</label><div class="md:col-span-4 flex gap-2"><button class="px-4 py-2 rounded-xl bg-[#6382FF] text-white text-xs font-bold">Save milestone</button><button type="button" onclick="resetAdminCareerForm()" class="px-4 py-2 rounded-xl border border-white/10 text-xs">New</button></div></form>
+          <div class="border-t border-white/10 pt-4"><form onsubmit="saveAdminSkill(event)" class="grid grid-cols-1 md:grid-cols-4 gap-2"><input id="skillAdminId" type="hidden" /><input id="skillAdminName" required class="account-input" placeholder="Skill / المهارة" aria-label="Skill name" /><input id="skillAdminCategory" required class="account-input" placeholder="Category" aria-label="Skill category" /><input id="skillAdminLevel" type="number" min="0" max="100" value="50" class="account-input" placeholder="Level" aria-label="Skill level" /><div class="md:col-span-4 flex gap-2"><button class="px-4 py-2 rounded-xl bg-[#C6F36C] text-[#06080D] text-xs font-bold">Save skill</button><button type="button" onclick="resetAdminSkillForm()" class="px-4 py-2 rounded-xl border border-white/10 text-xs">New</button></div></form></div><div id="adminCareerList" class="space-y-2 text-xs"></div><div id="adminSkillsList" class="space-y-2 text-xs"></div>
+        </div>
+        <div id="adminGithubManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#6382FF]/20 p-5 space-y-4">
+          <div class="flex items-center justify-between gap-3"><div><h3 class="font-bold text-[#F4F6FB]" data-ar="إدارة مستودعات GitHub" data-en="GitHub repository controls">إدارة مستودعات GitHub</h3><p class="text-xs text-[#8F9BB3] mt-1" data-ar="تحكم بالخوارزميات المميزة والظهور والترتيب من خلال الخادم." data-en="Control featured status, visibility and order through the server.">تحكم بالخوارزميات المميزة والظهور والترتيب من خلال الخادم.</p></div><button type="button" onclick="syncAdminGithub()" class="rounded-xl bg-[#6382FF] px-3 py-2 text-[10px] font-bold text-white" data-ar="مزامنة الآن" data-en="Sync now">مزامنة الآن</button></div>
+          <div id="adminGithubList" class="space-y-2 text-xs"></div>
         </div>
       </div>
     </div>
@@ -1270,8 +1346,8 @@
     <div class="glass-cobalt w-full max-w-lg rounded-2xl overflow-hidden">
       <div class="p-3.5 border-b border-white/10 flex items-center gap-3">
         <svg class="ico text-[#6382FF]" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-        <input id="cmdInput" oninput="renderCmdItems(this.value)" type="text" placeholder="ابحث أو انتقل إلى صفحة... (1-6)" class="w-full bg-transparent text-sm text-[#F4F6FB] focus:outline-none placeholder-[#8F9BB3]" />
-        <button onclick="toggleCommandPalette()" class="font-mono text-[10px] text-[#8F9BB3] px-2 py-1 rounded bg-white/5">ESC</button>
+        <input id="cmdInput" aria-label="البحث في لوحة الأوامر / Search commands" oninput="renderCmdItems(this.value)" type="text" placeholder="ابحث أو انتقل إلى صفحة... (1-6)" class="w-full bg-transparent text-sm text-[#F4F6FB] focus:outline-none placeholder-[#8F9BB3]" />
+        <button onclick="toggleCommandPalette()" aria-label="إغلاق لوحة الأوامر / Close command palette" class="font-mono text-[10px] text-[#8F9BB3] px-2 py-1 rounded bg-white/5">ESC</button>
       </div>
       <div id="cmdItemsContainer" class="p-2 max-h-72 overflow-y-auto space-y-1 text-sm"></div>
     </div>
@@ -1297,7 +1373,7 @@
         <button onclick="askAssistantQuick('كيف أتواصل معه؟')" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-[#6382FF]/20 border border-white/10 text-[10px] text-[#C8D0E0]">التواصل</button>
       </div>
       <form onsubmit="sendAssistantMessage(event)" class="flex items-center gap-2">
-        <input id="assistantInput" class="account-input !min-h-[44px] !rounded-xl text-xs" placeholder="اكتب سؤالك..." autocomplete="off" />
+        <input id="assistantInput" aria-label="رسالة المساعد / Assistant message" class="account-input !min-h-[44px] !rounded-xl text-xs" placeholder="اكتب سؤالك..." autocomplete="off" />
         <button class="shrink-0 w-11 h-11 rounded-xl bg-[#6382FF] hover:bg-[#5271F5] text-white flex items-center justify-center" aria-label="إرسال"><svg class="w-4 h-4 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14-7-3 14-4-5-7-2Z"/><path d="m12 14 4-4"/></svg></button>
       </form>
       <p class="mt-2 text-[9px] text-[#8F9BB3]" data-ar="يعمل محليًا من قاعدة معرفة الموقع ولا يرسل محادثتك إلى خدمة خارجية." data-en="Runs locally from the site's knowledge base and sends no chat to an external service.">يعمل محليًا من قاعدة معرفة الموقع ولا يرسل محادثتك إلى خدمة خارجية.</p>
@@ -1343,11 +1419,22 @@
       applyTheme(theme);
       applyLanguage(lang);
       initLiquidGlassNavigation();
-      initSpatialSentinelEngine();
+      const sentinelBootDelay = window.matchMedia('(max-width: 640px)').matches ? 1400 : 0;
+      if (sentinelBootDelay) setTimeout(initSpatialSentinelEngine, sentinelBootDelay);
+      else initSpatialSentinelEngine();
       handleHashRouting();
-      recordPublicVisit();
-      loadPublicLinks();
+      loadProjects();
+      loadGithubOverview();
+      scheduleNonCriticalWork(() => {
+        recordPublicVisit();
+        loadPublicLinks();
+      }, 3500);
       requestAnimationFrame(() => snapAllDroplets(true));
+    }
+
+    function scheduleNonCriticalWork(callback, timeout = 2000) {
+      // Keep analytics/link hydration out of the first interaction window.
+      setTimeout(callback, timeout);
     }
 
     function recordPublicVisit() {
@@ -1670,6 +1757,8 @@
     }
 
     function handleHashRouting() {
+      const pathname = window.location.pathname.match(/^\/project\/([a-z0-9-]+)/i);
+      if (pathname) { loadProjects(); return; }
       const hash = window.location.hash.replace('#', '');
       if (['overview', 'work', 'services', 'capabilities', 'journey', 'contact'].includes(hash)) {
         navigateTo(hash);
@@ -1694,10 +1783,10 @@
       const icon = document.getElementById('portraitEyeIcon');
       if (portraitCaptionVisible) {
         bar.classList.remove('opacity-0', 'pointer-events-none');
-        icon.className = 'fa-solid fa-eye text-xs';
+        if (icon) { icon.className = 'text-xs'; icon.textContent = '◉'; }
       } else {
         bar.classList.add('opacity-0', 'pointer-events-none');
-        icon.className = 'fa-solid fa-eye-slash text-xs';
+        if (icon) { icon.className = 'text-xs'; icon.textContent = '◌'; }
       }
     }
 
@@ -1707,13 +1796,16 @@
     let sentinelSubMode = 'SENTINEL';
     let energyPulse = 0;
     let sentinelParticles = [];
+    let sentinelLastFrameAt = 0;
+
+    const isLowPowerSentinel = () => window.matchMedia('(max-width: 640px), (prefers-reduced-motion: reduce)').matches;
 
     function initSpatialSentinelEngine() {
       const canvas = document.getElementById('sentinel3DCanvas');
       const container = document.getElementById('stageSentinelBox');
       if (!canvas || !container) return;
 
-      for (let i = 0; i < 48; i++) {
+      for (let i = 0; i < (isLowPowerSentinel() ? 28 : 48); i++) {
         sentinelParticles.push({
           angle: Math.random() * Math.PI * 2,
           radius: 40 + Math.random() * 115,
@@ -1747,7 +1839,7 @@
                        (mode === 'NEURAL' && label === 'NEURAL CORE') ||
                        (mode === 'GYRO' && label === 'GYRO MATRIX');
         btn.className = active
-          ? 's-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#6382FF] text-white'
+          ? 's-pill px-1.5 py-1 rounded-md font-mono text-[8px] font-bold bg-[#315BEA] text-white'
           : 's-pill px-1.5 py-1 rounded-md font-mono text-[8px] text-[#8F9BB3] hover:text-white';
       });
       pulseSentinel();
@@ -1757,28 +1849,37 @@
       energyPulse = 1.0;
     }
 
+    let sentinelResizeFrame = 0;
     function resizeSentinel() {
       const container = document.getElementById('stageSentinelBox');
       const canvas = document.getElementById('sentinel3DCanvas');
       if (!container || !canvas || container.classList.contains('hidden')) return;
       const w = container.clientWidth || 260;
       const h = container.clientHeight || 460;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, isLowPowerSentinel() ? 1.25 : 2);
       canvas.width = w * dpr;
       canvas.height = h * dpr;
     }
 
     window.addEventListener('resize', () => {
-      resizeSentinel();
-      snapAllDroplets(true);
-    });
+      if (sentinelResizeFrame) return;
+      sentinelResizeFrame = requestAnimationFrame(() => {
+        sentinelResizeFrame = 0;
+        resizeSentinel();
+        snapAllDroplets(true);
+      });
+    }, { passive: true });
 
     function renderSentinelFrame() {
       requestAnimationFrame(renderSentinelFrame);
       const canvas = document.getElementById('sentinel3DCanvas');
-      if (!canvas || canvas.offsetParent === null || activePage !== 'overview' || document.hidden) return;
+      if (!canvas || activePage !== 'overview' || document.hidden) return;
+      const lowPower = isLowPowerSentinel();
+      const now = performance.now();
+      if (now - sentinelLastFrameAt < (lowPower ? 1000 / 30 : 1000 / 60)) return;
+      sentinelLastFrameAt = now;
       const ctx = canvas.getContext('2d');
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 2);
       const w = canvas.width / dpr;
       const h = canvas.height / dpr;
       if (w <= 0 || h <= 0) return;
@@ -1919,6 +2020,8 @@
       ctx.restore();
     }
 
+    loadCareerAndSkills();
+
     // ==================== CAPABILITIES FILTER ====================
     function filterCapabilities(cat) {
       document.querySelectorAll('.cap-filter-btn').forEach(btn => {
@@ -1930,6 +2033,180 @@
         card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
       });
     }
+
+    // ==================== P1.1 PROJECT CASE STUDIES ====================
+    let projectStore = [];
+    const verifiedProjectFallback = [
+      { id: 1, slug: 'jarvis', title: 'J.A.R.V.I.S / SpatialOS', title_ar: 'J.A.R.V.I.S / SpatialOS', eyebrow: '01 // SPATIAL INTERACTION', category: 'spatial-computing', summary: 'Python webcam-driven holographic 3D workspace with a rule-based bilingual J.A.R.V.I.S. core.', summary_ar: 'مساحة عمل ثلاثية الأبعاد عبر كاميرا الويب مع نواة J.A.R.V.I.S ثنائية اللغة قائمة على القواعد.', technologies: ['Python', 'OpenCV', 'MediaPipe', 'SQLite'], features: ['Hand tracking and gesture state', 'Four XR workspaces', 'Rule-based Arabic/English commands', '15-agent registry'], overview: 'The public repository describes hand gestures for manipulating 3D models rendered on a camera feed.', overview_ar: 'يصف المستودع العام التحكم في مجسمات ثلاثية الأبعاد عبر إيماءات اليد فوق بث الكاميرا.', problem: 'A clear bridge is needed between camera input, gestures, rendering and command handling.', problem_ar: 'يلزم جسر واضح بين إدخال الكاميرا والإيماءات والعرض ومعالجة الأوامر.', solution: 'A modular Python workstation connects hand tracking, gesture state, physics, rendering, bilingual rules, agents and SQLite memory.', solution_ar: 'محطة Python معيارية تربط التتبع والفيزياء والعرض والقواعد والوكلاء وذاكرة SQLite.', architecture: 'Webcam → hand tracking → gesture engine → physics → renderer. Text/microphone → bilingual NLU → tools and agents → SQLite memory.', architecture_ar: 'كاميرا الويب ← تتبع اليد ← محرك الإيماءات ← الفيزياء ← العارض. النص/الميكروفون ← فهم اللغة ← الأدوات والوكلاء ← SQLite.', challenges: 'Live camera, voice and OCR behavior is author-reported and was not independently reproduced.', challenges_ar: 'سلوك الكاميرا والصوت وOCR المباشر مذكور كتجربة للمؤلف ولم يُعاد التحقق منه مستقلاً.', results: 'The README reports 16 automated tests and explicitly makes no performance claim.', results_ar: 'يذكر README نجاح 16 اختباراً آلياً ولا يعلن رقماً للأداء.', github_url: 'https://github.com/aymnb7178/SpatialOS-JARVIS-Workstation', demo_url: '', media_urls: [], related_slugs: ['signbridge', 'nira'], is_featured: true },
+      { id: 2, slug: 'signbridge', title: 'SignBridge AI', title_ar: 'SignBridge AI', eyebrow: '02 // ACCESSIBILITY & VISION', category: 'computer-vision', summary: 'Focused rule-based hand-gesture recognition using MediaPipe landmarks.', summary_ar: 'تعرف محدود وقائم على القواعد على إيماءات اليد باستخدام نقاط MediaPipe.', technologies: ['Python', 'MediaPipe', 'OpenCV', 'Rule-based Recognition'], features: ['21-landmark features', 'Geometry-based finger states', 'Debounced sentence builder', '10-word demo vocabulary'], overview: 'MediaPipe detects 21 hand landmarks and a debounced builder turns held gestures into demo words.', overview_ar: 'يكتشف MediaPipe 21 نقطة لليد ويحول منشئ الجمل الإيماءات الثابتة إلى كلمات تجريبية.', problem: 'An educational prototype needs a transparent baseline before broader language claims.', problem_ar: 'يحتاج النموذج التعليمي إلى أساس شفاف قبل الادعاءات اللغوية الأوسع.', solution: 'A pure-Python rule set classifies a documented ten-word demo vocabulary.', solution_ar: 'يصنف نظام قواعد مكتوب بـPython مفردات تجريبية من عشر كلمات موثقة.', architecture: 'Webcam → MediaPipe landmarks → finger-state features → rule classifier → sentence builder.', architecture_ar: 'كاميرا الويب ← نقاط MediaPipe ← خصائص الأصابع ← مصنف قواعد ← منشئ الجمل.', challenges: 'The README limits the scope to static poses, one palm-facing hand and fixed thresholds.', challenges_ar: 'يحدد README النطاق في وضعيات ثابتة ويد واحدة وعتبات ثابتة.', results: 'The repository reports 10 unit tests, no accuracy figure, and no live webcam test.', results_ar: 'يذكر المستودع 10 اختبارات وحدات ولا يعلن دقة ولم يختبر الكاميرا مباشرة.', github_url: 'https://github.com/aymnb7178/SignBridge-AI', demo_url: '', media_urls: [], related_slugs: ['jarvis', 'nira'], is_featured: true },
+      { id: 3, slug: 'nira', title: 'Nira Personal AI Agent', title_ar: 'Nira Personal AI Agent', eyebrow: '03 // AUTOMATION & AI AGENTS', category: 'automation', summary: 'Telegram bot example routing commands, optional Gemini questions and n8n webhooks.', summary_ar: 'مثال بوت Telegram يوجه الأوامر وأسئلة Gemini الاختيارية وطلبات n8n.', technologies: ['Python', 'Telegram', 'n8n', 'Gemini', 'Webhooks'], features: ['Command routing', 'Optional Gemini REST path', 'n8n webhook forwarding', 'Long-message splitting', 'Token redaction', 'Approval gate'], overview: 'The public repository separates a Python bot from sanitized n8n workflow exports.', overview_ar: 'يفصل المستودع العام بوت Python عن ملفات n8n المنقحة.', problem: 'Automation needs explicit routing, error handling and approval boundaries.', problem_ar: 'تحتاج الأتمتة إلى توجيه ومعالجة أخطاء وحدود موافقة واضحة.', solution: 'A standard-library bot handles Telegram commands, optional Gemini REST and n8n forwarding with mocked tests.', solution_ar: 'يعالج بوت من المكتبة القياسية أوامر Telegram وGemini الاختياري وn8n مع اختبارات وهمية.', architecture: 'Telegram update → command router → Gemini or n8n adapter → response; polling tracks offsets.', architecture_ar: 'تحديث Telegram ← موجه الأوامر ← محول Gemini أو n8n ← الاستجابة؛ والاستطلاع يتتبع الإزاحات.', challenges: 'Real Telegram, n8n and Gemini services were not tested by the author.', challenges_ar: 'لم يختبر المؤلف خدمات Telegram وn8n وGemini الحقيقية.', results: 'The repository reports 14 mocked-HTTP tests and no live-integration claim.', results_ar: 'يذكر المستودع 14 اختباراً عبر HTTP وهمي ولا يدعي تكاملاً مباشراً.', github_url: 'https://github.com/aymnb7178/Telegram-AI-Automation', demo_url: '', media_urls: [], related_slugs: ['jarvis', 'signbridge'], is_featured: true }
+    ];
+
+    function projectText(project, field) {
+      const ar = `${field}_ar`;
+      return lang === 'ar' && project[ar] ? project[ar] : (project[field] || '');
+    }
+    function safeProjectUrl(value) {
+      const text = String(value || '');
+      return /^(https?:\/\/|\/)/i.test(text) ? text : '';
+    }
+    async function loadProjects() {
+      try {
+        const response = await fetch(apiUrl('/api/projects'), { credentials: 'include' });
+        projectStore = response.ok ? await response.json() : verifiedProjectFallback;
+      } catch (error) { projectStore = verifiedProjectFallback; }
+      renderProjectExplorer();
+      const pathname = window.location.pathname.match(/^\/project\/([a-z0-9-]+)/i);
+      if (pathname) openProjectDetails(pathname[1], false);
+    }
+    function renderProjectExplorer() {
+      const target = document.getElementById('projectExplorer');
+      const category = document.getElementById('projectCategoryFilter');
+      if (!target) return;
+      if (category) {
+        const current = category.value;
+        const cats = [...new Set(projectStore.map(item => item.category).filter(Boolean))].sort();
+        category.innerHTML = `<option value="all">${lang === 'ar' ? 'كل المجالات' : 'All categories'}</option>` + cats.map(item => `<option value="${escapeHtml(item)}">${escapeHtml(item)}</option>`).join('');
+        category.value = cats.includes(current) ? current : 'all';
+      }
+      filterProjectExplorer();
+    }
+    function filterProjectExplorer() {
+      const target = document.getElementById('projectExplorer');
+      if (!target) return;
+      const query = (document.getElementById('projectSearch')?.value || '').trim().toLowerCase();
+      const category = document.getElementById('projectCategoryFilter')?.value || 'all';
+      const filtered = projectStore.filter(item => {
+        const haystack = [item.title, item.title_ar, item.summary, item.summary_ar, item.category, ...(item.technologies || [])].join(' ').toLowerCase();
+        return (category === 'all' || item.category === category) && (!query || haystack.includes(query));
+      });
+      target.innerHTML = filtered.length ? filtered.map((item, index) => `<article class="rounded-2xl border ${item.is_featured ? 'border-[#6382FF]/45 bg-[#6382FF]/[.08]' : 'border-white/10 bg-white/[.03]'} p-4 flex flex-col justify-between gap-4"><div><div class="flex items-center justify-between gap-2 mb-3"><span class="font-mono text-[10px] text-[#8EA6FF]">${escapeHtml(item.eyebrow || `0${index + 1} // CASE STUDY`)}</span>${item.is_featured ? '<span class="text-[10px] text-[#C6F36C]">FEATURED</span>' : ''}</div><h3 class="font-display text-lg font-bold text-[#F4F6FB]">${escapeHtml(lang === 'ar' && item.title_ar ? item.title_ar : item.title)}</h3><p class="text-xs text-[#8F9BB3] mt-2 leading-relaxed">${escapeHtml(projectText(item, 'summary'))}</p></div><div class="flex items-center justify-between gap-2"><span class="text-[10px] font-mono text-[#8F9BB3]">${escapeHtml(item.category || 'project')}</span><button type="button" onclick="openProjectDetails('${escapeHtml(item.slug)}')" class="rounded-xl bg-[#6382FF] px-3 py-2 text-[10px] font-bold text-white">${lang === 'ar' ? 'دراسة الحالة ↗' : 'Open case study ↗'}</button></div></article>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد مشاريع مطابقة.' : 'No matching projects.'}</p>`;
+    }
+    function projectSection(title, body) {
+      return `<section class="rounded-2xl border border-white/10 bg-white/[.025] p-5 sm:p-6"><h2 class="font-display text-xl font-bold text-[#F4F6FB] mb-3">${title}</h2><p class="text-sm leading-8 text-[#C8D0E0] whitespace-pre-line">${escapeHtml(body || (lang === 'ar' ? 'هذه المعلومة غير متاحة حالياً وقابلة للإضافة من لوحة الإدارة.' : 'This information is not available yet and can be added from admin.'))}</p></section>`;
+    }
+    async function openProjectDetails(slug, push = true) {
+      let project = projectStore.find(item => item.slug === slug);
+      if (!project) {
+        try { const response = await fetch(apiUrl(`/api/projects/${encodeURIComponent(slug)}`)); if (response.ok) project = await response.json(); } catch (error) {}
+      }
+      if (!project) { showToast(lang === 'ar' ? 'المشروع غير موجود' : 'Project not found'); return; }
+      const body = document.getElementById('projectDetailBody');
+      const media = [...new Set([safeProjectUrl(project.hero_media_url), ...(project.media_urls || []).map(safeProjectUrl)].filter(Boolean))];
+      const related = (project.related_slugs || []).map(item => projectStore.find(candidate => candidate.slug === item)).filter(Boolean);
+      body.innerHTML = `<article><div class="case-study-grid grid lg:grid-cols-[1.05fr_.95fr] gap-6 items-stretch"><div class="rounded-3xl border border-[#6382FF]/30 bg-[radial-gradient(circle_at_20%_20%,rgba(99,130,255,.32),transparent_45%),linear-gradient(145deg,#10182d,#06080d)] min-h-[300px] p-7 sm:p-10 flex flex-col justify-end" style="min-width:0;max-width:100%"><span class="font-mono text-xs text-[#8EA6FF]">${escapeHtml(project.eyebrow || 'CASE STUDY')}</span><h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white mt-3" style="width:100%;min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word">${escapeHtml(lang === 'ar' && project.title_ar ? project.title_ar : project.title)}</h1><p class="text-sm sm:text-base text-[#C8D0E0] leading-relaxed mt-5 max-w-2xl">${escapeHtml(projectText(project, 'summary'))}</p><div class="flex flex-wrap gap-2 mt-6">${(project.technologies || []).map(tech => `<span class="rounded-full border border-white/15 bg-white/[.06] px-3 py-1 text-[10px] font-mono text-[#C8D0E0]">${escapeHtml(tech)}</span>`).join('')}</div></div><div class="rounded-3xl border border-white/10 bg-white/[.03] p-5 sm:p-7"><div class="font-mono text-[10px] uppercase tracking-widest text-[#8EA6FF] mb-3">SYSTEM SNAPSHOT</div>${media.length ? `<div class="grid grid-cols-2 gap-3">${media.map(url => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-white/10"><img src="${escapeHtml(url)}" alt="${escapeHtml(project.title)} media" loading="lazy" class="h-36 w-full object-cover transition-transform duration-500 group-hover:scale-105" /></a>`).join('')}</div>` : `<div class="min-h-[230px] rounded-2xl border border-[#6382FF]/20 bg-[#0D111A] p-5 flex flex-col justify-center"><div class="font-mono text-xs text-[#8EA6FF] mb-4">${escapeHtml(project.category || 'PROJECT')}</div><pre class="whitespace-pre-wrap text-xs leading-7 text-[#C8D0E0]" dir="ltr">${escapeHtml(projectText(project, 'architecture') || 'Media can be added from the admin panel.')}</pre></div>`}</div></div><div class="grid lg:grid-cols-2 gap-5 mt-6">${projectSection(lang === 'ar' ? 'نبذة عن المشروع' : 'Project Overview', projectText(project, 'overview'))}${projectSection(lang === 'ar' ? 'المشكلة' : 'Problem Statement', projectText(project, 'problem'))}${projectSection(lang === 'ar' ? 'الحل' : 'Solution', projectText(project, 'solution'))}${projectSection(lang === 'ar' ? 'المعمارية' : 'System Architecture', projectText(project, 'architecture'))}${projectSection(lang === 'ar' ? 'التحديات والحلول' : 'Challenges & Solutions', projectText(project, 'challenges'))}${projectSection(lang === 'ar' ? 'النتائج والإنجازات الموثقة' : 'Results & Achievements', projectText(project, 'results'))}</div><section class="rounded-2xl border border-white/10 bg-white/[.025] p-5 sm:p-6 mt-5"><h2 class="font-display text-xl font-bold text-[#F4F6FB] mb-4">${lang === 'ar' ? 'أبرز المميزات' : 'Key Features'}</h2><div class="grid sm:grid-cols-2 gap-3">${(project.features || []).map(feature => `<div class="rounded-xl border border-white/10 bg-white/[.03] p-3 text-sm text-[#C8D0E0]">${escapeHtml(feature)}</div>`).join('') || `<p class="text-sm text-[#8F9BB3]">${lang === 'ar' ? 'غير متاحة بعد.' : 'Not available yet.'}</p>`}</div></section><div class="flex flex-wrap gap-3 mt-6">${project.github_url ? `<a href="${escapeHtml(safeProjectUrl(project.github_url))}" target="_blank" rel="noopener" class="rounded-xl bg-[#6382FF] px-5 py-3 text-xs font-bold text-white">${lang === 'ar' ? 'فتح مستودع GitHub ↗' : 'Open GitHub repository ↗'}</a>` : ''}${project.demo_url ? `<a href="${escapeHtml(safeProjectUrl(project.demo_url))}" target="_blank" rel="noopener" class="rounded-xl border border-[#C6F36C]/35 bg-[#C6F36C]/10 px-5 py-3 text-xs font-bold text-[#C6F36C]">${lang === 'ar' ? 'التجربة المباشرة ↗' : 'Live demo ↗'}</a>` : ''}</div>${related.length ? `<div class="mt-10"><h2 class="font-display text-2xl font-bold text-[#F4F6FB] mb-4">${lang === 'ar' ? 'مشاريع مرتبطة' : 'Related Projects'}</h2><div class="grid sm:grid-cols-3 gap-3">${related.map(item => `<button type="button" onclick="openProjectDetails('${escapeHtml(item.slug)}')" class="text-start rounded-2xl border border-white/10 bg-white/[.03] p-4 hover:border-[#6382FF]/50"><div class="font-bold text-[#F4F6FB]">${escapeHtml(lang === 'ar' && item.title_ar ? item.title_ar : item.title)}</div><div class="text-[10px] text-[#8F9BB3] mt-2">${escapeHtml(item.category || '')}</div></button>`).join('')}</div></div>` : ''}</article>`;
+      document.getElementById('projectDetailView').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      if (push) { try { history.pushState({ project: slug }, '', `/project/${encodeURIComponent(slug)}`); } catch (error) {} }
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    function closeProjectDetails() {
+      document.getElementById('projectDetailView')?.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      try { history.pushState({}, '', '#work'); } catch (error) {}
+    }
+    window.addEventListener('popstate', () => {
+      if (!window.location.pathname.startsWith('/project/')) closeProjectDetails();
+      else loadProjects();
+    });
+
+    // ==================== P1.2 GITHUB INTELLIGENCE ====================
+    let githubStore = { profile: {}, repositories: [], languages: {}, activity: [], last_sync_at: null, last_error: '' };
+    function githubDate(value) {
+      if (!value) return lang === 'ar' ? 'غير متاح' : 'Not available';
+      try { return new Intl.DateTimeFormat(lang === 'ar' ? 'ar-SA' : 'en-US', { dateStyle: 'medium' }).format(new Date(value)); } catch (error) { return String(value).slice(0, 10); }
+    }
+    function githubEventLabel(event) {
+      const labels = { PushEvent: lang === 'ar' ? 'دفع تحديثات' : 'Pushed updates', CreateEvent: lang === 'ar' ? 'إنشاء محتوى' : 'Created content', IssuesEvent: lang === 'ar' ? 'تحديث قضية' : 'Updated an issue', PullRequestEvent: lang === 'ar' ? 'تحديث طلب دمج' : 'Updated a pull request', WatchEvent: lang === 'ar' ? 'إضافة نجمة' : 'Starred a repository' };
+      return labels[event.type] || event.type || (lang === 'ar' ? 'نشاط عام' : 'Public activity');
+    }
+    async function loadGithubOverview(force = false) {
+      const profileCard = document.getElementById('githubProfileCard');
+      try {
+        const response = await fetch(apiUrl('/api/github/overview' + (force ? '?refresh=true' : '')), { credentials: 'include' });
+        if (!response.ok) throw new Error('github unavailable');
+        githubStore = await response.json();
+        renderGithubOverview();
+      } catch (error) {
+        if (profileCard) profileCard.innerHTML = `<div class="lg:col-span-2 rounded-3xl border border-[#C6F36C]/25 bg-[#C6F36C]/[.06] p-5 text-sm text-[#C6F36C]">${lang === 'ar' ? 'بيانات GitHub غير متاحة الآن. ستظهر آخر نسخة مخزنة عند توفرها.' : 'GitHub data is unavailable right now. Cached data will appear when available.'}</div>`;
+      }
+    }
+    function renderGithubOverview() {
+      const p = githubStore.profile || {};
+      const profileCard = document.getElementById('githubProfileCard');
+      if (profileCard) profileCard.innerHTML = `<div class="rounded-3xl border border-white/10 bg-white/[.03] p-5 flex items-center gap-4"><img src="${escapeHtml(p.avatar_url || '')}" alt="${escapeHtml(p.name || p.login || 'GitHub profile')}" class="w-16 h-16 rounded-2xl border border-white/15 object-cover" loading="lazy"><div class="min-w-0"><div class="font-mono text-[10px] text-[#8EA6FF]">@${escapeHtml(p.login || 'aymnb7178')}</div><h4 class="font-display text-xl font-bold text-[#F4F6FB] truncate">${escapeHtml(p.name || p.login || 'GitHub')}</h4><p class="text-xs text-[#8F9BB3] mt-1">${escapeHtml(p.bio || (lang === 'ar' ? 'ملف GitHub عام' : 'Public GitHub profile'))}</p><a href="${escapeHtml(safeProjectUrl(p.html_url))}" target="_blank" rel="noopener" class="inline-block mt-3 text-xs font-bold text-[#8EA6FF]">GitHub ↗</a></div></div><div class="rounded-3xl border border-white/10 bg-white/[.03] p-5 grid grid-cols-2 sm:grid-cols-4 gap-3">${[['repos', p.public_repos || 0, lang === 'ar' ? 'مستودع' : 'Repos'], ['followers', p.followers || 0, lang === 'ar' ? 'متابعون' : 'Followers'], ['stars', p.stars || 0, lang === 'ar' ? 'نجوم' : 'Stars'], ['following', p.following || 0, lang === 'ar' ? 'يتابع' : 'Following']].map(item => `<div><div class="text-2xl font-display font-extrabold text-[#F4F6FB]">${escapeHtml(item[1])}</div><div class="text-[10px] text-[#8F9BB3] mt-1">${item[2]}</div></div>`).join('')}</div>`;
+      const status = document.getElementById('githubSyncStatus');
+      if (status) status.textContent = `${lang === 'ar' ? 'آخر مزامنة' : 'Last sync'}: ${githubDate(githubStore.last_sync_at)}${githubStore.last_error ? ` · ${githubStore.last_error}` : ''}`;
+      const languageFilter = document.getElementById('githubLanguageFilter');
+      if (languageFilter) { const current = languageFilter.value; const languages = [...new Set((githubStore.repositories || []).map(repo => repo.language).filter(Boolean))].sort(); languageFilter.innerHTML = `<option value="all">${lang === 'ar' ? 'كل اللغات' : 'All languages'}</option>` + languages.map(item => `<option value="${escapeHtml(item)}">${escapeHtml(item)}</option>`).join(''); languageFilter.value = languages.includes(current) ? current : 'all'; }
+      renderGithubChart(); renderGithubActivity(); filterGithubRepos();
+    }
+    function filterGithubRepos() {
+      const target = document.getElementById('githubRepoGrid'); if (!target) return;
+      const query = (document.getElementById('githubRepoSearch')?.value || '').trim().toLowerCase(); const language = document.getElementById('githubLanguageFilter')?.value || 'all'; const sort = document.getElementById('githubSort')?.value || 'updated';
+      const repos = (githubStore.repositories || []).filter(repo => { const haystack = [repo.name, repo.description, repo.language, ...(repo.topics || [])].join(' ').toLowerCase(); return (language === 'all' || repo.language === language) && (!query || haystack.includes(query)); }).sort((a, b) => sort === 'stars' ? (b.stars || 0) - (a.stars || 0) : sort === 'name' ? a.name.localeCompare(b.name) : new Date(b.updated_at || 0) - new Date(a.updated_at || 0));
+      target.innerHTML = repos.length ? repos.map(repo => `<article class="rounded-2xl border ${repo.is_featured ? 'border-[#6382FF]/50 bg-[#6382FF]/[.08]' : 'border-white/10 bg-white/[.03]'} p-4 flex flex-col gap-3"><div class="flex items-start justify-between gap-2"><h4 class="font-display text-lg font-bold text-[#F4F6FB] break-words">${escapeHtml(repo.name)}</h4>${repo.is_featured ? '<span class="text-[9px] text-[#C6F36C] shrink-0">FEATURED</span>' : ''}</div><p class="text-xs text-[#8F9BB3] leading-relaxed min-h-10">${escapeHtml(repo.description || (lang === 'ar' ? 'لا يوجد وصف.' : 'No description.'))}</p><div class="flex flex-wrap gap-3 text-[10px] font-mono text-[#8EA6FF]"><span>${escapeHtml(repo.language || '—')}</span><span>★ ${escapeHtml(repo.stars || 0)}</span><span>${githubDate(repo.updated_at)}</span></div><div class="flex gap-2 mt-auto"><button type="button" onclick="loadGithubRepoDetail('${escapeHtml(repo.name)}')" class="rounded-xl bg-[#6382FF] px-3 py-2 text-[10px] font-bold text-white">${lang === 'ar' ? 'التفاصيل وREADME' : 'Details & README'}</button><a href="${escapeHtml(safeProjectUrl(repo.html_url))}" target="_blank" rel="noopener" class="rounded-xl border border-white/15 px-3 py-2 text-[10px] font-bold text-[#C8D0E0]">GitHub ↗</a></div></article>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد مستودعات مطابقة.' : 'No matching repositories.'}</p>`;
+    }
+    function renderGithubChart() {
+      const target = document.getElementById('githubLanguageChart'); if (!target) return; const entries = Object.entries(githubStore.languages || {}).sort((a, b) => b[1] - a[1]); const total = entries.reduce((sum, item) => sum + Number(item[1] || 0), 0);
+      target.innerHTML = entries.length ? entries.slice(0, 8).map(([name, bytes]) => { const percent = total ? Math.max(1, Math.round(bytes * 100 / total)) : 0; return `<div><div class="flex justify-between text-xs text-[#C8D0E0] mb-1"><span>${escapeHtml(name)}</span><span>${percent}%</span></div><div class="h-2 rounded-full bg-white/10 overflow-hidden"><div class="h-full rounded-full bg-[#6382FF]" style="width:${percent}%"></div></div></div>`; }).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد بيانات لغات بعد.' : 'No language data yet.'}</p>`;
+    }
+    function renderGithubActivity() {
+      const target = document.getElementById('githubActivityTimeline'); if (!target) return; const events = githubStore.activity || [];
+      target.innerHTML = events.length ? events.slice(0, 10).map(event => `<div class="border-s-2 border-[#6382FF]/40 ps-3"><div class="text-xs text-[#F4F6FB]">${escapeHtml(githubEventLabel(event))}</div><div class="text-[10px] text-[#8F9BB3] mt-1">${escapeHtml(event.repo || '')} · ${githubDate(event.created_at)}</div></div>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد نشاطات عامة متاحة.' : 'No public activity available.'}</p>`;
+    }
+    async function loadGithubRepoDetail(name) {
+      const target = document.getElementById('githubRepoDetail'); if (!target) return; target.classList.remove('hidden'); target.innerHTML = `<div class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'جارٍ تحميل README…' : 'Loading README…'}</div>`;
+      try { const response = await fetch(apiUrl(`/api/github/repos/${encodeURIComponent(name)}`)); if (!response.ok) throw new Error('not found'); const repo = await response.json(); target.innerHTML = `<div class="flex items-start justify-between gap-3"><div><div class="font-mono text-[10px] text-[#8EA6FF]">${escapeHtml(repo.full_name)}</div><h4 class="font-display text-2xl font-bold text-[#F4F6FB] mt-1">${escapeHtml(repo.name)}</h4></div><button type="button" onclick="document.getElementById('githubRepoDetail').classList.add('hidden')" class="text-xs text-[#8F9BB3]" aria-label="${lang === 'ar' ? 'إغلاق التفاصيل' : 'Close details'}">×</button></div><p class="text-sm text-[#C8D0E0] mt-3">${escapeHtml(repo.description || '')}</p><pre class="mt-4 max-h-96 overflow-auto whitespace-pre-wrap rounded-2xl bg-[#06080D] border border-white/10 p-4 text-xs leading-6 text-[#C8D0E0]" dir="ltr">${escapeHtml(repo.readme_markdown || (lang === 'ar' ? 'لا يوجد README متاح.' : 'No README available.'))}</pre>`; target.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (error) { target.innerHTML = `<p class="text-xs text-[#C6F36C]">${lang === 'ar' ? 'تعذر تحميل تفاصيل المستودع.' : 'Repository details are unavailable.'}</p>`; }
+    }
+
+    // ==================== P1.3-P1.5 CAREER, SKILLS & CV ====================
+    let careerStore = [];
+    let skillStore = [];
+    const careerFallback = [
+      {period:'2023 — PRESENT', title:'Freelance · Digital & Technical Services', title_ar:'العمل الحر · خدمات رقمية وتقنية', organization:'Independent work', organization_ar:'عمل مستقل', description:'Digital services, reports, research, lightweight builds, and Python / Excel automation.', description_ar:'خدمات رقمية وتقارير وأبحاث وحلول رقمية خفيفة وأتمتة باستخدام Python وExcel.', tags:['Python','Excel']},
+      {period:'HAJJ SEASON · 2025', title:'Dar Al Baraka Hotel · Data & Operations', title_ar:'فندق دار البركة · البيانات والعمليات', organization:'Hospitality operations', organization_ar:'عمليات الضيافة', description:'Guest, room, booking, and payment record operations using Excel.', description_ar:'إدخال وتحديث سجلات النزلاء والغرف والحجوزات والمدفوعات باستخدام Excel.', tags:['Operations','Excel']},
+      {period:'CURRENT // DEGREE IN PROGRESS', title:'Bachelor of Information Technology', title_ar:'بكالوريوس تقنية المعلومات', organization:'MidOcean University', organization_ar:'جامعة ميدأوشن', description:'Expected graduation 2028 · GPA 5.00 / 5.00.', description_ar:'التخرج المتوقع 2028 · المعدل 5.00 من 5.00.', tags:['Education']}
+    ];
+    const skillFallback = [
+      {name:'Python',name_ar:'Python',category:'Code & AI',category_ar:'البرمجة والذكاء الاصطناعي',level:75,description:'Scripting, data handling, computer vision pipelines, and automation.',description_ar:'البرمجة ومعالجة البيانات وبناء سكريبتات الأتمتة والذكاء الاصطناعي.',related_projects:['jarvis','signbridge','nira']},
+      {name:'Data Analysis',name_ar:'تحليل البيانات',category:'Data & BI',category_ar:'البيانات وذكاء الأعمال',level:70,description:'Exploration, preparation, cleaning, and actionable insights.',description_ar:'استكشاف البيانات وتنظيفها وتجهيزها واستخلاص الرؤى.',related_projects:[]},
+      {name:'SQL',name_ar:'SQL',category:'Data & BI',category_ar:'البيانات وذكاء الأعمال',level:60,description:'Querying and structuring relational databases.',description_ar:'التعامل مع قواعد البيانات العلائقية واستخراج البيانات.',related_projects:[]},
+      {name:'Automation & Workflows',name_ar:'الأتمتة ومسارات العمل',category:'Systems',category_ar:'الأنظمة',level:65,description:'Connecting tools, APIs, and multi-step tasks.',description_ar:'ربط الأدوات وواجهات API وأتمتة المهام متعددة الخطوات.',related_projects:['nira']}
+    ];
+    function localized(item, field) { return lang === 'ar' && item[`${field}_ar`] ? item[`${field}_ar`] : (item[field] || ''); }
+    async function loadCareerAndSkills() {
+      try { const [careerResponse, skillResponse] = await Promise.all([fetch(apiUrl('/api/career')), fetch(apiUrl('/api/skills'))]); careerStore = careerResponse.ok ? await careerResponse.json() : careerFallback; skillStore = skillResponse.ok ? await skillResponse.json() : skillFallback; }
+      catch (error) { careerStore = careerFallback; skillStore = skillFallback; }
+      renderCareerTimeline(); renderSkillsMap(); renderCvPreview();
+    }
+    function renderCareerTimeline() {
+      const target = document.getElementById('careerTimeline'); if (!target) return;
+      target.innerHTML = careerStore.length ? careerStore.map(item => `<article class="rounded-2xl border border-white/10 bg-white/[.03] p-5"><div class="font-mono text-[10px] text-[#6382FF]">${escapeHtml(item.period || 'MILESTONE')}</div><h4 class="font-display text-lg font-bold text-[#F4F6FB] mt-2">${escapeHtml(localized(item,'title'))}</h4><div class="text-xs text-[#8EA6FF] mt-1">${escapeHtml(localized(item,'organization'))}</div><p class="text-sm text-[#8F9BB3] leading-7 mt-3">${escapeHtml(localized(item,'description') || (lang === 'ar' ? 'المعلومة قابلة للإضافة من لوحة الإدارة.' : 'Details can be added from admin.'))}</p><div class="flex flex-wrap gap-2 mt-3">${(item.tags || []).map(tag => `<span class="rounded-full border border-white/10 px-2 py-1 text-[10px] text-[#C8D0E0]">${escapeHtml(tag)}</span>`).join('')}</div></article>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد محطات منشورة بعد.' : 'No published milestones yet.'}</p>`;
+    }
+    function renderSkillsMap() {
+      const target = document.getElementById('skillsMapGrid'); if (!target) return;
+      const select = document.getElementById('skillCategoryFilter'); const current = select?.value || 'all'; const cats = [...new Set(skillStore.map(item => lang === 'ar' ? (item.category_ar || item.category) : item.category).filter(Boolean))];
+      if (select) { select.innerHTML = `<option value="all">${lang === 'ar' ? 'كل المجالات' : 'All categories'}</option>` + cats.map(cat => `<option value="${escapeHtml(cat)}">${escapeHtml(cat)}</option>`).join(''); select.value = cats.includes(current) ? current : 'all'; }
+      const filtered = skillStore.filter(item => current === 'all' || (lang === 'ar' ? (item.category_ar || item.category) : item.category) === current);
+      target.innerHTML = filtered.length ? filtered.map(item => `<article class="rounded-2xl border border-white/10 bg-[#06080D]/55 p-4"><div class="flex items-start justify-between gap-2"><div><h4 class="font-display font-bold text-[#F4F6FB]">${escapeHtml(localized(item,'name'))}</h4><div class="text-[10px] text-[#8EA6FF] mt-1">${escapeHtml(localized(item,'category'))}</div></div><span class="font-mono text-xs text-[#C6F36C]">${Math.max(0,Math.min(100,Number(item.level)||0))}%</span></div><div class="h-2 rounded-full bg-white/10 overflow-hidden mt-4"><div class="h-full rounded-full bg-[#6382FF]" style="width:${Math.max(0,Math.min(100,Number(item.level)||0))}%"></div></div><p class="text-xs text-[#8F9BB3] leading-relaxed mt-3">${escapeHtml(localized(item,'description'))}</p><div class="flex flex-wrap gap-2 mt-3">${(item.related_projects || []).map(slug => `<button type="button" onclick="openProjectDetails('${escapeHtml(slug)}')" class="text-[10px] text-[#8EA6FF] underline">${escapeHtml(slug)}</button>`).join('')}</div></article>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد مهارات منشورة.' : 'No published skills yet.'}</p>`;
+    }
+    function renderCvPreview() {
+      const target = document.getElementById('cvPreview'); if (!target) return;
+      const name = document.getElementById('cvName')?.value || ''; const headline = document.getElementById('cvHeadline')?.value || ''; const summary = document.getElementById('cvSummary')?.value || ''; const template = document.getElementById('cvTemplate')?.value || 'classic';
+      const enabled = section => document.querySelector(`[data-cv-section="${section}"]`)?.checked;
+      const heading = lang === 'ar' ? {summary:'الملخص',skills:'المهارات',journey:'المسيرة'} : {summary:'Summary',skills:'Skills',journey:'Journey'};
+      target.className = `cv-paper cv-${template} rounded-2xl bg-white text-slate-900 p-7 min-h-[430px] shadow-2xl`;
+      target.dir = lang === 'ar' ? 'rtl' : 'ltr'; target.innerHTML = `<h1 class="text-3xl font-black">${escapeHtml(name)}</h1><p class="text-sm text-blue-700 font-bold mt-1">${escapeHtml(headline)}</p>${enabled('summary') ? `<section class="mt-6"><h4 class="text-xs uppercase text-blue-700 border-b border-slate-200 pb-2">${heading.summary}</h4><p class="text-sm leading-7 mt-2">${escapeHtml(summary)}</p></section>` : ''}${enabled('skills') ? `<section class="mt-5"><h4 class="text-xs uppercase text-blue-700 border-b border-slate-200 pb-2">${heading.skills}</h4><p class="text-sm leading-7 mt-2">${skillStore.map(item => escapeHtml(localized(item,'name'))).join(' · ')}</p></section>` : ''}${enabled('journey') ? `<section class="mt-5"><h4 class="text-xs uppercase text-blue-700 border-b border-slate-200 pb-2">${heading.journey}</h4><div class="mt-2 space-y-2">${careerStore.slice(0,4).map(item => `<div><strong class="text-sm">${escapeHtml(localized(item,'title'))}</strong><div class="text-xs text-slate-500">${escapeHtml(item.period || '')} · ${escapeHtml(localized(item,'organization'))}</div></div>`).join('')}</div></section>` : ''}`;
+      try { localStorage.setItem('spatialos-cv-draft', JSON.stringify({name,headline,summary,template})); } catch (error) {}
+    }
+    async function loadAdminCareer() { if (currentUser?.role !== 'admin') return; try { const [career, skills] = await Promise.all([apiRequest('/api/admin/career'), apiRequest('/api/admin/skills')]); document.getElementById('adminCareerList').innerHTML = career.map(item => `<div class="flex items-center justify-between gap-2 rounded-xl border border-white/10 p-3"><span>${escapeHtml(item.title)} · ${escapeHtml(item.period)}</span><label class="text-[10px]"><input type="checkbox" ${item.is_visible ? 'checked' : ''} onchange="updateAdminCareer(${item.id},{is_visible:this.checked})" /> Visible</label></div>`).join('') || '<p>No milestones.</p>'; document.getElementById('adminSkillsList').innerHTML = skills.map(item => `<div class="flex items-center justify-between gap-2 rounded-xl border border-white/10 p-3"><span>${escapeHtml(item.name)} · ${Number(item.level)}%</span><label class="text-[10px]"><input type="checkbox" ${item.is_visible ? 'checked' : ''} onchange="updateAdminSkill(${item.id},{is_visible:this.checked})" /> Visible</label></div>`).join('') || '<p>No skills.</p>'; } catch (error) { showToast(error.message); } }
+    async function saveAdminCareer(event) { event.preventDefault(); const id = document.getElementById('careerAdminId').value; const payload = {title:document.getElementById('careerAdminTitle').value, organization:document.getElementById('careerAdminOrg').value, period:document.getElementById('careerAdminPeriod').value, description:document.getElementById('careerAdminDescription').value, is_visible:document.getElementById('careerAdminVisible').checked}; try { await apiRequest(id ? `/api/admin/career/${id}` : '/api/admin/career', {method:id?'PATCH':'POST',body:JSON.stringify(payload)}); resetAdminCareerForm(); await loadAdminCareer(); await loadCareerAndSkills(); showToast(lang === 'ar' ? 'تم حفظ المحطة' : 'Milestone saved'); } catch (error) { showToast(error.message); } }
+    async function updateAdminCareer(id,payload) { try { await apiRequest(`/api/admin/career/${id}`,{method:'PATCH',body:JSON.stringify(payload)}); await loadAdminCareer(); await loadCareerAndSkills(); } catch(error){showToast(error.message);} }
+    async function updateAdminSkill(id,payload) { try { await apiRequest(`/api/admin/skills/${id}`,{method:'PATCH',body:JSON.stringify(payload)}); await loadAdminCareer(); await loadCareerAndSkills(); } catch(error){showToast(error.message);} }
+    async function saveAdminSkill(event) { event.preventDefault(); const id=document.getElementById('skillAdminId').value; const payload={name:document.getElementById('skillAdminName').value,category:document.getElementById('skillAdminCategory').value,level:Number(document.getElementById('skillAdminLevel').value)}; try { await apiRequest(id ? `/api/admin/skills/${id}` : '/api/admin/skills',{method:id?'PATCH':'POST',body:JSON.stringify(payload)}); resetAdminSkillForm(); await loadAdminCareer(); await loadCareerAndSkills(); showToast(lang === 'ar' ? 'تم حفظ المهارة' : 'Skill saved'); } catch(error){showToast(error.message);} }
+    function resetAdminSkillForm(){ ['skillAdminId','skillAdminName','skillAdminCategory'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';}); const level=document.getElementById('skillAdminLevel');if(level)level.value=50; }
+    function resetAdminCareerForm(){ ['careerAdminId','careerAdminTitle','careerAdminOrg','careerAdminPeriod','careerAdminDescription'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';}); const visible=document.getElementById('careerAdminVisible');if(visible)visible.checked=true; }
 
     // ==================== INTERACTIVE PROJECT SIMULATION DRAWERS ====================
     function openProjectModal(projectKey) {
@@ -2026,6 +2303,8 @@
       }
 
       body.innerHTML = content;
+      const caseSlug = projectKey === 'jarvis' ? 'jarvis' : projectKey === 'signbridge' ? 'signbridge' : projectKey === 'nira' ? 'nira' : '';
+      if (caseSlug) body.insertAdjacentHTML('beforeend', `<button type="button" onclick="closeProjectModal(); openProjectDetails('${caseSlug}')" class="mt-4 inline-flex items-center gap-2 rounded-xl border border-[#C6F36C]/30 bg-[#C6F36C]/10 px-4 py-3 text-xs font-bold text-[#C6F36C]">${lang === 'ar' ? 'فتح دراسة الحالة الكاملة ↗' : 'Open full case study ↗'}</button>`);
       const modal = document.getElementById('projectModal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
@@ -2076,6 +2355,9 @@
       document.getElementById('adminToolbar').classList.toggle('hidden', !isAdmin);
       document.getElementById('adminSummary').classList.toggle('hidden', !isAdmin);
       document.getElementById('adminData').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminProjectManager').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminGithubManager').classList.toggle('hidden', !isAdmin);
+      document.getElementById('adminCareerManager').classList.toggle('hidden', !isAdmin);
       if (!user) return;
       document.getElementById('accountName').textContent = user.name;
       document.getElementById('accountRole').textContent = isAdmin ? 'ADMIN' : 'USER';
@@ -2120,11 +2402,18 @@
       try {
         const orders = await apiRequest('/api/orders');
         document.getElementById('ordersList').innerHTML = orders.length ? orders.map(order => `<div class="p-3 rounded-xl border border-white/10 bg-white/[.03]"><div class="flex justify-between gap-2"><strong class="text-[#F4F6FB]">#${Number(order.id)} · ${escapeHtml(order.service)}</strong><span class="text-[#C6F36C]">${statusLabel(order.status)}</span></div><p class="mt-1">${escapeHtml(order.details)}</p></div>`).join('') : `<p>${lang === 'ar' ? 'لا توجد طلبات بعد.' : 'No requests yet.'}</p>`;
-        if (currentUser.role === 'admin') { await loadAdminDashboard(); await loadAdminInsights(); }
+        if (currentUser.role === 'admin') { await loadAdminDashboard(); await loadAdminInsights(); await loadAdminProjects(); await loadAdminGithub(); await loadAdminCareer(); }
       } catch (error) { showToast(error.message); }
     }
     function openCheckout(orderId) { document.getElementById('paymentOrderId').value = orderId; document.getElementById('checkoutPanel').classList.remove('hidden'); document.getElementById('checkoutPanel').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     function closeCheckout() { document.getElementById('checkoutPanel').classList.add('hidden'); }
+    async function loadAdminGithub() {
+      const target = document.getElementById('adminGithubList'); if (!target || currentUser?.role !== 'admin') return;
+      try { const repos = await apiRequest('/api/admin/github/repos'); target.innerHTML = repos.map(repo => `<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2 rounded-xl border border-white/10 p-3"><span class="font-mono text-[#C8D0E0] truncate">${escapeHtml(repo.name)}</span><label class="flex items-center gap-1 text-[10px] text-[#8F9BB3]"><input type="checkbox" ${repo.is_featured ? 'checked' : ''} onchange="updateAdminGithub(${repo.id}, {is_featured:this.checked})" /> ${lang === 'ar' ? 'مميز' : 'Featured'}</label><label class="flex items-center gap-1 text-[10px] text-[#8F9BB3]"><input type="checkbox" ${repo.is_visible ? 'checked' : ''} onchange="updateAdminGithub(${repo.id}, {is_visible:this.checked})" /> ${lang === 'ar' ? 'ظاهر' : 'Visible'}</label><input aria-label="${lang === 'ar' ? 'ترتيب ' : 'Order '}${escapeHtml(repo.name)}" type="number" value="${Number(repo.sort_order) || 0}" onchange="updateAdminGithub(${repo.id}, {sort_order:Number(this.value)})" class="account-input !min-h-[32px] !w-20 !rounded-lg text-[10px]" /></div>`).join('') || `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد بيانات بعد.' : 'No data yet.'}</p>`; } catch (error) { target.innerHTML = `<p class="text-xs text-red-300">${escapeHtml(error.message)}</p>`; }
+    }
+    async function updateAdminGithub(id, payload) { try { await apiRequest(`/api/admin/github/repos/${id}`, { method: 'PATCH', body: JSON.stringify(payload) }); await loadAdminGithub(); await loadGithubOverview(); } catch (error) { showToast(error.message); await loadAdminGithub(); } }
+    async function syncAdminGithub() { try { await apiRequest('/api/admin/github/sync', { method: 'POST', timeout: 60000 }); showToast(lang === 'ar' ? 'تمت مزامنة GitHub' : 'GitHub synced'); await loadAdminGithub(); await loadGithubOverview(); } catch (error) { showToast(error.message); } }
+
     async function loadAdminDashboard() {
       const summary = await apiRequest('/api/admin/summary');
       const box = document.getElementById('adminSummary'); box.classList.remove('hidden'); box.innerHTML = Object.entries(summary).map(([key, value]) => `<div class="p-3 rounded-xl bg-[#6382FF]/10 border border-[#6382FF]/20"><div class="text-xl font-extrabold text-[#F4F6FB]">${value}</div><div class="text-[10px] text-[#8F9BB3] uppercase">${key}</div></div>`).join('');
@@ -2151,6 +2440,54 @@
       catch (error) { showToast(error.message); }
     }
 
+    function resetAdminProjectForm() {
+      const form = document.querySelector('#adminProjectManager form');
+      if (form) form.reset();
+      document.getElementById('projectAdminId').value = '';
+      document.getElementById('projectAdminSlug').disabled = false;
+      document.getElementById('projectAdminVisible').checked = true;
+    }
+    function fillAdminProjectForm(project) {
+      document.getElementById('projectAdminId').value = project.id;
+      document.getElementById('projectAdminSlug').value = project.slug;
+      document.getElementById('projectAdminSlug').disabled = true;
+      document.getElementById('projectAdminTitle').value = project.title;
+      document.getElementById('projectAdminCategory').value = project.category || '';
+      document.getElementById('projectAdminSummary').value = project.summary || '';
+      document.getElementById('projectAdminGithub').value = project.github_url || '';
+      document.getElementById('projectAdminDemo').value = project.demo_url || '';
+      document.getElementById('projectAdminTech').value = (project.technologies || []).join(', ');
+      document.getElementById('projectAdminFeatured').checked = Boolean(project.is_featured);
+      document.getElementById('projectAdminVisible').checked = project.is_visible !== false;
+      document.getElementById('adminProjectManager').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    let adminProjectStore = [];
+    function fillAdminProjectFormById(id) {
+      const project = adminProjectStore.find(item => Number(item.id) === Number(id));
+      if (project) fillAdminProjectForm(project);
+    }
+    async function loadAdminProjects() {
+      if (!currentUser || currentUser.role !== 'admin') return;
+      const panel = document.getElementById('adminProjectManager');
+      const list = document.getElementById('adminProjectsList');
+      panel.classList.remove('hidden');
+      try {
+        adminProjectStore = projects;
+        list.innerHTML = projects.length ? projects.map(project => `<div class="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[.03] p-3"><div><strong class="text-[#F4F6FB]">${escapeHtml(project.title)}</strong><p class="text-[#8F9BB3]" dir="ltr">/${escapeHtml(project.slug)} · ${escapeHtml(project.category || 'project')} · ${project.is_visible ? 'visible' : 'hidden'}</p></div><div class="flex gap-2"><button type="button" onclick="fillAdminProjectFormById(${Number(project.id)})" class="text-[#8EA6FF]">${lang === 'ar' ? 'تعديل' : 'Edit'}</button><button type="button" onclick="deleteAdminProject(${Number(project.id)})" class="text-red-300">${lang === 'ar' ? 'حذف' : 'Delete'}</button></div></div>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد مشاريع بعد.' : 'No projects yet.'}</p>`;
+      } catch (error) { list.innerHTML = `<p class="text-xs text-red-200">${escapeHtml(error.message)}</p>`; }
+    }
+    async function saveAdminProject(event) {
+      event.preventDefault();
+      const id = document.getElementById('projectAdminId').value;
+      const payload = { slug: document.getElementById('projectAdminSlug').value.trim(), title: document.getElementById('projectAdminTitle').value.trim(), category: document.getElementById('projectAdminCategory').value.trim(), summary: document.getElementById('projectAdminSummary').value.trim(), github_url: document.getElementById('projectAdminGithub').value.trim(), demo_url: document.getElementById('projectAdminDemo').value.trim(), technologies: document.getElementById('projectAdminTech').value.split(',').map(value => value.trim()).filter(Boolean), is_featured: document.getElementById('projectAdminFeatured').checked, is_visible: document.getElementById('projectAdminVisible').checked };
+      try { await apiRequest(id ? `/api/admin/projects/${id}` : '/api/admin/projects', { method: id ? 'PATCH' : 'POST', body: JSON.stringify(payload) }); showToast(lang === 'ar' ? 'تم حفظ المشروع' : 'Project saved'); resetAdminProjectForm(); await loadAdminProjects(); await loadProjects(); }
+      catch (error) { showToast(error.message); }
+    }
+    async function deleteAdminProject(id) {
+      if (!window.confirm(lang === 'ar' ? 'تأكيد حذف المشروع نهائياً؟' : 'Confirm permanent project deletion?')) return;
+      try { await apiRequest(`/api/admin/projects/${id}?confirm=true`, { method: 'DELETE' }); showToast(lang === 'ar' ? 'تم حذف المشروع' : 'Project deleted'); await loadAdminProjects(); await loadProjects(); }
+      catch (error) { showToast(error.message); }
+    }
     // ==================== SERVICES → DISPATCHER HANDOFF ====================
     function requestService(enLabel, arLabel) {
       navigateTo('contact');

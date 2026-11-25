@@ -14,6 +14,9 @@ class Settings(BaseSettings):
     moyasar_webhook_secret: str = ""
     moyasar_live: bool = False
     moyasar_callback_url: str = "http://localhost:8000/payment/callback"
+    github_username: str = "aymnb7178"
+    github_token: str = ""
+    github_cache_ttl_minutes: int = 30
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     @model_validator(mode="after")
