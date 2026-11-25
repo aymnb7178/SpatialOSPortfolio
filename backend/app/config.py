@@ -32,7 +32,12 @@ class Settings(BaseSettings):
 
     @property
     def cors_origin_list(self) -> list[str]:
-        return [x.strip() for x in self.cors_origins.split(",") if x.strip()]
+        configured = [x.strip() for x in self.cors_origins.split(",") if x.strip()]
+        trusted_site_origins = [
+            "https://spatialos-portfolio.onrender.com",
+            "https://aymnb7178.github.io",
+        ]
+        return list(dict.fromkeys(configured + trusted_site_origins))
 
 @lru_cache
 def get_settings() -> Settings:

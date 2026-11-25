@@ -16,6 +16,16 @@ _AUTH_WINDOW_SECONDS = 15 * 60
 _AUTH_MAX_ATTEMPTS = 10
 
 
+def _set_access_cookie(response: Response, token: str) -> None:
+    settings = get_settings()
+    # HTTPS cross-origin deployments need SameSite=None; local HTTP stays Lax.
+    response.set_cookie(
+        "access_token", token, httponly=True, secure=settings.cookie_secure,
+        samesite="none" if settings.cookie_secure else "lax", path="/",
+        max_age=settings.jwt_expire_minutes * 60,
+    )
+
+
 def _check_auth_rate_limit(request: Request) -> None:
     now = time.monotonic()
     key = request.client.host if request.client else "unknown"
@@ -39,7 +49,7 @@ def register(data: UserCreate, request: Request, response: Response, db: Session
         db.rollback()
         raise HTTPException(status_code=409, detail="البريد مستخدم مسبقاً") from None
     db.refresh(user)
-    response.set_cookie("access_token", create_token(user), httponly=True, secure=get_settings().cookie_secure, samesite="lax", max_age=get_settings().jwt_expire_minutes * 60)
+    _set_access_cookie(response, create_token(user))
     return user
 
 @router.post("/login", response_model=UserOut)
@@ -52,12 +62,12 @@ def login(data: LoginRequest, request: Request, response: Response, db: Session 
     user.last_login_at = datetime.now(timezone.utc)
     db.add(LoginEvent(user_id=user.id))
     db.commit()
-    response.set_cookie("access_token", create_token(user), httponly=True, secure=get_settings().cookie_secure, samesite="lax", max_age=get_settings().jwt_expire_minutes * 60)
+    _set_access_cookie(response, create_token(user))
     return user
 
 @router.post("/logout", status_code=204)
 def logout(response: Response):
-    response.delete_cookie("access_token")
+    response.delete_cookie("access_token", path="/")
 
 @router.get("/me", response_model=UserOut)
 def me(user: User = Depends(get_current_user)):

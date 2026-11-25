@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 from pydantic import ValidationError
+from sqlalchemy import select
 
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
@@ -19,6 +20,7 @@ from backend.app.config import Settings, get_settings
 from backend.app.database import Base, engine, get_db
 from backend.app.main import app
 from backend.app.moyasar import create_payment
+from backend.app.models import User
 from backend.app.routers.auth import _auth_attempts
 from backend.app.routers.messages import _message_attempts
 from backend.app.schemas import GithubRepositoryAdminUpdate, PaymentCreate, ProjectCreate, SiteLinkCreate
@@ -42,6 +44,34 @@ def test_registration_never_grants_admin_by_email(client):
     )
     assert response.status_code == 201
     assert response.json()["role"] == "user"
+
+
+def test_admin_login_cookie_session_and_logout():
+    from backend.app.auth import hash_password
+    from backend.app.config import get_settings
+
+    settings = get_settings()
+    previous_admin_email = settings.admin_email
+    settings.admin_email = "admin-login@example.com"
+    db = next(get_db())
+    try:
+        admin = db.scalar(select(User).where(User.email == settings.admin_email))
+        if not admin:
+            admin = User(name="Test Admin", email=settings.admin_email, password_hash=hash_password("Admin-safe-123"), role="admin")
+            db.add(admin)
+            db.commit()
+        with TestClient(app) as admin_client:
+            response = admin_client.post("/api/auth/login", json={"email": settings.admin_email, "password": "Admin-safe-123"})
+            assert response.status_code == 200
+            assert response.json()["role"] == "admin"
+            assert "access_token=" in response.headers.get("set-cookie", "")
+            assert admin_client.get("/api/auth/me").status_code == 200
+            assert admin_client.get("/api/admin/summary").status_code == 200
+            assert admin_client.post("/api/auth/logout").status_code == 204
+            assert admin_client.get("/api/auth/me").status_code == 401
+    finally:
+        settings.admin_email = previous_admin_email
+        db.close()
 
 
 def test_payment_schema_rejects_amount_and_card_fields():
