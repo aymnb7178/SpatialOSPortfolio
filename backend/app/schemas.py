@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 
 class UserCreate(BaseModel):
     name: str = Field(min_length=2, max_length=120)
@@ -42,14 +42,8 @@ class OrderOut(OrderCreate):
     created_at: datetime
 
 class PaymentCreate(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     order_id: int
-    amount: int = Field(gt=0, le=10_000_000)
-    currency: str = Field(default="SAR", min_length=3, max_length=3)
-    card_name: str = Field(min_length=5, max_length=255)
-    card_number: str = Field(min_length=16, max_length=19)
-    card_month: int = Field(ge=1, le=12)
-    card_year: int = Field(ge=2024, le=2100)
-    card_cvc: str = Field(min_length=3, max_length=4)
 
 class PaymentOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
@@ -57,3 +51,34 @@ class PaymentOut(BaseModel):
     status: str
     moyasar_id: str | None = None
     transaction_url: str | None = None
+
+class SiteLinkCreate(BaseModel):
+    label: str = Field(min_length=1, max_length=120)
+    url: str = Field(min_length=1, max_length=1000)
+    channel: str = Field(default="other", min_length=1, max_length=40)
+    sort_order: int = Field(default=0, ge=-10000, le=10000)
+
+    @field_validator("url")
+    @classmethod
+    def validate_url(cls, value: str) -> str:
+        value = value.strip()
+        if not value.startswith(("https://", "http://", "mailto:")):
+            raise ValueError("الرابط يجب أن يبدأ بـ http أو https أو mailto")
+        return value
+
+class SiteLinkUpdate(BaseModel):
+    label: str | None = Field(default=None, min_length=1, max_length=120)
+    url: str | None = Field(default=None, min_length=1, max_length=1000)
+    channel: str | None = Field(default=None, min_length=1, max_length=40)
+    is_active: bool | None = None
+    sort_order: int | None = Field(default=None, ge=-10000, le=10000)
+
+    @field_validator("url")
+    @classmethod
+    def validate_url(cls, value: str | None) -> str | None:
+        if value is None:
+            return value
+        value = value.strip()
+        if not value.startswith(("https://", "http://", "mailto:")):
+            raise ValueError("الرابط يجب أن يبدأ بـ http أو https أو mailto")
+        return value

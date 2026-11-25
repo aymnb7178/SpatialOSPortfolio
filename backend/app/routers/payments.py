@@ -1,4 +1,4 @@
-from uuid import uuid4
+from secrets import compare_digest
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -6,7 +6,6 @@ from ..auth import get_current_user
 from ..config import get_settings
 from ..database import get_db
 from ..models import Order, Payment, User
-from ..moyasar import create_payment
 from ..schemas import PaymentCreate, PaymentOut
 
 router = APIRouter(prefix="/payments", tags=["payments"])
@@ -16,23 +15,15 @@ async def start_payment(data: PaymentCreate, user: User = Depends(get_current_us
     order = db.scalar(select(Order).where(Order.id == data.order_id, Order.user_id == user.id))
     if not order:
         raise HTTPException(status_code=404, detail="الطلب غير موجود")
-    payment = Payment(order_id=order.id, amount=data.amount, currency=data.currency.upper(), status="initiated")
-    db.add(payment)
-    db.commit()
-    db.refresh(payment)
-    provider = await create_payment(given_id=str(uuid4()), amount=data.amount, currency=data.currency, description=f"SpatialOS order #{order.id}", callback_url=get_settings().moyasar_callback_url, card_name=data.card_name, card_number=data.card_number, card_month=data.card_month, card_year=data.card_year, card_cvc=data.card_cvc)
-    payment.moyasar_id = provider.get("id")
-    payment.status = provider.get("status", "initiated")
-    payment.transaction_url = (provider.get("source") or {}).get("transaction_url")
-    db.commit()
-    db.refresh(payment)
-    return payment
+    raise HTTPException(status_code=409, detail="الدفع تجريبي للعرض فقط وغير مفعّل؛ لم يتم إرسال أو حفظ أي بيانات بطاقة")
 
 @router.post("/webhook", status_code=200)
 async def moyasar_webhook(request: Request, db: Session = Depends(get_db)):
     payload = await request.json()
     settings = get_settings()
-    if settings.moyasar_webhook_secret and payload.get("secret_token") != settings.moyasar_webhook_secret:
+    if not settings.moyasar_webhook_secret:
+        raise HTTPException(status_code=503, detail="Webhook الدفع غير مهيأ")
+    if not compare_digest(str(payload.get("secret_token", "")), settings.moyasar_webhook_secret):
         raise HTTPException(status_code=401, detail="Webhook secret غير صحيح")
     event_type = payload.get("type", "")
     provider_payment = payload.get("data") or {}
@@ -45,7 +36,7 @@ async def moyasar_webhook(request: Request, db: Session = Depends(get_db)):
     status_value = provider_payment.get("status")
     if event_type == "payment_paid":
         status_value = "paid"
-    elif event_type == "payment_faild":
+    elif event_type in {"payment_failed", "payment_faild"}:
         status_value = "failed"
     elif event_type.startswith("payment_"):
         status_value = status_value or event_type.removeprefix("payment_")

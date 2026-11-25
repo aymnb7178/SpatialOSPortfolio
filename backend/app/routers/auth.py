@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException, Response, status
+import time
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -7,19 +8,30 @@ from ..config import get_settings
 from ..database import get_db
 from ..models import LoginEvent, User
 from datetime import datetime, timezone
-from secrets import compare_digest
 from ..schemas import LoginRequest, UserCreate, UserOut
 
 router = APIRouter(prefix="/auth", tags=["auth"])
+_auth_attempts: dict[str, list[float]] = {}
+_AUTH_WINDOW_SECONDS = 15 * 60
+_AUTH_MAX_ATTEMPTS = 10
+
+
+def _check_auth_rate_limit(request: Request) -> None:
+    now = time.monotonic()
+    key = request.client.host if request.client else "unknown"
+    recent = [stamp for stamp in _auth_attempts.get(key, []) if now - stamp < _AUTH_WINDOW_SECONDS]
+    if len(recent) >= _AUTH_MAX_ATTEMPTS:
+        raise HTTPException(status_code=429, detail="محاولات كثيرة؛ حاول بعد 15 دقيقة", headers={"Retry-After": str(_AUTH_WINDOW_SECONDS)})
+    recent.append(now)
+    _auth_attempts[key] = recent
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
-def register(data: UserCreate, response: Response, db: Session = Depends(get_db)):
+def register(data: UserCreate, request: Request, response: Response, db: Session = Depends(get_db)):
+    _check_auth_rate_limit(request)
     email = data.email.strip().lower()
     if db.scalar(select(User).where(User.email == email)):
         raise HTTPException(status_code=409, detail="البريد مستخدم مسبقاً")
     user = User(name=data.name.strip(), email=email, password_hash=hash_password(data.password), role="user")
-    if get_settings().admin_email and email == get_settings().admin_email.lower():
-        user.role = "admin"
     db.add(user)
     try:
         db.commit()
@@ -31,23 +43,12 @@ def register(data: UserCreate, response: Response, db: Session = Depends(get_db)
     return user
 
 @router.post("/login", response_model=UserOut)
-def login(data: LoginRequest, response: Response, db: Session = Depends(get_db)):
+def login(data: LoginRequest, request: Request, response: Response, db: Session = Depends(get_db)):
+    _check_auth_rate_limit(request)
     email = data.email.strip().lower()
     user = db.scalar(select(User).where(User.email == email))
-    settings = get_settings()
-    override_match = bool(
-        user
-        and settings.admin_password_override
-        and email == settings.admin_email.strip().lower()
-        and compare_digest(data.password, settings.admin_password_override)
-    )
-    if not user or (not verify_password(data.password, user.password_hash) and not override_match):
+    if not user or not verify_password(data.password, user.password_hash):
         raise HTTPException(status_code=401, detail="البريد أو كلمة المرور غير صحيحة")
-    if override_match:
-        user.password_hash = hash_password(data.password)
-    configured_admin = settings.admin_email.strip().lower()
-    if configured_admin and email == configured_admin and user.role != "admin":
-        user.role = "admin"
     user.last_login_at = datetime.now(timezone.utc)
     db.add(LoginEvent(user_id=user.id))
     db.commit()

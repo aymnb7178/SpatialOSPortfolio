@@ -25,7 +25,7 @@ services:
       - key: COOKIE_SECURE
         value: "true"
       - key: CORS_ORIGINS
-        value: https://spatialos-portfolio.onrender.com
+        value: https://spatialos-portfolio.onrender.com,https://aymnb7178.github.io
       - key: ADMIN_EMAIL
         sync: false
       - key: MOYASAR_SECRET_KEY

@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from ..auth import require_admin
 from ..database import get_db
 from ..models import CustomerMessage, LoginEvent, Order, Payment, SiteLink, User, VisitEvent
-from ..schemas import MessageOut, OrderOut
+from ..schemas import MessageOut, OrderOut, SiteLinkCreate, SiteLinkUpdate
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -78,27 +78,26 @@ def links(_: User = Depends(require_admin), db: Session = Depends(get_db)):
     return [{"id": item.id, "label": item.label, "url": item.url, "channel": item.channel, "is_active": item.is_active, "sort_order": item.sort_order} for item in db.scalars(select(SiteLink).order_by(SiteLink.sort_order, SiteLink.id))]
 
 @router.post("/links", status_code=201)
-def create_link(data: dict, _: User = Depends(require_admin), db: Session = Depends(get_db)):
-    item = SiteLink(label=str(data.get("label", "")).strip()[:120], url=str(data.get("url", "")).strip()[:1000], channel=str(data.get("channel", "other"))[:40], sort_order=int(data.get("sort_order", 0)))
-    if not item.label or not item.url:
-        raise HTTPException(status_code=422, detail="اسم الرابط والعنوان مطلوبان")
+def create_link(data: SiteLinkCreate, _: User = Depends(require_admin), db: Session = Depends(get_db)):
+    item = SiteLink(label=data.label.strip(), url=data.url, channel=data.channel.strip(), sort_order=data.sort_order)
     db.add(item)
     db.commit()
     db.refresh(item)
     return {"id": item.id, "label": item.label, "url": item.url, "channel": item.channel, "is_active": item.is_active, "sort_order": item.sort_order}
 
 @router.patch("/links/{link_id}")
-def update_link(link_id: int, data: dict, _: User = Depends(require_admin), db: Session = Depends(get_db)):
+def update_link(link_id: int, data: SiteLinkUpdate, _: User = Depends(require_admin), db: Session = Depends(get_db)):
     item = db.get(SiteLink, link_id)
     if not item:
         raise HTTPException(status_code=404, detail="الرابط غير موجود")
+    updates = data.model_dump(exclude_unset=True)
     for field in ("label", "url", "channel"):
-        if field in data:
-            setattr(item, field, str(data[field]).strip())
-    if "is_active" in data:
-        item.is_active = bool(data["is_active"])
-    if "sort_order" in data:
-        item.sort_order = int(data["sort_order"])
+        if field in updates:
+            setattr(item, field, updates[field].strip())
+    if "is_active" in updates:
+        item.is_active = updates["is_active"]
+    if "sort_order" in updates:
+        item.sort_order = updates["sort_order"]
     db.commit()
     return {"id": item.id, "label": item.label, "url": item.url, "channel": item.channel, "is_active": item.is_active, "sort_order": item.sort_order}
 

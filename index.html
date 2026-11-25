@@ -30,14 +30,14 @@
 
   <!-- Thmanyah typeface: locally hosted with permission from Thmanyah -->
   <style>
-    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Sans'; src: url('/fonts/thmanyah/thmanyahsans-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Thmanyah Display'; src: url('/fonts/thmanyah/thmanyahserifdisplay-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Sans'; src: url('fonts/thmanyah/thmanyahsans-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Thmanyah Display'; src: url('fonts/thmanyah/thmanyahserifdisplay-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
   </style>
 
   <!-- Tailwind CSS -->
@@ -1250,16 +1250,10 @@
             <div id="ordersList" class="space-y-2 text-xs text-[#8F9BB3]"></div>
           </div>
         </div>
-        <form id="checkoutPanel" onsubmit="submitPayment(event)" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#C6F36C]/20 p-5 space-y-3">
-          <div class="flex items-center justify-between"><h3 class="font-bold text-[#F4F6FB]" data-ar="الدفع عبر Moyasar" data-en="Pay with Moyasar">الدفع عبر Moyasar</h3><button type="button" onclick="closeCheckout()" class="text-xs text-[#8F9BB3]">إلغاء</button></div>
-          <input id="paymentOrderId" type="hidden" />
-          <div class="grid grid-cols-2 gap-3"><input id="paymentAmount" type="number" min="1" required placeholder="المبلغ بالهللة" class="account-input" dir="ltr" /><input id="paymentCurrency" value="SAR" maxlength="3" required class="account-input" dir="ltr" /></div>
-          <input id="paymentCardName" required placeholder="اسم حامل البطاقة بالإنجليزية" class="account-input" dir="ltr" />
-          <input id="paymentCardNumber" required inputmode="numeric" placeholder="رقم البطاقة التجريبية" class="account-input" dir="ltr" />
-          <div class="grid grid-cols-3 gap-3"><input id="paymentMonth" type="number" min="1" max="12" required placeholder="MM" class="account-input" dir="ltr" /><input id="paymentYear" type="number" min="2024" required placeholder="YYYY" class="account-input" dir="ltr" /><input id="paymentCvc" required placeholder="CVC" class="account-input" dir="ltr" /></div>
-          <p class="text-[10px] text-[#8F9BB3]" data-ar="لن تُحفظ بيانات البطاقة؛ تُرسل مباشرة إلى Moyasar عبر الخادم." data-en="Card details are not stored; they are sent to Moyasar through the server.">لن تُحفظ بيانات البطاقة؛ تُرسل مباشرة إلى Moyasar عبر الخادم.</p>
-          <button class="w-full px-4 py-3 rounded-xl bg-[#6382FF] text-white font-bold" data-ar="بدء الدفع" data-en="Start payment">بدء الدفع</button>
-        </form>
+        <div id="checkoutPanel" class="hidden rounded-2xl bg-[#06080D]/70 border border-[#C6F36C]/20 p-5 space-y-3">
+          <div class="flex items-center justify-between"><h3 class="font-bold text-[#F4F6FB]" data-ar="الدفع التجريبي" data-en="Demo payment">الدفع التجريبي</h3><button type="button" onclick="closeCheckout()" class="text-xs text-[#8F9BB3]">إلغاء</button></div>
+          <p class="text-sm text-[#8F9BB3]" data-ar="الدفع للعرض فقط وغير مفعّل. لم يتم طلب أو إرسال أو حفظ أي بيانات بطاقة." data-en="Payment is demo-only and disabled. No card data is requested, sent, or stored.">الدفع للعرض فقط وغير مفعّل. لم يتم طلب أو إرسال أو حفظ أي بيانات بطاقة.</p>
+        </div>
         <div id="adminData" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-5"></div>
         <div id="adminInsights" class="hidden space-y-4"></div>
         <div id="adminLinkManager" class="hidden rounded-2xl bg-[#06080D]/70 border border-white/10 p-5">
@@ -1339,6 +1333,9 @@
     let portraitCaptionVisible = true;
     let selectedDispatchChannel = 'whatsapp';
     let managedLinks = {};
+    const API_BASE = window.SPATIALOS_API_BASE || (location.hostname.endsWith('github.io') ? 'https://spatialos-portfolio.onrender.com' : '');
+    const apiUrl = (path) => `${API_BASE}${path}`;
+    const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
 
     // 0ms Instant Boot Sequence
     function bootPortfolioApp() {
@@ -1357,13 +1354,13 @@
       try {
         let sessionKey = localStorage.getItem('spatialos-visitor-key');
         if (!sessionKey) { sessionKey = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`); localStorage.setItem('spatialos-visitor-key', sessionKey); }
-        fetch('/api/analytics/visit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session_key: sessionKey, path: window.location.hash || '/', user_agent: navigator.userAgent }) }).catch(() => {});
+        fetch(apiUrl('/api/analytics/visit'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session_key: sessionKey, path: window.location.hash || '/', user_agent: navigator.userAgent }) }).catch(() => {});
       } catch (e) {}
     }
 
     async function loadPublicLinks() {
       try {
-        const response = await fetch('/api/site-links');
+        const response = await fetch(apiUrl('/api/site-links'));
         const links = response.ok ? await response.json() : [];
         managedLinks = Object.fromEntries(links.map(link => [link.channel, link.url]));
       } catch (e) {}
@@ -2047,7 +2044,7 @@
       const timeout = setTimeout(() => controller.abort(), options.timeout || 15000);
       let response;
       try {
-        response = await fetch(path, { credentials: 'include', ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
+        response = await fetch(apiUrl(path), { credentials: 'include', ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', ...(options.headers || {}) } });
       } catch (error) {
         if (error.name === 'AbortError') throw new Error(lang === 'ar' ? 'انتهت مهلة الاتصال بالخادم. حاول مرة أخرى.' : 'The server took too long to respond. Please try again.');
         throw new Error(lang === 'ar' ? 'تعذر الاتصال بالخادم.' : 'Could not connect to the server.');
@@ -2122,23 +2119,17 @@
       if (!currentUser) return;
       try {
         const orders = await apiRequest('/api/orders');
-        document.getElementById('ordersList').innerHTML = orders.length ? orders.map(order => `<div class="p-3 rounded-xl border border-white/10 bg-white/[.03]"><div class="flex justify-between gap-2"><strong class="text-[#F4F6FB]">#${order.id} · ${order.service}</strong><span class="text-[#C6F36C]">${statusLabel(order.status)}</span></div><p class="mt-1">${order.details}</p>${order.status !== 'paid' ? `<button onclick="openCheckout(${order.id})" class="mt-2 text-[#8EA6FF]">${lang === 'ar' ? 'الدفع الآن ←' : 'Pay now →'}</button>` : ''}</div>`).join('') : `<p>${lang === 'ar' ? 'لا توجد طلبات بعد.' : 'No requests yet.'}</p>`;
+        document.getElementById('ordersList').innerHTML = orders.length ? orders.map(order => `<div class="p-3 rounded-xl border border-white/10 bg-white/[.03]"><div class="flex justify-between gap-2"><strong class="text-[#F4F6FB]">#${Number(order.id)} · ${escapeHtml(order.service)}</strong><span class="text-[#C6F36C]">${statusLabel(order.status)}</span></div><p class="mt-1">${escapeHtml(order.details)}</p></div>`).join('') : `<p>${lang === 'ar' ? 'لا توجد طلبات بعد.' : 'No requests yet.'}</p>`;
         if (currentUser.role === 'admin') { await loadAdminDashboard(); await loadAdminInsights(); }
       } catch (error) { showToast(error.message); }
     }
     function openCheckout(orderId) { document.getElementById('paymentOrderId').value = orderId; document.getElementById('checkoutPanel').classList.remove('hidden'); document.getElementById('checkoutPanel').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     function closeCheckout() { document.getElementById('checkoutPanel').classList.add('hidden'); }
-    async function submitPayment(event) {
-      event.preventDefault();
-      const payload = { order_id: Number(document.getElementById('paymentOrderId').value), amount: Number(document.getElementById('paymentAmount').value), currency: document.getElementById('paymentCurrency').value.toUpperCase(), card_name: document.getElementById('paymentCardName').value, card_number: document.getElementById('paymentCardNumber').value.replace(/\s/g, ''), card_month: Number(document.getElementById('paymentMonth').value), card_year: Number(document.getElementById('paymentYear').value), card_cvc: document.getElementById('paymentCvc').value };
-      try { const payment = await apiRequest('/api/payments/create', { method: 'POST', body: JSON.stringify(payload) }); if (payment.transaction_url) window.location.href = payment.transaction_url; else { showToast(`${lang === 'ar' ? 'حالة الدفع:' : 'Payment status:'} ${payment.status}`); closeCheckout(); loadDashboard(); } }
-      catch (error) { showToast(error.message); }
-    }
     async function loadAdminDashboard() {
       const summary = await apiRequest('/api/admin/summary');
       const box = document.getElementById('adminSummary'); box.classList.remove('hidden'); box.innerHTML = Object.entries(summary).map(([key, value]) => `<div class="p-3 rounded-xl bg-[#6382FF]/10 border border-[#6382FF]/20"><div class="text-xl font-extrabold text-[#F4F6FB]">${value}</div><div class="text-[10px] text-[#8F9BB3] uppercase">${key}</div></div>`).join('');
       const [messages, orders] = await Promise.all([apiRequest('/api/admin/messages'), apiRequest('/api/admin/orders')]);
-      const data = document.getElementById('adminData'); data.classList.remove('hidden'); data.innerHTML = `<div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الرسائل' : 'Latest messages'}</h3>${messages.slice(0, 5).map(m => `<div class="py-2 border-b border-white/10 text-xs"><div class="flex items-center justify-between gap-2"><strong>${m.name}</strong><a class="text-[#8EA6FF]" href="mailto:${m.email}?subject=${encodeURIComponent('Re: ' + (m.subject || 'Portfolio inquiry'))}">${lang === 'ar' ? 'رد' : 'Reply'} ↗</a></div><span class="text-[#8F9BB3]">${m.email}</span><p class="text-[#8F9BB3] mt-1">${m.message}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد رسائل</p>'}</div><div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الطلبات' : 'Latest orders'}</h3>${orders.slice(0, 5).map(o => `<div class="py-2 border-b border-white/10 text-xs"><strong>#${o.id} · ${o.service}</strong><p class="text-[#8F9BB3] mt-1">${statusLabel(o.status)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد طلبات</p>'}</div>`;
+      const data = document.getElementById('adminData'); data.classList.remove('hidden'); data.innerHTML = `<div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الرسائل' : 'Latest messages'}</h3>${messages.slice(0, 5).map(m => `<div class="py-2 border-b border-white/10 text-xs"><div class="flex items-center justify-between gap-2"><strong>${escapeHtml(m.name)}</strong><a class="text-[#8EA6FF]" href="mailto:${encodeURIComponent(m.email)}?subject=${encodeURIComponent('Re: ' + (m.subject || 'Portfolio inquiry'))}">${lang === 'ar' ? 'رد' : 'Reply'} ↗</a></div><span class="text-[#8F9BB3]">${escapeHtml(m.email)}</span><p class="text-[#8F9BB3] mt-1">${escapeHtml(m.message)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد رسائل</p>'}</div><div class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><h3 class="font-bold text-[#F4F6FB] mb-3">${lang === 'ar' ? 'آخر الطلبات' : 'Latest orders'}</h3>${orders.slice(0, 5).map(o => `<div class="py-2 border-b border-white/10 text-xs"><strong>#${Number(o.id)} · ${escapeHtml(o.service)}</strong><p class="text-[#8F9BB3] mt-1">${statusLabel(o.status)}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد طلبات</p>'}</div>`;
     }
 
     async function loadAdminInsights() {
@@ -2146,8 +2137,8 @@
       const [users, logins, visits, links] = await Promise.all([apiRequest('/api/admin/users'), apiRequest('/api/admin/login-events'), apiRequest('/api/admin/visits'), apiRequest('/api/admin/links')]);
       panel.classList.remove('hidden');
       document.getElementById('adminLinkManager').classList.remove('hidden');
-      document.getElementById('adminLinksList').innerHTML = links.length ? links.map(link => `<div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-white/[.03]"><div><strong class="text-[#F4F6FB]">${link.label}</strong><p class="text-[#8F9BB3]" dir="ltr">${link.url}</p></div><button type="button" onclick="deleteAdminLink(${link.id})" class="text-red-300 hover:text-red-200">${lang === 'ar' ? 'حذف' : 'Delete'}</button></div>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد روابط مضافة.' : 'No links added yet.'}</p>`;
-      panel.innerHTML = `<div class="grid grid-cols-1 xl:grid-cols-2 gap-4"><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'المستخدمون' : 'Users'}</h3><span class="text-xs text-[#8F9BB3]">${users.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${users.map(u => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${u.name}</strong><p class="text-[#8F9BB3]" dir="ltr">${u.email}</p><span class="text-[10px] text-[#8EA6FF]">${u.role} · ${u.is_active ? 'active' : 'disabled'}</span></div>`).join('')}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'آخر تسجيلات الدخول' : 'Recent logins'}</h3><span class="text-xs text-[#8F9BB3]">${logins.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${logins.slice(0, 20).map(item => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${item.name}</strong> · <span dir="ltr">${item.email}</span><p class="text-[#8F9BB3] mt-1">${new Date(item.created_at).toLocaleString()}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد عمليات دخول</p>'}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الزيارات' : 'Visits'}</h3><span class="text-xs text-[#C6F36C]">${visits.unique_sessions}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? `إجمالي المشاهدات: ${visits.total}. أسماء الزوار تظهر عند تسجيل الدخول فقط.` : `Total views: ${visits.total}. Names appear only for signed-in visitors.`}</p></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الروابط المحفوظة' : 'Saved links'}</h3><span class="text-xs text-[#8F9BB3]">${links.length}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'الروابط أصبحت قابلة للإدارة من API الخاص بالمشرف.' : 'Links are now manageable through the admin API.'}</p></section></div>`;
+      document.getElementById('adminLinksList').innerHTML = links.length ? links.map(link => `<div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-white/[.03]"><div><strong class="text-[#F4F6FB]">${escapeHtml(link.label)}</strong><p class="text-[#8F9BB3]" dir="ltr">${escapeHtml(link.url)}</p></div><button type="button" onclick="deleteAdminLink(${Number(link.id)})" class="text-red-300 hover:text-red-200">${lang === 'ar' ? 'حذف' : 'Delete'}</button></div>`).join('') : `<p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'لا توجد روابط مضافة.' : 'No links added yet.'}</p>`;
+      panel.innerHTML = `<div class="grid grid-cols-1 xl:grid-cols-2 gap-4"><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'المستخدمون' : 'Users'}</h3><span class="text-xs text-[#8F9BB3]">${users.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${users.map(u => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${escapeHtml(u.name)}</strong><p class="text-[#8F9BB3]" dir="ltr">${escapeHtml(u.email)}</p><span class="text-[10px] text-[#8EA6FF]">${escapeHtml(u.role)} · ${u.is_active ? 'active' : 'disabled'}</span></div>`).join('')}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'آخر تسجيلات الدخول' : 'Recent logins'}</h3><span class="text-xs text-[#8F9BB3]">${logins.length}</span></div><div class="space-y-2 max-h-64 overflow-y-auto">${logins.slice(0, 20).map(item => `<div class="p-3 rounded-xl bg-white/[.03] text-xs"><strong>${escapeHtml(item.name)}</strong> · <span dir="ltr">${escapeHtml(item.email)}</span><p class="text-[#8F9BB3] mt-1">${new Date(item.created_at).toLocaleString()}</p></div>`).join('') || '<p class="text-xs text-[#8F9BB3]">لا توجد عمليات دخول</p>'}</div></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الزيارات' : 'Visits'}</h3><span class="text-xs text-[#C6F36C]">${visits.unique_sessions}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? `إجمالي المشاهدات: ${visits.total}. أسماء الزوار تظهر عند تسجيل الدخول فقط.` : `Total views: ${visits.total}. Names appear only for signed-in visitors.`}</p></section><section class="rounded-2xl bg-[#06080D]/70 border border-white/10 p-5"><div class="flex items-center justify-between mb-3"><h3 class="font-bold text-[#F4F6FB]">${lang === 'ar' ? 'الروابط المحفوظة' : 'Saved links'}</h3><span class="text-xs text-[#8F9BB3]">${links.length}</span></div><p class="text-xs text-[#8F9BB3]">${lang === 'ar' ? 'الروابط أصبحت قابلة للإدارة من API الخاص بالمشرف.' : 'Links are now manageable through the admin API.'}</p></section></div>`;
     }
 
     async function createAdminLink(event) {
@@ -2212,7 +2203,7 @@
       const message = (document.getElementById('senderMessage').value || '').trim();
       if (!name || !email || !message) return false;
       try {
-        const response = await fetch('/api/messages', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, subject, message }) });
+        const response = await fetch(apiUrl('/api/messages'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, subject, message }) });
         return response.ok;
       } catch (error) { return false; }
     }
