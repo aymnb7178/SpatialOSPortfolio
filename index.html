@@ -16,7 +16,15 @@
   <meta name="twitter:description" content="Python, data analytics, automation, Arabic AI, and practical digital systems." />
   <link rel="canonical" href="https://spatialos-portfolio.onrender.com/" />
   <script>
-    document.write(`<base href="${location.hostname.endsWith('github.io') ? '/SpatialOSPortfolio/' : '/'}" />`);
+    const isGithubPages = location.hostname.endsWith('github.io');
+    const siteUrl = isGithubPages
+      ? 'https://aymnb7178.github.io/SpatialOSPortfolio/'
+      : 'https://spatialos-portfolio.onrender.com/';
+    document.write(`<base href="${isGithubPages ? '/SpatialOSPortfolio/' : '/'}" />`);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', siteUrl);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', siteUrl);
+    const schema = document.querySelector('script[type="application/ld+json"]');
+    if (schema) schema.textContent = schema.textContent.replaceAll('https://spatialos-portfolio.onrender.com/', siteUrl);
   </script>
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
