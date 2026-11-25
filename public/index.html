@@ -15,11 +15,8 @@
   <meta name="twitter:title" content="أيمن عبدربه العروي | Aymen Abdurabu Al Erwi" />
   <meta name="twitter:description" content="Python, data analytics, automation, Arabic AI, and practical digital systems." />
   <link rel="canonical" href="https://spatialos-portfolio.onrender.com/" />
-  <base id="site-base" href="/" />
   <script>
-    if (location.hostname.endsWith('github.io')) {
-      document.getElementById('site-base').href = '/SpatialOSPortfolio/';
-    }
+    document.write(`<base href="${location.hostname.endsWith('github.io') ? '/SpatialOSPortfolio/' : '/'}" />`);
   </script>
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
